@@ -5,25 +5,359 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Swimline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/index.css">
 </head>
-<body class="block">
-<div class="wrapper
-            | h-full
-            | p-8 lg:p-20
-            | bg-gradient-to-br from-red-700 to-green-700
-            |  ">
-    <div class="box
-        | px-8 py-4
-        | shadow-md lg:shadow-2xl
-        | border border-green-700 border-solid
-        | bg-green-500 text-green-50
-        | max-w-xs lg:max-w-xl mx-auto
-        | transform rotate-6
-        | rounded md:rounded-2xl">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda eaque id maxime optio quidem quo? Alias doloribus facilis fugiat quaerat? Aliquam delectus dolore in libero, modi molestias qui tempore?
+<body>
+    <div class="hero">
+        <div class="hero-image">
+            <img src="https://5903639.app.netsuite.com/core/media/media.nl?id=55611&c=5903639&h=e6tLU4QgDldT84oX_j8fzwcvR-eUP9GPu-TkiO6zDOP62R00&fcts=20220916085307&whence=" alt="hero">
+        </div>
+        <div id="mobileMenu" class="fixed inset-0 flex z-40 hidden" role="dialog" aria-modal="true">
+            <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
+            <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
+                <div class="px-4 pt-5 pb-2 flex">
+        
+                    <button id="closeMobileMenu" type="button"
+                        class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+        
+                <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+                    <div class="flow-root">
+                        <a href="/About" class="-m-2 p-2 block font-medium text-gray-900">About Us</a>
+                    </div>
+        
+                    <div class="flow-root">
+                        <a href="/Contact.html" class="-m-2 p-2 block font-medium text-gray-900">Contact</a>
+                    </div>
+                    <div class="flow-root">
+                        <a href="/About/Privacy.html" class="-m-2 p-2 block font-medium text-gray-900">Privacy Policy</a>
+                    </div>
+                    <div class="flow-root">
+                        <a href="/About/Terms-Conditions.html" class="-m-2 p-2 block font-medium text-gray-900">Terms &
+                            Conditions</a>
+                    </div>
+        
+                </div>
+                <div class="mt-2">
+                    <div class="border-b border-gray-200">
+                        <div class="-mb-px flex px-4 space-x-8" aria-orientation="horizontal" role="tablist">
+                            <button id="tabs-1-tab-1"
+                                class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
+                                aria-controls="tabs-1-panel-1" role="tab" type="button">
+                                Equipment
+                            </button>
+        
+                        </div>
+                    </div>
+        
+        
+                    <div id="tabs-1-panel-1" class="pt-10 pb-8 px-4 space-y-10" aria-labelledby="tabs-1-tab-1" role="tabpanel"
+                        tabindex="0">
+                        <div class="grid grid-cols-2 gap-x-4">
+                            <div class="group relative text-sm">
+                                <div
+                                    class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                    <img src="https://dev.swimlineinc.com/core/media/media.nl?id=4170&amp;c=5903639&amp;h=up6GtPmEcf-evbna0Xv6NoNduu4UWtaAp3nQ303dHgo7S3sj"
+                                        alt="Models sitting back to back, wearing Basic Tee in black and bone."
+                                        class="object-center object-cover">
+                                </div>
+                                <a href="/Pool-Equipment" class="mt-6 block font-medium text-gray-900">
+                                    <span class="absolute z-10 inset-0" aria-hidden="true"></span>
+                                    Shop Products
+                                </a>
+                                <p aria-hidden="true" class="mt-1">Browse All</p>
+                            </div>
+        
+        
+                            <div class="group relative text-sm">
+                                <div
+                                    class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                    <img src="https://dev.swimlineinc.com/2290-Tagelus-banner-1280x1280.jpg" alt="Shop filters"
+                                        class="object-center object-cover">
+                                </div>
+                                <a href="#" class="mt-6 block font-medium text-gray-900">
+                                    <span class="absolute z-10 inset-0" aria-hidden="true"></span>
+                                    Filters
+                                </a>
+                                <p aria-hidden="true" class="mt-1">Shop now</p>
+                            </div>
+                        </div>
+        
+        
+                        <div>
+                            <p id="Equipment-Pumps-heading-mobile" class="font-medium text-gray-900">
+                                Pumps
+                            </p>
+                            <ul role="list" aria-labelledby="Equipment-Pumps-heading-mobile"
+                                class="mt-6 flex flex-col space-y-6">
+                                <li class="flow-root">
+                                    <a href="/pool-equipment/Heaters/Heater-400-Mastertemp-Na.html"
+                                        class="-m-2 p-2 block text-gray-500">
+                                        Heater 400 Mastertemp Na P/N 460736
+                                    </a>
+                                </li>
+        
+                                <li class="flow-root">
+                                    <a href="/Parts/Swimline-Parts/" class="-m-2 p-2 block text-gray-500">
+                                        Browse All
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+        
+        
+                        <div>
+                            <p id="Equipment-Filters-heading-mobile" class="font-medium text-gray-900">
+                                Filters
+                            </p>
+                            <ul role="list" aria-labelledby="Equipment-Filters-heading-mobile"
+                                class="mt-6 flex flex-col space-y-6">
+                                <li class="flow-root">
+                                    <a href="/pool-equipment/swimming_pool_filters/" class="-m-2 p-2 block text-gray-500">
+                                        Tagelus 24'' Ta60D Filter P/N 2290
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+        
+                        <div>
+                            <p id="Equipment-brands-heading-mobile" class="font-medium text-gray-900">
+                                Brands
+                            </p>
+                            <ul role="list" aria-labelledby="Equipment-brands-heading-mobile"
+                                class="mt-6 flex flex-col space-y-6">
+                                <li class="flow-root">
+                                    <a href="/Brands/Hayward-Industries/" class="-m-2 p-2 block text-gray-500">
+                                        Hayward Industries
+                                    </a>
+                                </li>
+        
+                                <li class="flow-root">
+                                    <a href="/Brands/Pentair" class="-m-2 p-2 block text-gray-500">
+                                        Pentair
+                                    </a>
+                                </li>
+                                <li class="flow-root">
+                                    <a href="/Brands/Zodiac" class="-m-2 p-2 block text-gray-500">
+                                        Zodiac
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+                    <div class="flow-root">
+                        <a href="<NLCUSTOMERCENTERURL>" class="-m-2 p-2 block font-medium text-gray-900 sign-in">Sign In</a>
+                        <a href="<NLLOGOUTURL>" class="-m-2 p-2 block font-medium text-gray-900 account sign-out hidden">Sign
+                            Out</a>
+                    </div>
+                    <div class="flow-root">
+                        <a href="<NLCUSTOMERCENTERURL>" class="-m-2 p-2 block font-medium text-gray-900 register">Create
+                            Account</a>
+                        <a href="<NLCUSTOMERCENTERURL>" class="-m-2 p-2 block font-medium text-gray-900 account hidden">My
+                            Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header id="mainNav" class="fixed w-full bg-white border-b border-gray-200 z-10 top-0">
+            
+            <nav aria-label="Top" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="h-16 flex items-center">
+                    <button id="openMobileMenu" type="button" class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
+                        <span class="sr-only">Open menu</span>
+                        <!-- Heroicon name: outline/menu -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                            </path>
+                        </svg>
+                    </button>
+        
+                    <!-- Logo -->
+                    <div class="ml-4 flex lg:ml-0">
+                        <a href="/">
+                            <span class="sr-only">Swimline</span>
+                            <img class="h-8 w-auto" src="http://dev.swimlineinc.com/site/logo.png" alt="Swimline Inc">
+                        </a>
+                    </div>
+        
+                    <!-- Flyout menus -->
+                    <div class="hidden lg:ml-8 lg:block lg:self-stretch">
+                        <div class="h-full flex space-x-8">
+                            <div class="flex">
+                                <div class="relative flex">
+                                    <button id="toggleEquipment" type="button"
+                                        class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-md font-medium border-b-2 -mb-px pt-px"
+                                        aria-expanded="false">
+                                        About Us
+                                    </button>
+                                </div>
+        
+                                <div id="EquipmentMenu" class="hidden absolute top-full inset-x-0 text-sm text-gray-500">
+                                    <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
+        
+                                    <div class="relative bg-white">
+                                        <div class="max-w-7xl mx-auto px-8">
+                                            <div class="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
+                                                <div class="col-start-2 grid grid-cols-2 gap-x-8">
+                                                    <div class="group relative text-base sm:text-sm">
+                                                        <div
+                                                            class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                                            <img src="/2340-TritonII-banner-1280x1280.jpg" alt="All Equipment"
+                                                                class="object-center object-cover">
+                                                        </div>
+                                                        <a href="/Pool-Equipment" class="mt-6 block font-medium text-gray-900">
+                                                            <span class="absolute z-10 inset-0" aria-hidden="true"></span>
+                                                            Equipment
+                                                        </a>
+                                                        <p aria-hidden="true" class="mt-1">Browse All</p>
+                                                    </div>
+        
+                                                    <div class="group relative text-base sm:text-sm">
+                                                        <div
+                                                            class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                                            <img src="/core/media/media.nl?id=4170&amp;c=5903639&amp;h=up6GtPmEcf-evbna0Xv6NoNduu4UWtaAp3nQ303dHgo7S3sj"
+                                                                alt="Pumps
+                                      class=" object-center object-cover">
+                                                        </div>
+                                                        <a href="/Parts/Swimline-Parts/"
+                                                            class="mt-6 block font-medium text-gray-900">
+                                                            <span class="absolute z-10 inset-0" aria-hidden="true"></span>
+                                                            Pumps
+                                                        </a>
+                                                        <p aria-hidden="true" class="mt-1">Shop now</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-sm">
+                                                    <div>
+                                                        <p id="Pumps-heading" class="font-medium text-gray-900">
+                                                            Pumps
+                                                        </p>
+                                                        <ul role="list" aria-labelledby="Pumps-heading"
+                                                            class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                            <li class="flex">
+                                                                <a href="/Brands/Pentair/" class="hover:text-gray-800">
+                                                                    Pentair
+                                                                </a>
+                                                            </li>
+                                                            <li class="flex">
+                                                                <a href="/Brands/Hayward-Industries/"
+                                                                    class="hover:text-gray-800">
+                                                                    Hayward Industries
+                                                                </a>
+                                                            </li>
+                                                            <li class="flex">
+                                                                <a href="/Brands/Zodiac/" class="hover:text-gray-800">
+                                                                    Zodiac
+                                                                </a>
+                                                            </li>
+        
+        
+                                                            <li class="flex">
+                                                                <a href="/Parts/Swimline-Parts/" class="hover:text-gray-800">
+                                                                    Browse All
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+        
+                                                    <div>
+                                                        <p id="Filters-heading" class="font-medium text-gray-900">
+                                                            Filters
+                                                        </p>
+                                                        <ul role="list" aria-labelledby="Filters-heading"
+                                                            class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                            <li class="flex">
+                                                                <a href="/Brands/Pentair/" class="hover:text-gray-800">
+                                                                    Pentair
+                                                                </a>
+                                                            </li>
+                                                            <li class="flex">
+                                                                <a href="/Brands/Hayward-Industries/"
+                                                                    class="hover:text-gray-800">
+                                                                    Hayward Industries
+                                                                </a>
+                                                            </li>
+                                                            <li class="flex">
+                                                                <a href="/Brands/Zodiac/" class="hover:text-gray-800">
+                                                                    Zodiac
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+        
+                                                    <div>
+                                                        <p id="Brands-heading" class="font-medium text-gray-900">
+                                                            Brands
+                                                        </p>
+                                                        <ul role="list" aria-labelledby="Brands-heading"
+                                                            class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                            <li class="flex">
+                                                                <a href="#" class="hover:text-gray-800">
+                                                                    Heater 400 Mastertemp Na P/N 460736
+                                                                </a>
+                                                            </li>
+        
+                                                            <li class="flex">
+                                                                <a href="#" class="hover:text-gray-800">
+                                                                    Pentair
+                                                                </a>
+                                                            </li>
+                                                            <li class="flex">
+                                                                <a href="#" class="hover:text-gray-800">
+                                                                    Zodiac
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/About"
+                                class="flex items-center text-md font-medium text-gray-700 hover:text-gray-800">Equipment</a>
+                            <a href="/contact.html"
+                                class="flex items-center text-md font-medium text-gray-700 hover:text-gray-800">Dealers</a>
+                            <a href="/About/Privacy.html"
+                                class="flex items-center text-md font-medium text-gray-700 hover:text-gray-800">FAQS</a>
+                            <a href="/About/Terms-Conditions.html"
+                                class="flex items-center text-md font-medium text-gray-700 hover:text-gray-800">BLOGS</a>
+                                <a href="/About/Terms-Conditions.html"
+                                class="flex items-center text-md font-medium text-gray-700 hover:text-gray-800">Contact Us</a>
+                                <a href="/About/Terms-Conditions.html"
+                                    class="flex items-center text-md font-medium text-gray-700 hover:text-gray-800">Shop Products</a>
+                                    <a href="/About/Terms-Conditions.html"
+                                        class="flex items-center text-md font-medium text-gray-700 hover:text-gray-800">My Account</a>
+                        </div>
+                    </div>
+        
+                </div> 
+            </nav>
+        </header>
+       
+       
+        <div class="hero-content">
+            <h1>Welcome to Swimline Distributors INC</h1>
+            <p>Swimline is one of the oldest independently owned swimming pool distributors in the country.</p>
+        </div>
     </div>
-</div>
 </body>
 </html>

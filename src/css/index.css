@@ -1,7 +1,29 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
-.andy{
-  color:red;
+body, p {
+  font-family: 'Barlow Condensed', sans-serif;
 }
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+  font-family: 'DM Sans', sans-serif;
+}
+h1 {
+  @apply text-5xl;
+}
+
+/* HERO */
+.hero {
+  @apply relative flex flex-col h-screen;
+}
+.hero-image {
+  @apply absolute h-full;
+  background-color: linear-gradient(0deg, rgba(4, 7, 22, 0.7), rgba(4, 7, 22, 0.7));
+}
+.hero-image img{
+  @apply relative;
+}
+.hero-content {
+  @apply relative text-white;
+}
+

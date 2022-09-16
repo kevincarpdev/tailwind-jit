@@ -238,23 +238,8 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
-      sans: [
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
-      serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      sans: ['DM Sans', 'Helvetica', 'Arial', 'sans-serif'],
+      serif: ['Barlow Condensed', 'sans-serif'],
       mono: [
         'ui-monospace',
         'SFMono-Regular',
@@ -962,6 +947,11 @@ module.exports = {
     width: ['responsive'],
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
+  },
+  extend: {
+    fontFamily: {
+      'sans': ['DM Sans', 'Helvetica', 'Arial', 'sans-serif']
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),
