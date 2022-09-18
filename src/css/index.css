@@ -3,27 +3,49 @@
 @import "tailwindcss/utilities";
 body, p {
   font-family: 'Barlow Condensed', sans-serif;
+   @apply text-lg font-normal tracking-normal;
 }
 h1, h2, h3, h4, h5, h6 {
   @apply font-bold;
   font-family: 'DM Sans', sans-serif;
 }
 h1 {
-  @apply text-5xl;
+  @apply text-6xl;
 }
 
 /* HERO */
 .hero {
-  @apply relative flex flex-col h-screen;
+  @apply relative flex flex-col;
 }
 .hero-image {
-  @apply absolute h-full;
+  @apply absolute h-screen;
   background-color: linear-gradient(0deg, rgba(4, 7, 22, 0.7), rgba(4, 7, 22, 0.7));
 }
-.hero-image img{
-  @apply relative;
+.hero-image img {
+  @apply relative z-10 h-screen;
 }
 .hero-content {
-  @apply relative text-white;
+  @apply absolute z-20 text-white items-start justify-center flex flex-col pl-6 h-screen max-w-2xl;
+}
+.hero-content p {
+  @apply block mt-2 text-2xl max-w-[40ch];
 }
 
+/* NAVIGATION */
+.nav-margin {
+  @apply fixed z-50 p-4 w-full;
+}
+.nav-wrapper {
+  @apply flex flex-row w-full justify-between items-center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+}
+.nav-item, .nav-item-dropdown, .nav-logo {
+  @apply relative uppercase p-4 tracking-wide text-lg;
+}
+.nav-item {
+  @apply hidden md:inline-flex hover:text-[#3A3AEE] transition-colors duration-300 ease-in-out;
+}
+.nav-button {
+  @apply inline-flex p-4 md:hidden hover:cursor-pointer;
+}
