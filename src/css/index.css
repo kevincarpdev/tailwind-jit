@@ -22,7 +22,7 @@ h1 {
   @apply absolute h-screen w-full bg-center bg-cover;
 }
 .hero-content {
-  @apply absolute z-20 text-white items-start justify-center flex flex-col pl-6 h-screen max-w-2xl;
+  @apply z-20 text-white items-start justify-center flex flex-col pl-6 h-screen max-w-2xl;
 }
 .hero-content p {
   @apply block mt-2 text-2xl max-w-[40ch];
@@ -62,7 +62,7 @@ h1 {
   @apply bg-[#3A3AEE] border-[#3A3AEE] text-white rounded-full hover:bg-[#001270] hover:text-[#FFF] hover:border-[#001270];
 }
 .secondary-btn {
-  @apply bg-transparent border-[#FFF] rounded-full text-white hover:bg-[#FFF] hover:text-[#3A3AEE];
+  @apply bg-transparent border-[#FFF] rounded-full text-white hover:bg-[#FFF] hover:text-[#3A3AEE] tracking-wide;
 }
 
 /* SiteBuilder Specific */
@@ -71,4 +71,71 @@ h1 {
 }
 .img-logo {
   @apply min-w-[140px];
+}
+
+/* Footer */
+footer.footer {
+  @apply bg-[#2828B2] px-4 divide-y text-white;
+}
+.footer-container {
+  @apply container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0;
+}
+.footer-header {
+  @apply tracking-wide uppercase;
+}
+.address-container {
+  @apply grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-3;
+}
+.address {
+  @apply mt-6 text-base;
+}
+.address p, .hours p {
+  @apply text-sm leading-5 opacity-80;
+}
+.hours {
+  @apply mt-5 md:mt-10;
+}
+.footer-cta {
+  @apply flex flex-row items-center gap-x-6 border-none;
+}
+.lower-footer {
+  @apply bg-[#0A1030] text-white text-center py-4;
+}
+.lower-footer p {
+  @apply text-sm opacity-80;
+}
+.horizontal-nav {
+  @apply flex flex-row justify-center space-x-8 mb-4 py-8;
+  border-bottom: 1px solid #2D3047;
+  overflow-x: scroll
+}
+.horizontal-nav > li > a {
+  @apply uppercase text-lg tracking-wider transition-opacity ease-linear hover:opacity-80;
+}
+.locations {
+  @apply lg:w-1/3 flex flex-col gap-y-1.5 items-start;
+}
+.locations h3 {
+  @apply text-3xl m-0;
+}
+.locations .secondary-btn {
+  @apply w-auto py-1 mt-2;
+  border-width: 1px;
+}
+.locations p {
+  @apply max-w-[40ch] leading-6;
+}
+.footer-cta {
+  @apply container py-7 mx-auto lg:flex-row;
+  border-top: 1px solid #3D36B1;
+}
+.footer-cta-container {
+  @apply flex flex-row  gap-x-6 items-center;
+}
+.footer-cta-container h4 {
+  @apply text-lg font-thin;
+}
+.footer-cta-container .secondary-btn {
+  @apply py-1;
+  border-width: 1px;
 }
