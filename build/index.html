@@ -20,6 +20,8 @@
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./css/index.css">
+    <!-- preload and load jquery -->
+    <script src="./js/jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
@@ -62,7 +64,7 @@
             <p>Swimline is one of the oldest independently owned swimming pool distributors in the country.</p>
             <div class="button-wrapper">
                 <a class="primary-btn btn" href="/pool-equipment/">Shop Products</a>
-                <a class="secondary-btn btn" href="#">Become A Dealer</a>
+                <a id="modal-toggle" class="secondary-btn btn">Become A Dealer</a>
             </div>
         </div>
     </div>
@@ -188,6 +190,187 @@
         <p>© 2022 Swimline Distributors Inc. All rights reserved.</p>
     </div>
 
-</body>
+    <!-- Modal -->
+    <div id="modal" class="fixed z-20 overflow-y-auto top-0 w-full left-0 hidden">
+        <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity">
+                <div id="modal-overlay" class="absolute inset-0 bg-gray-900 opacity-75" />
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+            <div class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                <form action="#" method="POST">
+                    <div class="overflow-hidden shadow sm:rounded-md">
+                        <div class="bg-white px-4 py-5 sm:p-6">
+                            <!-- Fixed Close Modal Button Top Right -->
+                            <button id="close-modal" type="button" class="absolute top-0 right-0 mt-4 mr-4">
+                                <svg class="w-6 h-6 text-gray-500 hover:text-gray-700" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                            <div class="grid grid-cols-4 gap-4">
+                                <div class="col-span-4 sm:col-span-2">
+                                    <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
+                
+                                <div class="col-span-4 sm:col-span-2">
+                                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
+                                <div class="col-span-4 sm:col-span-1">
+                                    <label for="street-address" class="block text-sm font-medium text-gray-700">Street</label>
+                                    <input type="text" name="street-address" id="street-address" autocomplete="street-address"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
+                                <div class="col-span-4 sm:col-span-1">
+                                    <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                                    <input type="text" name="city" id="city" autocomplete="address-level2"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
+                                
+                                <div class="col-span-4 sm:col-span-1">
+                                    <label for="state" class="block text-sm font-medium text-gray-700">State / Province</label>
+                                    <select id="state" name="state" autocomplete="state-name"
+                                        class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                        <option>Arizona</option>
+                                        <option>California</option>
+                                        <option>Florida</option>
+                                        <option>Georgia</option>
+                                        <option>Illinois</option>
+                                        <option>Indiana</option>
+                                        <option>Michigan</option>
+                                        <option>New Jersey</option>
+                                        <option>New York</option>
+                                        <option>North Carolina</option>
+                                        <option>Ohio</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Virginia</option>
+                                        <option>Washington</option>
+                                    </select>
+                                </div>
+                               
+                                <div class="col-span-4 sm:col-span-1">
+                                    <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
+                                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
+                                <div class="col-span-4 sm:col-span-2">
+                                    <label for="email-address" class="block text-sm font-medium text-gray-700">Your Email</label>
+                                    <input type="text" name="email-address" id="email-address" autocomplete="email"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
+                                <!-- Phone Field -->
+                                <div class="col-span-4 sm:col-span-2">
+                                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                    <input type="text" name="phone" id="phone" autocomplete="tel"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                </div>
+                                <!-- Your Message Here Field -->
+                                <div class="col-span-4">
+                                    <label for="message" class="block text-sm font-medium text-gray-700">Your Message Here</label>
+                                    <textarea id="message" name="message" rows="3"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               
+                <div class="flex justify-between py-2 px-6">
 
+                    <!-- Attach Your Resume File Upload button -->
+                    <button type="button" class="secondary-btn btn">
+                       
+                        Attach Your Resume
+                        <input type="file" class="hidden">
+                    </button>
+                    <button type="submit" class="inline-flex justify-center primary-btn btn">Submit</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // Document Ready
+    $(document).ready(function() {
+
+        // Toggle Mobile Menu
+        $('#mobile-menu-toggle').click(function() {
+            $('#mobile-menu').toggleClass('hidden');
+        });
+
+        // Toggle Modal
+        $('#modal-toggle').click(function() {
+            toggleModal();
+        });
+        // Close Modal
+        $('#close-modal').click(function() {
+            toggleModal();
+        });
+        
+    });
+    // Toggle Modal Function
+    function toggleModal() {
+        $('#modal').toggleClass('hidden');
+        // Toggle modal-open class on body
+        $('body').toggleClass('modal-open');
+        // Close modal if click outside of modal
+        $('#modal-overlay').click(function(e) {
+            if (e.target == this) {
+                $('#modal').toggleClass('hidden');
+                $('body').toggleClass('modal-open');
+            }
+        });
+    }
+    // Catpcha Validation
+    var onloadCallback = function () {
+
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdfCTMiAAAAAHOQujAWSGK_mWLEAL6hY_Oo00qB', { action: 'submit' }).then(function (token) {
+                var bodyData = JSON.stringify({
+                    token
+                });
+                $.ajax({
+                    type: "POST",
+                    url: 'https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088',
+                    data: bodyData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log('Passed the token successfully');
+                        if (response.success === true) {
+                            console.log('Sucessfully passed the captcha with a score of: ' + JSON.stringify(response.score));
+                            var captchaScore = response.score;
+                            console.log("Evaluted captcha Score: " + captchaScore);
+                            // Evaluate the score returned from the captcha
+                            if (captchaScore >= 0.6) {
+                                // $('button.login-register-register-form-submit').prop('disabled', false);
+                            } // If conditonal for captcha score
+                            // Did not pass the recaptcha, detected bot
+                            else {
+                                alert("Sorry, you did not pass the captcha test. Please try from a different IP address and re-fill out the form.");
+                            }
+                        }
+                        else {
+                            alert("Token not passed successfully: \n" + response["error-codes"]);
+                            return;
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response);
+                    }
+                });
+            });
+        });
+    };
+</script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdfCTMiAAAAAEfUqHbURg2c4LtXYY4L8SVIJz2J&onload=onloadCallback"></script>
+
+</body>
 </html>
