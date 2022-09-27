@@ -1,7 +1,7 @@
 {
   "dependencies": {},
   "scripts": {
-    "dev": "postcss src/css/index.css -o build/css/index.css -w -m",
+    "dev": "postcss src/css/index.css -o build/css/new-styles.css -w -m",
     "serve": "npx servor build index.html 8081 --reload --browse --static",
     "start": "run-p \"dev \" \"serve \" "
   },
