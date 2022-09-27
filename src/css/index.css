@@ -3,8 +3,8 @@
 @import "tailwindcss/utilities";
 body, p {
   font-family: 'Barlow Condensed', sans-serif;
-   @apply text-lg font-normal tracking-normal;
-   font-size: 16px;
+  @apply text-lg font-normal tracking-normal;
+  font-size: 16px;
 }
 h1, h2, h3, h4, h5, h6 {
   @apply font-bold;
@@ -56,13 +56,13 @@ h1 {
   @apply flex flex-row gap-4 py-8;
 }
 .btn {
-  @apply px-6 md:px-8 py-2.5 bg-transparent border-2 uppercase tracking-wide transition-colors duration-300 ease-in-out hover:cursor-pointer;
+  @apply px-6 md:px-8 py-2.5 bg-transparent border-2 uppercase tracking-wide transition-colors duration-300 ease-in-out cursor-pointer;
 }
 .primary-btn {
-  @apply bg-[#3A3AEE] border-[#3A3AEE] text-white rounded-full hover:bg-[#001270] hover:text-[#FFF] hover:border-[#001270] hover:cursor-pointer;
+  @apply bg-[#3A3AEE] border-[#3A3AEE] text-white rounded-full hover:bg-[#001270] hover:text-[#FFF] hover:border-[#001270];
 }
 .secondary-btn {
-  @apply bg-transparent border-[#FFF] rounded-full text-white hover:bg-[#FFF] hover:text-[#3A3AEE] tracking-wide hover:cursor-pointer;
+  @apply bg-transparent border-[#FFF] rounded-full text-white hover:bg-[#FFF] hover:text-[#3A3AEE] tracking-wide;
 }
 form .secondary-btn {
   @apply border-[#6E7383] text-[#6D6D6D] hover:bg-[#6D6D6D] hover:text-[#FFF] py-1;
@@ -115,7 +115,6 @@ footer.footer {
 .horizontal-nav {
   @apply flex flex-row justify-center space-x-8 mb-4 py-8;
   border-bottom: 1px solid #2D3047;
-  overflow-x: scroll
 }
 .horizontal-nav > li > a {
   @apply uppercase text-lg tracking-wider transition-opacity ease-linear hover:opacity-80;
@@ -149,10 +148,34 @@ footer.footer {
 }
 
 /* Modal Styles */
+.modal-inner {
+  @apply inline-block bg-white rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full;
+}
 .modal {
-  @apply fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50;
+  @apply fixed top-10 sm:top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50;
 }
 /* Disable overflow scroll on window class */
 .modal-open {
   @apply overflow-hidden;
+}
+.modal-flex {
+  @apply flex items-center justify-center pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:mt-0;
+}
+.form-label {
+  @apply text-sm font-medium text-gray-700 hidden;
+}
+.form-input {
+  @apply mt-1 block w-full rounded-full border-gray-300 shadow-sm focus:border-[#3A3AEE] focus:ring-[#3A3AEE] sm:text-sm;
+}
+.form-select {
+  @apply mt-1 block w-full rounded-full border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-[#3A3AEE] focus:outline-none focus:ring-[#3A3AEE] sm:text-sm;
+}
+.modal-headline {
+  @apply py-12 px-6 text-center;
+}
+.modal-headline h3 {
+  @apply text-xl;
+}
+.form-textarea {
+  @apply px-4 py-2 rounded-2xl;
 }
