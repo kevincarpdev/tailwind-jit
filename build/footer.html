@@ -225,111 +225,108 @@
 </div>
 <script src="/site/js/jquery.min.js"></script>
 <script src="/site/js/jquery-ui.min.js"></script>
-<!-- Scripts -->
-<script>
-  const btn = document.querySelector("button.mobile-menu-button");
-  const menu = document.querySelector("#mobile-menu");
+    <!-- Scripts -->
+    <script>
+      const btn = document.querySelector("button.mobile-menu-button");
+      const menu = document.querySelector("#mobile-menu");
 
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+      // Document Ready
+      $(document).ready(function () {
 
-</script>
-<script>
-  // Document Ready
-  $(document).ready(function () {
-
-    // Toggle Mobile Menu
-    $('#mobile-menu-toggle').click(function () {
-      $('#mobile-menu').toggleClass('hidden');
-    });
-
-    // Toggle Modal
-    $('#modal-toggle').click(function () {
-      toggleModal();
-    });
-    // Close Modal
-    $('#close-modal').click(function () {
-      toggleModal();
-    });
-
-    $('#shopProducts').click(function () {
-      $('#dropdown1').toggleClass('hidden');
-    });
-
-    $('#myAccount').click(function () {
-      $('#dropdown2').toggleClass('hidden');
-    });
-    // categoryItem
-    $('#categoryItem').click(function () {
-      $('#rightMenu').toggleClass('hidden');
-    });
-    // Close dropdown menus when click outside
-    $(document).click(function (event) {
-      var clickover = $(event.target);
-      var _opened = $(".dropdown-menu").hasClass("hidden");
-      if (_opened === true && !clickover.hasClass("dropdown-toggle")) {
-        $(".dropdown-menu").addClass("hidden");
-      }
-    });
-
-
-  });
-
-  // Toggle Modal Function
-  function toggleModal() {
-    $('#modal').toggleClass('hidden');
-    // Toggle modal-open class on body
-    $('body').toggleClass('modal-open');
-    // Close modal if click outside of modal
-    $('#modal-overlay').click(function (e) {
-      if (e.target == this) {
-        $('#modal').toggleClass('hidden');
-        $('body').toggleClass('modal-open');
-      }
-    });
-  }
-  // Catpcha Validation
-  var onloadCallback = function () {
-
-    grecaptcha.ready(function () {
-      grecaptcha.execute('6LdfCTMiAAAAAHOQujAWSGK_mWLEAL6hY_Oo00qB', { action: 'submit' }).then(function (token) {
-        var bodyData = JSON.stringify({
-          token
+        // Toggle Mobile Menu
+        $('#mobile-menu-toggle').click(function () {
+          $('#mobile-menu').toggleClass('hidden');
         });
-        $.ajax({
-          type: "POST",
-          url: 'https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088',
-          data: bodyData,
-          contentType: "application/json; charset=utf-8",
-          dataType: "json",
-          success: function (response) {
-            console.log('Passed the token successfully');
-            if (response.success === true) {
-              console.log('Sucessfully passed the captcha with a score of: ' + JSON.stringify(response.score));
-              var captchaScore = response.score;
-              console.log("Evaluted captcha Score: " + captchaScore);
-              // Evaluate the score returned from the captcha
-              if (captchaScore >= 0.6) {
-                // $('button.login-register-register-form-submit').prop('disabled', false);
-              } // If conditonal for captcha score
-              // Did not pass the recaptcha, detected bot
-              else {
-                alert("Sorry, you did not pass the captcha test. Please try from a different IP address and re-fill out the form.");
-              }
-            }
-            else {
-              alert("Token not passed successfully: \n" + response["error-codes"]);
-              return;
-            }
-          },
-          failure: function (response) {
-            alert(response);
+
+        // Toggle Modal
+        $('#modal-toggle').click(function () {
+          toggleModal();
+        });
+        // Close Modal
+        $('#close-modal').click(function () {
+          toggleModal();
+        });
+
+        $('#shopProducts').click(function () {
+          $('#dropdown1').toggleClass('hidden');
+        });
+
+        $('#myAccount').click(function () {
+          $('#dropdown2').toggleClass('hidden');
+        });
+        // categoryItem
+        $('#categoryItem').click(function () {
+          $('#rightMenu').toggleClass('hidden');
+        });
+        // Close modal if click outside of modal
+        $('#modal-overlay').click(function (e) {
+          if (e.target == this) {
+            $('#modal').toggleClass('hidden');
+            $('body').toggleClass('modal-open');
           }
         });
+        // Close dropdown menus when click outside
+        $(document).click(function (event) {
+          var clickover = $(event.target);
+          var _opened = $(".dropdown-menu").hasClass("hidden");
+          if (_opened === true && !clickover.hasClass("dropdown-toggle")) {
+            $(".dropdown-menu").addClass("hidden");
+          }
+        });
+
+
       });
-    });
-  };
-</script>
+
+      // Toggle Modal Function
+      function toggleModal() {
+        $('#modal').toggleClass('hidden');
+        // Toggle modal-open class on body
+        $('body').toggleClass('modal-open');
+      }
+      // Catpcha Validation
+      var onloadCallback = function () {
+
+        grecaptcha.ready(function () {
+          grecaptcha.execute('6LdfCTMiAAAAAHOQujAWSGK_mWLEAL6hY_Oo00qB', { action: 'submit' }).then(function (token) {
+            var bodyData = JSON.stringify({
+              token
+            });
+            $.ajax({
+              type: "POST",
+              url: 'https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088',
+              data: bodyData,
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: function (response) {
+                console.log('Passed the token successfully');
+                if (response.success === true) {
+                  console.log('Sucessfully passed the captcha with a score of: ' + JSON.stringify(response.score));
+                  var captchaScore = response.score;
+                  console.log("Evaluted captcha Score: " + captchaScore);
+                  // Evaluate the score returned from the captcha
+                  if (captchaScore >= 0.6) {
+                    // $('button.login-register-register-form-submit').prop('disabled', false);
+                  } // If conditonal for captcha score
+                  // Did not pass the recaptcha, detected bot
+                  else {
+                    alert("Sorry, you did not pass the captcha test. Please try from a different IP address and re-fill out the form.");
+                  }
+                }
+                else {
+                  alert("Token not passed successfully: \n" + response["error-codes"]);
+                  return;
+                }
+              },
+              failure: function (response) {
+                alert(response);
+              }
+            });
+          });
+        });
+      };
+    </script>
 
 <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LdfCTMiAAAAAEfUqHbURg2c4LtXYY4L8SVIJz2J&onload=onloadCallback"></script> -->

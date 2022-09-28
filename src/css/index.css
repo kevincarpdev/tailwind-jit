@@ -54,7 +54,7 @@ h1 {
   fill: #001270;
 }
 .mobile-nav-item {
-  @apply relative block px-3 py-2 text-[#030D2B] hover:text-[#3A3AEE] text-xl uppercase tracking-wide;
+  @apply relative block px-3 py-2 text-[#292E43] hover:text-[#3A3AEE] text-xl uppercase tracking-wide;
 }
 .dropdown-menu {
   @apply absolute right-0 top-full z-10 origin-top-right rounded-md bg-[#3A3AEE] py-0 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
@@ -185,7 +185,7 @@ footer.footer {
   @apply overflow-hidden;
 }
 .modal-close {
-  @apply absolute top-0 right-0 mt-4 mr-4 p-2 border-[#030D2B] rounded-full hover:bg-[#3A3AEE] hover:border-[#3A3AEE] transition-all;
+  @apply absolute top-0 right-0 mt-4 mr-4 p-2 border-[#292E43] rounded-full hover:bg-[#3A3AEE] hover:border-[#3A3AEE] transition-all;
   border-width: 1px;
 }
 .modal-close svg {
@@ -216,15 +216,15 @@ footer.footer {
 
 /* Form Labels & Inputs */
 .form-label {
-  @apply text-sm font-medium text-[#030D2B] hidden;
+  @apply text-sm font-medium text-[#292E43] hidden;
 }
 .form-input {
-  @apply block w-full rounded-full border-[#030D2B] shadow-sm focus:border-[#3A3AEE] focus:ring-[#3A3AEE] sm:text-lg;
+  @apply block w-full rounded-full border-[#292E43] shadow-sm focus:border-[#3A3AEE] focus:ring-[#3A3AEE] sm:text-lg;
   padding-top: 0.275rem;
   padding-bottom: 0.275rem;
 }
 .form-select {
-  @apply block w-full rounded-full border border-[#030D2B] bg-white px-3 shadow-sm focus:border-[#3A3AEE] focus:outline-none focus:ring-[#3A3AEE] sm:text-lg;
+  @apply block w-full rounded-full border border-[#292E43] bg-white px-3 shadow-sm focus:border-[#3A3AEE] focus:outline-none focus:ring-[#3A3AEE] sm:text-lg;
   padding-top: 0.275rem;
   padding-bottom: 0.275rem;
 }
