@@ -721,9 +721,6 @@ select {
 [type='file']:focus {
 	outline: 1px auto -webkit-focus-ring-color;
 }
-.invisible {
-	visibility: hidden;
-}
 .fixed {
 	position: fixed;
 }
@@ -882,9 +879,6 @@ select {
 .text-left {
 	text-align: left;
 }
-.font-light {
-	font-weight: 300;
-}
 .text-\[\#030D2B\] {
 	--tw-text-opacity: 1;
 	color: rgba(3, 13, 43, var(--tw-text-opacity));
@@ -900,10 +894,6 @@ select {
 .text-gray-300 {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
-}
-.text-red-700 {
-	--tw-text-opacity: 1;
-	color: rgba(185, 28, 28, var(--tw-text-opacity));
 }
 .opacity-75 {
 	opacity: 0.75;

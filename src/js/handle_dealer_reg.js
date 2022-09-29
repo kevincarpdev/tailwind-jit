@@ -42,7 +42,7 @@
 
  */
 
-define(['N/https', 'N/search'], function (https, search) {
+define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
 
   var responseObj = {
     success: false,
@@ -50,82 +50,87 @@ define(['N/https', 'N/search'], function (https, search) {
   };
 
   function onRequest(context) {
-    if (context.request.method === https.Method.GET)
-      handleGetRequest(context);
-    else if (context.request.method === https.Method.POST)
-      handlePostRequest(context);
+    handleGetRequest(context);
   }
 
   function handleGetRequest(context) {
     log.debug("In GET function...");
-
-    // Wrap our parameter in a try/catch block to catch any errors or blank parameter
-    try {
-      var params = context.request.parameters;
-      // Grab the customer email from the POST request
-      var customer = params["customer_email"];
-      log.debug("Customer Params" + JSON.stringify(customer));
-
-      // Wrap our main search in a try/catch block to prevent errors from breaking the script
-      try {
-
-        // Run Customer Function 
-        let isFound = searchCustomer(customer);
-        if (isFound) {
-          context.response.write("True");
-        }
-        else {
-          context.response.write("False");
-        }
-
-
-      } catch (error) {
-        log.error({ title: 'Unable to run customer search.', details: error });
-      }
-
-    } catch (error) {
-      log.error({ title: "Unable to grab customer script parameters: \'customer_email\'.", details: error });
-    }
-
-  }// end of handleGetRequest function
-
-  function handlePostRequest(context) {
-    log.debug("In handle POST function...");
     // var jsonResponse = new JSONResponse();
     // Wrap our parameter in a try/catch block to catch any errors or blank parameter
     try {
       var params = context.request.parameters;
 
       // Grab the Parameters from the POST request
-      var firstname = params["fname"];
-      log.debug("First Name: " + JSON.stringify(firstname));
-      var lastname = params["lname"];
-      log.debug("Last Name: " + JSON.stringify(lastname));
-      var companyname = params["cname"];
-      log.debug("Company Name: " + JSON.stringify(companyname));
-      var jobtitle = params["jobtitle"];
-      log.debug("Job Title: " + JSON.stringify(jobtitle));
+      var firstname = params["firstname"];
+      log.debug({
+        title: "First Name",
+        details: firstname
+      })
+      var lastname = params["lastname"];
+      log.debug({
+        title: "Last Name",
+        details: lastname
+      })
+      var companyname = params["company"];
+      log.debug({
+        title: "Company Name",
+        details: companyname
+      })
+      var jobtitle = params["title"];
+      log.debug({
+        title: "Job Title",
+        details: jobtitle
+      })
       var phone = params["phone"];
-      log.debug("Phone: " + JSON.stringify(phone));
+      log.debug({
+        title: "Phone",
+        details: phone
+      })
       var email = params["email"];
-      log.debug("Email: " + JSON.stringify(email));
-      var companyphone = params["cphone"];
-      log.debug("Company Phone: " + JSON.stringify(companyphone));
-      var salestaxid = params["staxid"];
-      log.debug("Sales Tax ID: " + JSON.stringify(salestaxid));
-      var street = params["street"];
-      log.debug("Street: " + JSON.stringify(street));
+      log.debug({
+        title: "Email",
+        details: email
+      })
+      var companyphone = params["companyPhone"];
+      log.debug({
+        title: "Company Phone",
+        details: companyphone
+      })
+      var salestaxid = params["salesTaxId"];
+      log.debug({
+        title: "Sales Tax ID",
+        details: salestaxid
+      })
+      var street = params["streetAddress"];
+      log.debug({
+        title: "Street Address",
+        details: street
+      })
       var city = params["city"];
-      log.debug("City: " + JSON.stringify(city));
+      log.debug({
+        title: "City",
+        details: city
+      })
       var state = params["state"];
-      log.debug("State: " + JSON.stringify(state));
+      log.debug({
+        title: "State",
+        details: state
+      })
       var zip = params["zip"];
-      log.debug("Zip: " + JSON.stringify(zip));
-      var website = params["website"];
-      log.debug("Website: " + JSON.stringify(website));
+      log.debug({
+        title: "Zip",
+        details: zip
+      })
+      var website = params["companyWebsite"];
+      log.debug({
+        title: "Company Website",
+        details: website
+      })
       var message = params["message"];
-      log.debug("Message: " + JSON.stringify(message));
-
+      log.debug({
+        title: "Message",
+        details: message
+      })
 
       // Wrap our main search in a try/catch block to prevent errors from breaking the script
       try {
@@ -133,14 +138,14 @@ define(['N/https', 'N/search'], function (https, search) {
         // Run Customer Function 
         let isFound = searchCustomer(email);
         if (isFound) {
-          
+
           responseObj.message = "Error: Customer Lead already exists.";
 
           log.audit({
             title: 'Error: Customer Lead already exists.',
             details: JSON.stringify(responseObj)
           });
-          
+
           // Write error message to the response
           context.response.write(JSON.stringify(responseObj));
         }
@@ -194,10 +199,6 @@ define(['N/https', 'N/search'], function (https, search) {
             fieldId: 'comments',
             value: message
           });
-          lead.setValue({
-            fieldId: 'custentity_lead_source',
-            value: 1
-          });
 
           // run attachFile function and attach file to lead custom field
           //attachfile(lead, context);
@@ -226,7 +227,8 @@ define(['N/https', 'N/search'], function (https, search) {
       context.response.write(JSON.stringify(responseObj));
     }
 
-  }// End of handlePostRequest function
+  }// end of handleGetRequest function
+
 
   function searchCustomer(customerEmail) {
     var customer = customerEmail;

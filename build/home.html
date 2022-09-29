@@ -152,7 +152,7 @@
           </div>
         </div>
       </div>
-<!-- START Footer -->
+      <!-- START Footer -->
 <footer class="footer">
   <div class="footer-container">
     <div class="locations">
@@ -287,9 +287,7 @@
         <p>Fill out the form below and our team will review your information for dealer approval.</p>
         <p>Our team will contact you soon with your account and access information.</p>
       </div>
-      <form
-        action="https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088"
-        method="POST">
+      <form id="dealer-form" action="" method="POST">
         <div class="sm:rounded-md">
           <div class="bg-white px-6 py-5 sm:px-12">
             <!-- Fixed Close Modal Button Top Right -->
@@ -327,7 +325,7 @@
               </div>
               <div class="col-span-6 sm:col-span-3">
                 <label for="email-address" class="form-label">Your Email</label>
-                <input type="text" name="email-address" id="email-address" autocomplete="email" class="form-input"
+                <input type="email" name="email" id="email" autocomplete="email" class="form-input"
                   placeholder="Your Email:" required>
               </div>
               <div class="col-span-6 sm:col-span-3">
@@ -407,7 +405,6 @@
                   <option value="WI">Wisconsin</option>
                   <option value="WY">Wyoming</option>
                 </select>
-                </select>
               </div>
               <div class="col-span-4 sm:col-span-2">
                 <label for="postal-code" class="form-label">Zip code</label>
@@ -444,8 +441,10 @@
   </div>
 </div>
 
+<!-- jQuery and jQuery UI libraries -->
 <script src="/site/js/jquery.min.js"></script>
 <script src="/site/js/jquery-ui.min.js"></script>
+
 <!-- Scripts -->
 <script>
   const btn = document.querySelector("button.mobile-menu-button");
@@ -559,11 +558,54 @@
         //     });
         // };
 </script>
-<!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script> -->
 
+<!-- Form Validation and AJAX submission -->
+<script>
+  var restletcall = "https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088&city=";
+
+  // Form submission event listener using submitDealerForm
+  document.getElementById("dealer-form").addEventListener("submit", submitDealerForm);
+  
+  
+  function submitDealerForm(extra) {
+
+    // Form Input Value Variables
+    var firstname = $("#first-name").val();
+    var lastname = $("#last-name").val();
+    var company = $("#company").val();
+    var title = $("#title").val();
+    var phone = $("#phone").val();
+    var email = $("#email").val();
+    var companyPhone = $("#company-phone").val();
+    var salesTaxId = $("#sales-tax-id").val();
+    var streetAddress = $("#street-address").val();
+    var city = $("#city").val();
+    var state = $("#state").val();
+    var zip = $("#postal-code").val();
+    var companyWebsite = $("#company-website").val();
+    var message = $("#message").val();
+
+    if (email && firstname) {
+      $.ajax({
+        url: regURL + "&jsoncallback=?&" + $.param({ fname: firstname, lname: lastname, cname: company, jobtitle: title, phone: phone, email: email, cphone: companyPhone, staxid: salesTaxId, street: streetAddress, city: city, state: state, zip: zip, website: companyWebsite, message: message }),
+        cache: false,
+        dataType: 'json',
+        success: function (jResp) {
+          if (!jResp.success) {
+            if (jResp.msg) alert(jResp.msg);
+            return;
+          }
+          if (jResp.exists) {
+            console.log("Exists", jResp);
+          }
+        }
+      });
+    }
+    return isOk;
+  }
+</script>
 
 <!-- END Footer -->
-
 
 </body>
 
