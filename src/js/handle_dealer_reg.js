@@ -44,8 +44,10 @@
 
 define(['N/https', 'N/search'], function (https, search) {
 
-  var CAPTCHA_VERIFICATION_URL = 'https://www.google.com/recaptcha/api/siteverify'; //This is the verification URL
-  var CAPTCHA_PRIVATE_KEY = '6LdfCTMiAAAAAEfUqHbURg2c4LtXYY4L8SVIJz2J'; //This is the private key we've obtained from Part 1 of this tutorial
+  var responseObj = {
+    success: false,
+    message: '',
+  };
 
   function onRequest(context) {
     if (context.request.method === https.Method.GET)
@@ -88,58 +90,140 @@ define(['N/https', 'N/search'], function (https, search) {
   }// end of handleGetRequest function
 
   function handlePostRequest(context) {
-    log.debug("In POST function...");
+    log.debug("In handle POST function...");
     // var jsonResponse = new JSONResponse();
     // Wrap our parameter in a try/catch block to catch any errors or blank parameter
     try {
       var params = context.request.parameters;
 
-      // Grab the customer email from the POST request
-      var customer = params["customer_email"];
-      log.debug("Customer Params: " + JSON.stringify(customer));
+      // Grab the Parameters from the POST request
+      var firstname = params["fname"];
+      log.debug("First Name: " + JSON.stringify(firstname));
+      var lastname = params["lname"];
+      log.debug("Last Name: " + JSON.stringify(lastname));
+      var companyname = params["cname"];
+      log.debug("Company Name: " + JSON.stringify(companyname));
+      var jobtitle = params["jobtitle"];
+      log.debug("Job Title: " + JSON.stringify(jobtitle));
+      var phone = params["phone"];
+      log.debug("Phone: " + JSON.stringify(phone));
+      var email = params["email"];
+      log.debug("Email: " + JSON.stringify(email));
+      var companyphone = params["cphone"];
+      log.debug("Company Phone: " + JSON.stringify(companyphone));
+      var salestaxid = params["staxid"];
+      log.debug("Sales Tax ID: " + JSON.stringify(salestaxid));
+      var street = params["street"];
+      log.debug("Street: " + JSON.stringify(street));
+      var city = params["city"];
+      log.debug("City: " + JSON.stringify(city));
+      var state = params["state"];
+      log.debug("State: " + JSON.stringify(state));
+      var zip = params["zip"];
+      log.debug("Zip: " + JSON.stringify(zip));
+      var website = params["website"];
+      log.debug("Website: " + JSON.stringify(website));
+      var message = params["message"];
+      log.debug("Message: " + JSON.stringify(message));
 
-      //var clientIpAddress = request.getHeader('NS-Client-IP'); //Use this to get the IP Address of the client
-
-      //var captchaResponse = JSON.parse(request.body);
-      //captchaResponse = captchaResponse.token
-      //nlapiLogExecution('DEBUG', 'Captcha Token: ', captchaResponse);
-
-      // var postData = {
-      //   secret: CAPTCHA_PRIVATE_KEY,
-      //   response: captchaResponse,
-      //   remoteip: clientIpAddress,
-      // };
-      //var captchaVerificationResponse = nlapiRequestURL(CAPTCHA_VERIFICATION_URL, postData); //Send the POST Request to Google for verification.
-
-      /* 
-      * Test the response. If the server does not respond with an HTTP 200 Status code, then it was not verified.
-      * Google also returns true when the challenge and the user's response matches.
-      */
-      // if (captchaVerificationResponse.getCode() != 200 || captchaVerificationResponse.getBody().indexOf('true') == -1) {
-      //   jsonResponse.status.success = false;
-      //   jsonResponse.status.errorMessage = 'Failed Verification';
-      // }
 
       // Wrap our main search in a try/catch block to prevent errors from breaking the script
       try {
 
         // Run Customer Function 
-        let isFound = searchCustomer(customer);
+        let isFound = searchCustomer(email);
         if (isFound) {
-          context.response.write("True");
+          
+          responseObj.message = "Error: Customer Lead already exists.";
+
+          log.audit({
+            title: 'Error: Customer Lead already exists.',
+            details: JSON.stringify(responseObj)
+          });
+          
+          // Write error message to the response
+          context.response.write(JSON.stringify(responseObj));
         }
         else {
-          context.response.write("False");
+          // Existing customer not found, proceeding with creating a new lead
+          // Proceed with creating a new lead as normal
+
+          // Create a new lead
+          var lead = record.create({
+            type: record.Type.LEAD,
+            isDynamic: true
+          });
+          // Set the lead values on the record
+          lead.setValue({
+            fieldId: 'firstname',
+            value: firstname
+          });
+          lead.setValue({
+            fieldId: 'lastname',
+            value: lastname
+          });
+          lead.setValue({
+            fieldId: 'companyname',
+            value: companyname
+          });
+          lead.setValue({
+            fieldId: 'title',
+            value: jobtitle
+          });
+          lead.setValue({
+            fieldId: 'phone',
+            value: phone
+          });
+          lead.setValue({
+            fieldId: 'email',
+            value: email
+          });
+          lead.setValue({
+            fieldId: 'custentity_company_phone',
+            value: companyphone
+          });
+          lead.setValue({
+            fieldId: 'custentity_sales_tax_id',
+            value: salestaxid
+          });
+          lead.setValue({
+            fieldId: 'custentity_website',
+            value: website
+          });
+          lead.setValue({
+            fieldId: 'comments',
+            value: message
+          });
+          lead.setValue({
+            fieldId: 'custentity_lead_source',
+            value: 1
+          });
+
+          // run attachFile function and attach file to lead custom field
+          //attachfile(lead, context);
+
+          // Save the lead record
+          var leadId = lead.save();
+
+          // log success the lead id and return success message
+          log.debug("Lead ID: " + leadId);
+
+          // Write success message to response
+          responseObj.success = true;
+          responseObj.message = "Success: Lead created successfully.";
+          context.response.write(JSON.stringify(responseObj));
         }
 
       } catch (error) {
-        log.error({ title: 'Unable to run customer search.', details: error });
-        context.response.write("False");
+        log.error({ title: 'Unable to run existing customer lead search.', details: error });
+        responseObj.message = error
+        context.response.write(JSON.stringify(responseObj));
       }
 
     } catch (error) {
-      log.error({ title: "Unable to grab customer script parameters: \'customer_email\'.", details: error });
-      context.response.write("False");
+      log.error({ title: "Unable to grab customer lead script parameters: \'email\'.", details: error });
+      responseObj.message = error
+      context.response.write(JSON.stringify(responseObj));
     }
 
   }// End of handlePostRequest function
@@ -157,7 +241,6 @@ define(['N/https', 'N/search'], function (https, search) {
             operator: search.Operator.CONTAINS,
             values: customer
           }),
-          // ["email", "contains", "support@fourthwc.com"]
         ],
       columns:
         [
@@ -186,27 +269,20 @@ define(['N/https', 'N/search'], function (https, search) {
 
   }// End of searchCustomer function
 
-  function attachfile(recType, recId, recTypeTo, recIdTo) {
-    record.attach({
-      record: {
-        type: recType,
-        id: recId
-      },
-      to: {
-        type: recTypeTo,
-        id: recIdTo
-      }
-    });
+  // function attachfile(recType, recId, recTypeTo, recIdTo) {
+  //   record.attach({
+  //     record: {
+  //       type: recType,
+  //       id: recId
+  //     },
+  //     to: {
+  //       type: recTypeTo,
+  //       id: recIdTo
+  //     }
+  //   });
 
-    return true;
-  }
-  // function JSONResponse() {
-  //   this.status = {
-  //     success: true,
-  //     errorMessage: '',
-  //   };
+  //   return true;
   // }
-
 
   return {
     onRequest: onRequest

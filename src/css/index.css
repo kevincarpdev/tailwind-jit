@@ -99,7 +99,7 @@ form .secondary-btn {
   border-width: 1px;
 }
 form .primary-btn {
-  @apply bg-transparent border-[#6E7383] text-[#6D6D6D] hover:bg-[#3A3AEE] hover:text-[#FFF] py-1;
+  @apply bg-transparent border-[#030D2B] text-[#030D2B] hover:bg-[#3A3AEE] hover:text-[#FFF] py-1;
   border-width: 1px;
 }
 
@@ -195,17 +195,17 @@ footer.footer {
   @apply text-white;
 }
 .modal-inner {
-  @apply inline-block bg-white rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full;
+  @apply inline-block bg-white rounded-xl text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full;
 }
 .modal-flex {
   @apply flex items-center justify-center pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:mt-0;
 }
 /* Modal Headline */
 .modal-headline {
-  @apply py-12 px-6 text-center;
+  @apply pt-12 pb-6 px-6 text-center;
 }
 .modal-headline h3 {
-  @apply text-xl font-normal mt-2;
+  @apply text-xl font-normal mt-6;
 }
 .modal-headline p{ 
   @apply text-lg font-light;
@@ -230,4 +230,11 @@ footer.footer {
 }
 .form-textarea {
   @apply px-4 py-2 rounded-2xl;
+}
+.form-disclaimer {
+  @apply text-[#6D6D6D] text-lg leading-tight font-extralight mt-0;
+  max-width: 70ch;
+}
+.netsuiteField {
+  @apply hidden;
 }

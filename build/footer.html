@@ -1,4 +1,4 @@
-<!-- Footer -->
+<!-- START Footer -->
 <footer class="footer">
   <div class="footer-container">
     <div class="locations">
@@ -129,13 +129,14 @@
         <img
           src="https://5903639.app.netsuite.com/core/media/media.nl?id=56182&c=5903639&h=oARQRJZ507ruDe0bv8lkbMaEWa091H-8_flVNgb9hNkBBHZr&fcts=20220926221304&whence="
           alt="Swimline" />
-        <h3>Looking to join the Swimline Distributors Inc Team?</h3>
-        <p>Fill out the form below and our team will connect with you soon.</p>
+        <h3>Ready To Get Started?</h3>
+        <p>Fill out the form below and our team will review your information for dealer approval.</p>
+        <p>Our team will contact you soon with your account and access information.</p>
       </div>
       <form
         action="https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088"
         method="POST">
-        <div class="shadow sm:rounded-md">
+        <div class="sm:rounded-md">
           <div class="bg-white px-6 py-5 sm:px-12">
             <!-- Fixed Close Modal Button Top Right -->
             <button id="close-modal" type="button" class="modal-close">
@@ -144,67 +145,127 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-              <div class="col-span-4 sm:col-span-2">
+            <div class="grid grid-cols-6 gap-x-2 gap-y-5">
+              <div class="col-span-6 sm:col-span-3">
                 <label for="first-name" class="form-label">First name</label>
                 <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="form-input"
                   placeholder="First Name:" required>
               </div>
-              <div class="col-span-4 sm:col-span-2">
+              <div class="col-span-6 sm:col-span-3">
                 <label for="last-name" class="form-label">Last name</label>
                 <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="form-input"
                   placeholder="Last Name:" required>
               </div>
-              <div class="col-span-4 sm:col-span-1">
-                <label for="street-address" class="form-label">Street</label>
-                <input type="text" name="street-address" id="street-address" autocomplete="street-address"
-                  class="form-input" placeholder="Street:" required>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="company-name" class="form-label">Company Name</label>
+                <input type="text" name="company-name" id="company-name" autocomplete="company-name" class="form-input"
+                  placeholder="Company Name:" required>
               </div>
-              <div class="col-span-4 sm:col-span-1">
-                <label for="city" class="form-label">City</label>
-                <input type="text" name="city" id="city" autocomplete="address-level2" class="form-input"
-                  placeholder="City:" required>
-              </div>
-              <div class="col-span-4 sm:col-span-1">
-                <label for="state" class="form-label">State / Province</label>
-                <select id="state" name="state" autocomplete="state-name" class="form-select" placeholder="State:"
+              <div class="col-span-6 sm:col-span-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" autocomplete="title" class="form-input" placeholder="Title:"
                   required>
-                  <option selected disabled>State</option>
-                  <option>Arizona</option>
-                  <option>California</option>
-                  <option>Florida</option>
-                  <option>Georgia</option>
-                  <option>Illinois</option>
-                  <option>Indiana</option>
-                  <option>Michigan</option>
-                  <option>New Jersey</option>
-                  <option>New York</option>
-                  <option>North Carolina</option>
-                  <option>Ohio</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Virginia</option>
-                  <option>Washington</option>
-                </select>
               </div>
-              <div class="col-span-4 sm:col-span-1">
-                <label for="postal-code" class="form-label">ZIP / Postal code</label>
-                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="form-input"
-                  placeholder="Zipcode:" required>
-              </div>
-              <div class="col-span-4 sm:col-span-2">
-                <label for="email-address" class="form-label">Your Email</label>
-                <input type="text" name="email-address" id="email-address" autocomplete="email" class="form-input"
-                  placeholder="Your Email:" required>
-              </div>
-              <!-- Phone Field -->
-              <div class="col-span-4 sm:col-span-2">
+              <div class="col-span-6 sm:col-span-3">
                 <label for="phone" class="form-label">Phone Number</label>
                 <input type="text" name="phone" id="phone" autocomplete="tel" class="form-input"
                   placeholder="Phone Number:" required>
               </div>
-              <!-- Your Message Here Field -->
-              <div class="col-span-4">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="email-address" class="form-label">Your Email</label>
+                <input type="text" name="email-address" id="email-address" autocomplete="email" class="form-input"
+                  placeholder="Your Email:" required>
+              </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="company-phone" class="form-label">Company Phone Number</label>
+                <input type="text" name="company-phone" id="company-phone" autocomplete="tel" class="form-input"
+                  placeholder="Company Phone Number:" required>
+              </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="sales-tax-id" class="form-label">Sales Tax ID</label>
+                <input type="text" name="sales-tax-id" id="sales-tax-id" class="form-input" placeholder="Sales Tax ID:"
+                  required>
+              </div>
+              <div class="col-span-6">
+                <label for="street-address" class="form-label">Street</label>
+                <input type="text" name="street-address" id="street-address" autocomplete="street-address"
+                  class="form-input" placeholder="Street:" required>
+              </div>
+              <div class="col-span-6 sm:col-span-2">
+                <label for="city" class="form-label">City</label>
+                <input type="text" name="city" id="city" autocomplete="address-level2" class="form-input"
+                  placeholder="City:" required>
+              </div>
+              <div class="col-span-6 sm:col-span-2">
+                <label for="state" class="form-label">State / Province</label>
+                <select id="state" name="state" autocomplete="state-name" class="form-select" placeholder="State:"
+                  required>
+                  <option selected disabled>State</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+                </select>
+              </div>
+              <div class="col-span-4 sm:col-span-2">
+                <label for="postal-code" class="form-label">Zip code</label>
+                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="form-input"
+                  placeholder="Zipcode:" required>
+              </div>
+              <div class="col-span-6">
+                <label for="Company Website" class="form-label">Company Website</label>
+                <input type="text" name="company-website" id="company-website" autocomplete="website" class="form-input"
+                  placeholder="Company Website:" required>
+              </div>
+              <div class="col-span-6">
                 <label for="message" class="form-label">Your Message Here</label>
                 <textarea id="message" name="message" rows="3" class="form-input form-textarea" required
                   placeholder="Your Message Here"></textarea>
@@ -212,121 +273,139 @@
             </div>
           </div>
         </div>
-        <div class="flex justify-between py-6 px-12">
+        <div class="flex justify-between pt-6 px-12">
           <label class="secondary-btn btn">
-            <span>Attach Your Resume</span>
+            <span>Attach Business License</span>
             <input type='file' class="hidden" />
           </label>
-          <button type="submit" class="inline-flex justify-center primary-btn btn">Submit</button>
+          <button type="submit" class="inline-flex justify-center primary-btn btn btn-submit">Submit</button>
+        </div>
+        <div class="flex text-left pb-8 pt-3 px-12">
+          <p class="form-disclaimer">*Business verifcation is required to become a dealer.
+            If you are unable to provide a copy at this time a member of our
+            staff will reach out to coordinate the receipt of needed items for verification.</p>
         </div>
       </form>
     </div>
   </div>
 </div>
+
 <script src="/site/js/jquery.min.js"></script>
 <script src="/site/js/jquery-ui.min.js"></script>
-    <!-- Scripts -->
-    <script>
-      const btn = document.querySelector("button.mobile-menu-button");
-      const menu = document.querySelector("#mobile-menu");
+<!-- Scripts -->
+<script>
+  const btn = document.querySelector("button.mobile-menu-button");
+  const menu = document.querySelector("#mobile-menu");
 
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-      // Document Ready
-      $(document).ready(function () {
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
 
-        // Toggle Mobile Menu
-        $('#mobile-menu-toggle').click(function () {
-          $('#mobile-menu').toggleClass('hidden');
-        });
+  // Element Variables
+  var modalToggle = $('#modal-toggle');
+  var closeModal = $('#close-modal');
+  var shopProducts = $('#shopProducts');
+  var myAccount = $('#myAccount');
+  var categoryItem = $('#categoryItem');
+  var modalOverlay = $('#modal-overlay');
 
-        // Toggle Modal
-        $('#modal-toggle').click(function () {
-          toggleModal();
-        });
-        // Close Modal
-        $('#close-modal').click(function () {
-          toggleModal();
-        });
+  // Document Ready
+  $(document).ready(function () {
 
-        $('#shopProducts').click(function () {
-          $('#dropdown1').toggleClass('hidden');
-        });
+    // Toggle Mobile Menu
+    $('#mobile-menu-toggle').click(function () {
+      $('#mobile-menu').toggleClass('hidden');
+    });
 
-        $('#myAccount').click(function () {
-          $('#dropdown2').toggleClass('hidden');
-        });
-        // categoryItem
-        $('#categoryItem').click(function () {
-          $('#rightMenu').toggleClass('hidden');
-        });
-        // Close modal if click outside of modal
-        $('#modal-overlay').click(function (e) {
-          if (e.target == this) {
-            $('#modal').toggleClass('hidden');
-            $('body').toggleClass('modal-open');
-          }
-        });
-        // Close dropdown menus when click outside
-        $(document).click(function (event) {
-          var clickover = $(event.target);
-          var _opened = $(".dropdown-menu").hasClass("hidden");
-          if (_opened === true && !clickover.hasClass("dropdown-toggle")) {
-            $(".dropdown-menu").addClass("hidden");
-          }
-        });
+    // Toggle Modal, Close modal
+    modalToggle.click(function () {
+      toggleModal();
+    });
+    closeModal.click(function () {
+      toggleModal();
+    });
 
+    // Shop Products Dropdown Menu Item
+    shopProducts.click(function () {
+      $('#dropdown1').toggleClass('hidden');
+    });
+    // My Account Dropdown Menu Item
+    myAccount.click(function () {
+      $('#dropdown2').toggleClass('hidden');
+    });
 
-      });
+    // Category drop-left menu item
+    categoryItem.click(function () {
+      $('#rightMenu').toggleClass('hidden');
+    });
 
-      // Toggle Modal Function
-      function toggleModal() {
+    // Close modal if click outside of modal
+    modalOverlay.click(function (e) {
+      if (e.target == this) {
         $('#modal').toggleClass('hidden');
-        // Toggle modal-open class on body
         $('body').toggleClass('modal-open');
       }
-      // Catpcha Validation
-      var onloadCallback = function () {
+    });
 
-        grecaptcha.ready(function () {
-          grecaptcha.execute('6LdfCTMiAAAAAHOQujAWSGK_mWLEAL6hY_Oo00qB', { action: 'submit' }).then(function (token) {
-            var bodyData = JSON.stringify({
-              token
-            });
-            $.ajax({
-              type: "POST",
-              url: 'https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088',
-              data: bodyData,
-              contentType: "application/json; charset=utf-8",
-              dataType: "json",
-              success: function (response) {
-                console.log('Passed the token successfully');
-                if (response.success === true) {
-                  console.log('Sucessfully passed the captcha with a score of: ' + JSON.stringify(response.score));
-                  var captchaScore = response.score;
-                  console.log("Evaluted captcha Score: " + captchaScore);
-                  // Evaluate the score returned from the captcha
-                  if (captchaScore >= 0.6) {
-                    // $('button.login-register-register-form-submit').prop('disabled', false);
-                  } // If conditonal for captcha score
-                  // Did not pass the recaptcha, detected bot
-                  else {
-                    alert("Sorry, you did not pass the captcha test. Please try from a different IP address and re-fill out the form.");
-                  }
-                }
-                else {
-                  alert("Token not passed successfully: \n" + response["error-codes"]);
-                  return;
-                }
-              },
-              failure: function (response) {
-                alert(response);
-              }
-            });
-          });
-        });
-      };
-    </script>
+    // Close dropdown menus when click outside
+    $(document).click(function (event) {
+      var clickover = $(event.target);
+      var _opened = $(".dropdown-menu").hasClass("hidden");
+      if (_opened === true && !clickover.hasClass("dropdown-toggle")) {
+        $(".dropdown-menu").addClass("hidden");
+      }
+    });
+  });
 
-<!-- <script src="https://www.google.com/recaptcha/api.js?render=6LdfCTMiAAAAAEfUqHbURg2c4LtXYY4L8SVIJz2J&onload=onloadCallback"></script> -->
+  // Toggle Modal Function
+  function toggleModal() {
+    $('#modal').toggleClass('hidden');
+    // Toggle modal-open class on body
+    $('body').toggleClass('modal-open');
+  }
+        // Catpcha Validation
+        // var onloadCallback = function () {
+
+        //     grecaptcha.ready(function () {
+        //         grecaptcha.execute('6LdfCTMiAAAAAHOQujAWSGK_mWLEAL6hY_Oo00qB', { action: 'submit' }).then(function (token) {
+        //             var bodyData = JSON.stringify({
+        //                 token
+        //             });
+        //             $.ajax({
+        //                 type: "POST",
+        //                 url: 'https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088',
+        //                 data: bodyData,
+        //                 contentType: "application/json; charset=utf-8",
+        //                 dataType: "json",
+        //                 success: function (response) {
+        //                     console.log('Passed the token successfully');
+        //                     if (response.success === true) {
+        //                         console.log('Sucessfully passed the captcha with a score of: ' + JSON.stringify(response.score));
+        //                         var captchaScore = response.score;
+        //                         console.log("Evaluted captcha Score: " + captchaScore);
+        //                         // Evaluate the score returned from the captcha
+        //                         if (captchaScore >= 0.6) {
+        //                             // $('button.login-register-register-form-submit').prop('disabled', false);
+        //                         } // If conditonal for captcha score
+        //                         // Did not pass the recaptcha, detected bot
+        //                         else {
+        //                             alert("Sorry, you did not pass the captcha test. Please try from a different IP address and re-fill out the form.");
+        //                         }
+        //                     }
+        //                     else {
+        //                         alert("Token not passed successfully: \n" + response["error-codes"]);
+        //                         return;
+        //                     }
+        //                 },
+        //                 failure: function (response) {
+        //                     alert(response);
+        //                 }
+        //             });
+        //         });
+        //     });
+        // };
+</script>
+<!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script> -->
+
+
+<!-- END Footer -->
