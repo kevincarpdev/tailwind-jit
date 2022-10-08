@@ -131,6 +131,11 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
         title: "Message",
         details: message
       })
+      var businessLicense = params["businessLicense"];
+      log.debug({
+        title: "Business License",
+        details: businessLicense
+      });
 
       // Wrap our main search in a try/catch block to prevent errors from breaking the script
       try {
@@ -139,7 +144,7 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
         let isFound = searchCustomer(email);
         if (isFound) {
 
-          responseObj.message = "Error: Customer Lead already exists.";
+          responseObj.message = "Error: That email already exists. Please sign up using a different email address.";
 
           log.audit({
             title: 'Error: Customer Lead already exists.',
@@ -148,6 +153,8 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
 
           // Write error message to the response
           context.response.write(JSON.stringify(responseObj));
+          context.response.setHeader("Access-Control-Allow-Origin", "*");
+          context.response.setHeader("Content-Type", "application/json");
         }
         else {
           // Existing customer not found, proceeding with creating a new lead
@@ -184,7 +191,7 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
             value: email
           });
           lead.setValue({
-            fieldId: 'custentity_company_phone',
+            fieldId: 'altphone',
             value: companyphone
           });
           lead.setValue({
@@ -192,16 +199,52 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
             value: salestaxid
           });
           lead.setValue({
-            fieldId: 'custentity_website',
+            fieldId: 'custentity_url',
             value: website
           });
           lead.setValue({
-            fieldId: 'comments',
+            fieldId: 'custentity_message',
             value: message
           });
 
+          // set the addressbook sublist values
+          // lead.selectNewLine({
+          //   sublistId: 'addressbook'
+          // });
+          // lead.setValue({
+          //   fieldId: 'addr1',
+          //   value: street,
+          // });
+          // lead.setValue({
+          //   fieldId: 'city',
+          //   value: city,
+          // });
+          // lead.setValue({
+          //   fieldId: 'state',
+          //   value: state,
+          // });
+          // lead.setValue({
+          //   fieldId: 'country',
+          //   value: 'US',
+          // })
+          // lead.setValue({
+          //   fieldId: 'zip',
+          //   value: zip,
+          // });
+          // lead.commitLine({
+          //   sublistId: 'addressbook'
+          // });
+          // set web address
+          lead.setValue({
+            fieldId: 'url',
+            value: website
+          });
           // run attachFile function and attach file to lead custom field
           //attachfile(lead, context);
+          lead.setValue({
+            fieldId: 'custentity_business_license',
+            value: businessLicense,
+          });
 
           // Save the lead record
           var leadId = lead.save();
@@ -213,18 +256,24 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
           responseObj.success = true;
           responseObj.message = "Success: Lead created successfully.";
           context.response.write(JSON.stringify(responseObj));
+          context.response.setHeader("Access-Control-Allow-Origin", "*");
+          context.response.setHeader("Content-Type", "application/json");
         }
 
       } catch (error) {
         log.error({ title: 'Unable to run existing customer lead search.', details: error });
         responseObj.message = error
         context.response.write(JSON.stringify(responseObj));
+        context.response.setHeader("Access-Control-Allow-Origin", "*");
+        context.response.setHeader("Content-Type", "application/json");
       }
 
     } catch (error) {
       log.error({ title: "Unable to grab customer lead script parameters: \'email\'.", details: error });
       responseObj.message = error
       context.response.write(JSON.stringify(responseObj));
+      context.response.setHeader("Access-Control-Allow-Origin", "*");
+      context.response.setHeader("Content-Type", "application/json");
     }
 
   }// end of handleGetRequest function
@@ -255,7 +304,6 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
     });
 
     var searchResultCount = customerSearchObj.runPaged().count;
-    log.debug({ title: "customerSearchObj result count", details: searchResultCount });
 
     if (searchResultCount > 0) {
 
