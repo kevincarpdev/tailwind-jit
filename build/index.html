@@ -342,18 +342,18 @@
                                 placeholder="Sales Tax ID:" required>
                         </div>
                         <div class="col-span-6">
-                            <label for="street-address" class="form-label">Street</label>
-                            <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="form-input" 
+                            <label for="street" class="form-label">Street</label>
+                            <input type="text" name="street" id="street" autocomplete="street" class="form-input" 
                             placeholder="Street:" required>
                         </div>
                         <div class="col-span-6 sm:col-span-2">
                             <label for="city" class="form-label">City</label>
-                            <input type="text" name="city" id="city" autocomplete="address-level2" class="form-input" 
+                            <input type="text" name="city" id="city" autocomplete="city" class="form-input" 
                             placeholder="City:" required>
                         </div>
                         <div class="col-span-6 sm:col-span-2">
                             <label for="state" class="form-label">State / Province</label>
-                            <select id="state" name="state" autocomplete="state-name" class="form-select" 
+                            <select id="state" name="state" autocomplete="state" class="form-select" 
                             placeholder="State:" required>
                                 <option selected disabled>State</option>
                                 <option value="AL">Alabama</option>
@@ -410,8 +410,8 @@
                             </select>
                         </div>
                         <div class="col-span-4 sm:col-span-2">
-                            <label for="postal-code" class="form-label">Zip code</label>
-                            <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="form-input" 
+                            <label for="zip" class="form-label">Zip code</label>
+                            <input type="text" name="zip" id="zip" autocomplete="zip" class="form-input" 
                             placeholder="Zipcode:" required>
                         </div>
                         <div class="col-span-6">
@@ -553,10 +553,10 @@
             var email = $("#email").val();
             var companyPhone = $("#company-phone").val();
             var salesTaxId = $("#sales-tax-id").val();
-            var streetAddress = $("#street-address").val();
+            var street = $("#street").val();
             var city = $("#city").val();
             var state = $("#state").val();
-            var zip = $("#postal-code").val();
+            var zip = $("#zip").val();
             var companyWebsite = $("#company-website").val();
             var message = $("#message").val();
             var businessLicense = $("#businessLicense").val();
@@ -571,10 +571,10 @@
                     "company": company,
                     "title": title,
                     "phone": phone,
-                    "email": email,
                     "companyPhone": companyPhone,
+                    "email": email,
                     "salesTaxId": salesTaxId,
-                    "streetAddress": streetAddress,
+                    "street": street,
                     "city": city,
                     "state": state,
                     "zip": zip,
@@ -590,12 +590,14 @@
                        toggleModal();
                     }
                     else if (response.message.type === "error.SuiteScriptError") {
+                        console.log("Response from suitelet not successful. error.SuiteScriptError");
                         alert(response.message.message);
                     }
                     // If response is not success, show error message
                     else {
+                        console.log("Response from suitelet neither errored or successful");
                         // display an error message from response.message object
-                        alert(response.message);
+                        alert(response.message.message);
                     }
                 },
                 failure: function (response) {

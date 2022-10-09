@@ -86,22 +86,22 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
         title: "Phone",
         details: phone
       })
-      var email = params["email"];
-      log.debug({
-        title: "Email",
-        details: email
-      })
       var companyphone = params["companyPhone"];
       log.debug({
         title: "Company Phone",
         details: companyphone
       })
+      var email = params["email"];
+      log.debug({
+        title: "Email",
+        details: email
+      }) 
       var salestaxid = params["salesTaxId"];
       log.debug({
         title: "Sales Tax ID",
         details: salestaxid
       })
-      var street = params["streetAddress"];
+      var street = params["street"];
       log.debug({
         title: "Street Address",
         details: street
@@ -194,69 +194,76 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
             fieldId: 'altphone',
             value: companyphone
           });
+          // Set Sales Tax ID Field
           lead.setValue({
             fieldId: 'custentity_sales_tax_id',
             value: salestaxid
           });
-          lead.setValue({
-            fieldId: 'custentity_url',
-            value: website
-          });
-          lead.setValue({
-            fieldId: 'custentity_message',
-            value: message
-          });
-
-          // set the addressbook sublist values
-          // lead.selectNewLine({
-          //   sublistId: 'addressbook'
-          // });
-          // lead.setValue({
-          //   fieldId: 'addr1',
-          //   value: street,
-          // });
-          // lead.setValue({
-          //   fieldId: 'city',
-          //   value: city,
-          // });
-          // lead.setValue({
-          //   fieldId: 'state',
-          //   value: state,
-          // });
-          // lead.setValue({
-          //   fieldId: 'country',
-          //   value: 'US',
-          // })
-          // lead.setValue({
-          //   fieldId: 'zip',
-          //   value: zip,
-          // });
-          // lead.commitLine({
-          //   sublistId: 'addressbook'
-          // });
           // set web address
           lead.setValue({
             fieldId: 'url',
             value: website
           });
+          // set message
+          lead.setValue({
+            fieldId: 'custentity_message',
+            value: message
+          });
+          // set business license
+          var currentAddressCount = lead.getLineCount({
+            'sublistId': 'addressbook'
+          });
+
+          if (currentAddressCount === 0) {
+            lead.selectNewLine({
+              sublistId: 'addressbook'
+            });
+          } else {
+            lead.selectLine({
+              sublistId: 'addressbook',
+              line: 0
+            });
+          }
+          var addressSubrecord = lead.getCurrentSublistSubrecord({
+            sublistId: 'addressbook',
+            fieldId: 'addressbookaddress'
+          });
+
+          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'defaultshipping', value: true, ignoreFieldChange: true });
+          // Set cyrrentSublistValue for addressee
+          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'addressee', value: firstname + " " + lastname, ignoreFieldChange: true });
+          // Set CurrentSublistValue for street
+          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'addr1', value: street, ignoreFieldChange: true });
+          // Set CurrentSublistValue for city
+          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'city', value: city, ignoreFieldChange: true });
+          // Set CurrentSublistValue for state
+          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'state', value: state, ignoreFieldChange: true });
+          // Set CurrentSublistValue for zip
+          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'zip', value: zip, ignoreFieldChange: true });
+          // Set CurrentSublistValue for country
+          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'country', value: 'US', ignoreFieldChange: true });
+          // Commit the line
+          lead.commitLine({ sublistId: 'addressbook' });
+
+          
           // Use suitescript 2 to upload the business license file
           // https://stackoverflow.com/questions/46954507/in-netsuite-with-suitescript-2-0-unable-to-send-a-file-with-http-post-request-wi
 
-          var fileObj = file.load({
-            id: businessLicense
-          });
-          var businessLicenseFile = context.request.getFile({
-            id: 'businessLicense'
-          });
-          var fileObj = file.create({
-            name: businessLicenseFile.name,
-            fileType: file.Type.PLAINTEXT,
-            contents: businessLicenseFile.getContents()
-          });
-          lead.setValue({
-            fieldId: 'custentity_business_license',
-            value: fileObj
-          });
+          // var fileObj = file.load({
+          //   id: businessLicense
+          // });
+          // var businessLicenseFile = context.request.getFile({
+          //   id: 'businessLicense'
+          // });
+          // var fileObj = file.create({
+          //   name: businessLicenseFile.name,
+          //   fileType: file.Type.PLAINTEXT,
+          //   contents: businessLicenseFile.getContents()
+          // });
+          // lead.setValue({
+          //   fieldId: 'custentity_business_license',
+          //   value: fileObj
+          // });
 
           // Save the lead record
           var leadId = lead.save();
