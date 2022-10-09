@@ -239,11 +239,23 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
             fieldId: 'url',
             value: website
           });
-          // run attachFile function and attach file to lead custom field
-          //attachfile(lead, context);
+          // Use suitescript 2 to upload the business license file
+          // https://stackoverflow.com/questions/46954507/in-netsuite-with-suitescript-2-0-unable-to-send-a-file-with-http-post-request-wi
+
+          var fileObj = file.load({
+            id: businessLicense
+          });
+          var businessLicenseFile = context.request.getFile({
+            id: 'businessLicense'
+          });
+          var fileObj = file.create({
+            name: businessLicenseFile.name,
+            fileType: file.Type.PLAINTEXT,
+            contents: businessLicenseFile.getContents()
+          });
           lead.setValue({
             fieldId: 'custentity_business_license',
-            value: businessLicense,
+            value: fileObj
           });
 
           // Save the lead record

@@ -428,7 +428,8 @@
                 <div class="flex justify-between pt-6 px-12">
                     <label class="secondary-btn btn">
                         <span>Attach Business License</span>
-                        <input id="businessLicense" type='file' class="hidden" />
+                        <!-- File upload that accepts only images or PDF file types -->
+                        <input type="file" name="businessLicense" id="businessLicense" accept="image/*, application/pdf" class="hidden">
                     </label>
                     <button type="submit" class="inline-flex justify-center primary-btn btn btn-submit">Submit</button>
                 </div>
@@ -507,10 +508,6 @@
                     toggleModal();
                 }
             });
-            // if click any part of Modal div
-           
-            
-
             modalDiv.click(function(e) {
                 if (e.target !== this) {
                     return;
