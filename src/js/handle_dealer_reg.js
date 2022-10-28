@@ -1,5 +1,6 @@
 /**
  * @NApiVersion 2.1
+ * @NModuleScope Public
  * @NScriptType Suitelet
  */
 
@@ -42,7 +43,7 @@
 
  */
 
-define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
+define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, record, file) {
 
   var responseObj = {
     success: false,
@@ -50,7 +51,13 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
   };
 
   function onRequest(context) {
-    handleGetRequest(context);
+    if (context.request.method === 'GET') {
+      // Our Suitelet design code is in here
+      handleGetRequest(context);
+    } else if (context.request.method === 'POST') {
+      log.debug("Suitelet is posting.")
+    }
+   
   }
 
   function handleGetRequest(context) {
@@ -71,6 +78,10 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
         title: "Last Name",
         details: lastname
       })
+
+      // full name
+      var fullName = firstname + " " + lastname;
+
       var companyname = params["company"];
       log.debug({
         title: "Company Name",
@@ -132,6 +143,7 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
         details: message
       })
       var businessLicense = params["businessLicense"];
+      
       log.debug({
         title: "Business License",
         details: businessLicense
@@ -174,6 +186,7 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
             fieldId: 'lastname',
             value: lastname
           });
+          
           lead.setValue({
             fieldId: 'companyname',
             value: companyname
@@ -248,22 +261,49 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
           
           // Use suitescript 2 to upload the business license file
           // https://stackoverflow.com/questions/46954507/in-netsuite-with-suitescript-2-0-unable-to-send-a-file-with-http-post-request-wi
+          // Business Licenses folder id 54320
 
-          // var fileObj = file.load({
-          //   id: businessLicense
-          // });
+          var businessLicenseFile = params['businessLicense'];
           // var businessLicenseFile = context.request.getFile({
           //   id: 'businessLicense'
           // });
-          // var fileObj = file.create({
-          //   name: businessLicenseFile.name,
-          //   fileType: file.Type.PLAINTEXT,
-          //   contents: businessLicenseFile.getContents()
-          // });
-          // lead.setValue({
-          //   fieldId: 'custentity_business_license',
-          //   value: fileObj
-          // });
+
+          // log outputs the file name
+          log.debug({
+            title: 'File Name',
+            details: businessLicenseFile
+          });
+          
+          var fileRequest = {
+            name: fullName + '.pdf',
+            fileType: file.Type.PDF,
+            contents: 'test',
+            description: fullName + ' Business License',
+            encoding: file.Encoding.UTF8,
+            folder: 54320,
+            isOnline: true
+          };
+
+          try {
+            var resultingFile = file.create(fileRequest);
+          }
+          catch (ex) {
+            debugger;
+          }
+
+          var fileId = resultingFile.save();
+
+          // log outputs the file id
+          log.debug({
+            title: 'File ID',
+            details: fileId
+          });
+
+          lead.setValue({
+            fieldId: 'custentity_business_license',
+            value: fileId
+          });
+          
 
           // Save the lead record
           var leadId = lead.save();
@@ -337,21 +377,6 @@ define(['N/https', 'N/search', 'N/record'], function (https, search, record) {
     }
 
   }// End of searchCustomer function
-
-  // function attachfile(recType, recId, recTypeTo, recIdTo) {
-  //   record.attach({
-  //     record: {
-  //       type: recType,
-  //       id: recId
-  //     },
-  //     to: {
-  //       type: recTypeTo,
-  //       id: recIdTo
-  //     }
-  //   });
-
-  //   return true;
-  // }
 
   return {
     onRequest: onRequest

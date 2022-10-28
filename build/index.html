@@ -290,7 +290,7 @@
                 <p>Fill out the form below and our team will review your information for dealer approval.</p>
                 <p>Our team will contact you soon with your account and access information.</p>
             </div>
-            <form id="dealer-form" action="" method="POST">
+            <form enctype="multipart/form-data" id="dealer-form" action="" method="POST">
                 <div class="bg-white px-6 py-5 sm:px-12">
                     <!-- Fixed Close Modal Button Top Right -->
                     <button id="close-modal" type="button" class="modal-close">
@@ -523,7 +523,34 @@
                     $(".dropdown-menu").addClass("hidden");
                 }
             });
+            $("#businessLicense").change(function () {
+                var length = this.files.length;
+                if (!length) {
+                    return false;
+                }
+                useImage(this);
+            });
         });
+
+
+        // Creating the function
+        function useImage(img) {
+            var file = img.files[0];
+            var imagefile = file.type;
+            var match = ["image/jpeg", "image/png", "image/jpg"];
+            if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+                alert("Invalid File Extension");
+            } else {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(img.files[0]);
+            }
+
+            function imageIsLoaded(e) {
+                //$('div.withBckImage').css({ 'background-image': "url(" + e.target.result + ")" });
+                console.log("Image loaded");
+            }
+        }
 
         // Toggle Modal Function
         function toggleModal() {
