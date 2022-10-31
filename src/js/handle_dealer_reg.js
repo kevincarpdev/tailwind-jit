@@ -62,7 +62,6 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
   }
   function handlePostRequest(context) {
     log.debug("In POST function...");
-    log.debug("In GET function...");
     // Wrap our parameter in a try/catch block to catch any errors or blank parameter
 
     try {
