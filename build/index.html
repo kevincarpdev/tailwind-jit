@@ -290,7 +290,7 @@
                 <p>Fill out the form below and our team will review your information for dealer approval.</p>
                 <p>Our team will contact you soon with your account and access information.</p>
             </div>
-            <form enctype="multipart/form-data" id="dealer-form" action="" method="POST">
+            <form enctype="multipart/form-data" id="dealerForm" action="" method="POST">
                 <div class="bg-white px-6 py-5 sm:px-12">
                     <!-- Fixed Close Modal Button Top Right -->
                     <button id="close-modal" type="button" class="modal-close">
@@ -302,13 +302,13 @@
                     </button>
                     <div class="grid grid-cols-6 gap-x-2 gap-y-5">
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="first-name" class="form-label">First name</label>
-                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="form-input" 
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" name="firstName" id="firstName" autocomplete="given-name" class="form-input" 
                             placeholder="First Name:" required>
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="last-name" class="form-label">Last name</label>
-                            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="form-input" 
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" name="lastName" id="lastName" autocomplete="familyName" class="form-input" 
                             placeholder="Last Name:" required>
                         </div>
                         <div class="col-span-6 sm:col-span-3">
@@ -327,18 +327,18 @@
                                 required>
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="email-address" class="form-label">Your Email</label>
-                            <input type="email" name="email" id="email" autocomplete="email" class="form-input"
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="text" name="email" id="email" autocomplete="email" class="form-input"
                                 placeholder="Your Email:" required>
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="company-phone" class="form-label">Company Phone Number</label>
-                            <input type="text" name="company-phone" id="company-phone" autocomplete="tel" class="form-input" placeholder="Company Phone Number:"
+                            <label for="companyPhone" class="form-label">Company Phone Number</label>
+                            <input type="text" name="companyPhone" id="companyPhone" autocomplete="tel" class="form-input" placeholder="Company Phone Number:"
                                 required>
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="sales-tax-id" class="form-label">Sales Tax ID</label>
-                            <input type="text" name="sales-tax-id" id="sales-tax-id" class="form-input"
+                            <label for="salesTaxId" class="form-label">Sales Tax ID</label>
+                            <input type="text" name="salesTaxId" id="salesTaxId" class="form-input"
                                 placeholder="Sales Tax ID:" required>
                         </div>
                         <div class="col-span-6">
@@ -415,8 +415,8 @@
                             placeholder="Zipcode:" required>
                         </div>
                         <div class="col-span-6">
-                            <label for="Company Website" class="form-label">Company Website</label>
-                            <input type="text" name="company-website" id="company-website" autocomplete="website" class="form-input" placeholder="Company Website:" required>
+                            <label for="CompanyWebsite" class="form-label">Company Website</label>
+                            <input type="text" name="companyWebsite" id="companyWebsite" autocomplete="website" class="form-input" placeholder="Company Website:" required>
                         </div>                                
                         <div class="col-span-6">
                             <label for="message" class="form-label">Your Message Here</label>
@@ -569,10 +569,14 @@
         var regURL = "https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088";
 
         // prevent default form submission and listen for submit event using jQuery
-        $("#dealer-form").submit(function (e) {
+        $("#dealerForm").submit(function (e) {
             // set our initial data variable and append the businessLicense imagfe to the body of data in post request
             var data = new FormData();
             data.append('businessLicense', $('#businessLicense')[0].files[0]);
+            // append the rest of the form data to the body of data in post request
+            $.each($('#dealerForm').serializeArray(), function (i, field) {
+                data.append(field.name, field.value);
+            });
 
             // prevent default form submission and listen for submit event using jQuery            
             e.preventDefault();
@@ -584,14 +588,13 @@
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    // if success, clear form and show success message
-                    $("#dealer-form")[0].reset();
-                    $("#dealer-form").hide();
                     //$("#success-message").html(data);
                     console.log(data);
 
                     // If response is success, show success message
                     if (data.success === true) {
+                        // if success, clear form and show success message
+                        $("#dealerForm")[0].reset();
                         alert("Thank you for your interest in becoming a dealer. A member of our staff will reach out to you shortly.");
                         toggleModal();
                     } else {

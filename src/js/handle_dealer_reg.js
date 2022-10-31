@@ -65,89 +65,50 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
     // Wrap our parameter in a try/catch block to catch any errors or blank parameter
 
     try {
-      var params = context.request.parameters;
-
-      // Grab the Parameters from the POST request
-      var firstname = params["firstname"];
+      var body = context.request;
       log.debug({
-        title: "First Name",
-        details: firstname
-      })
-      var lastname = params["lastname"];
-      log.debug({
-        title: "Last Name",
-        details: lastname
-      })
-
-      // full name
-      var fullName = firstname + " " + lastname;
-
-      var companyname = params["company"];
-      log.debug({
-        title: "Company Name",
-        details: companyname
-      })
-      var jobtitle = params["title"];
-      log.debug({
-        title: "Job Title",
-        details: jobtitle
-      })
-      var phone = params["phone"];
-      log.debug({
-        title: "Phone",
-        details: phone
-      })
-      var companyphone = params["companyPhone"];
-      log.debug({
-        title: "Company Phone",
-        details: companyphone
-      })
-      var email = params["email"];
-      log.debug({
-        title: "Email",
-        details: email
-      })
-      var salestaxid = params["salesTaxId"];
-      log.debug({
-        title: "Sales Tax ID",
-        details: salestaxid
-      })
-      var street = params["street"];
-      log.debug({
-        title: "Street Address",
-        details: street
-      })
-      var city = params["city"];
-      log.debug({
-        title: "City",
-        details: city
-      })
-      var state = params["state"];
-      log.debug({
-        title: "State",
-        details: state
-      })
-      var zip = params["zip"];
-      log.debug({
-        title: "Zip",
-        details: zip
-      })
-      var website = params["companyWebsite"];
-      log.debug({
-        title: "Company Website",
-        details: website
-      })
-      var message = params["message"];
-      log.debug({
-        title: "Message",
-        details: message
-      })
-      var businessLicense = params["businessLicense"];
-
-      log.debug({
-        title: "Business License",
-        details: businessLicense
+        title: "Context Request",
+        details: body
       });
+
+      // Get the parameters from the context request body
+      var param = body.parameters;
+      log.debug({
+        title: "Param",
+        details: param
+      });
+
+      // Get First Name
+      var firstName = param.firstName;
+      // Get Last Name
+      var lastName = param.lastName;
+      var fullName = firstName + " " + lastName;
+      // Get Company
+      var company = param.company;
+      // Get Title
+      var title = param.title;
+      // Get Phone
+      var phone = param.phone;
+      // Get Email
+      var email = param.email;
+      // Get Company Phone
+      var companyPhone = param.companyPhone;
+      // Get Sales Tax Id
+      var salesTaxId = param.salesTaxId;
+      // Get Street
+      var street = param.street;
+      // Get City
+      var city = param.city;
+      // Get State
+      var state = param.state;
+      // Get Zip
+      var zip = param.zip;
+      // Get company website
+      var companyWebsite = param.companyWebsite;
+      // Get Message
+      var message = param.message;
+      // Get businessLicense from files
+      var businessLicense = body.files.businessLicense;
 
       // Wrap our main search in a try/catch block to prevent errors from breaking the script
       try {
@@ -181,20 +142,20 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
           // Set the lead values on the record
           lead.setValue({
             fieldId: 'firstname',
-            value: firstname
+            value: firstName
           });
           lead.setValue({
             fieldId: 'lastname',
-            value: lastname
+            value: lastName
           });
 
           lead.setValue({
             fieldId: 'companyname',
-            value: companyname
+            value: company
           });
           lead.setValue({
             fieldId: 'title',
-            value: jobtitle
+            value: title
           });
           lead.setValue({
             fieldId: 'phone',
@@ -206,24 +167,20 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
           });
           lead.setValue({
             fieldId: 'altphone',
-            value: companyphone
+            value: companyPhone
           });
-          // Set Sales Tax ID Field
           lead.setValue({
             fieldId: 'custentity_sales_tax_id',
-            value: salestaxid
+            value: salesTaxId
           });
-          // set web address
           lead.setValue({
             fieldId: 'url',
-            value: website
+            value: companyWebsite
           });
-          // set message
           lead.setValue({
             fieldId: 'custentity_message',
             value: message
           });
-          // set business license
           var currentAddressCount = lead.getLineCount({
             'sublistId': 'addressbook'
           });
@@ -245,7 +202,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
 
           addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'defaultshipping', value: true, ignoreFieldChange: true });
           // Set cyrrentSublistValue for addressee
-          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'addressee', value: firstname + " " + lastname, ignoreFieldChange: true });
+          addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'addressee', value: firstName + " " + lastName, ignoreFieldChange: true });
           // Set CurrentSublistValue for street
           addressSubrecord.setValue({ sublistId: 'addressbook', fieldId: 'addr1', value: street, ignoreFieldChange: true });
           // Set CurrentSublistValue for city
@@ -264,14 +221,12 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
           // https://stackoverflow.com/questions/46954507/in-netsuite-with-suitescript-2-0-unable-to-send-a-file-with-http-post-request-wi
           // Business Licenses folder id 54320
 
-          var businessLicenseFile = params['businessLicense'];
-
           // log outputs the file name
           log.debug({
-            title: 'File Name',
-            details: businessLicenseFile
+            title: 'Business License',
+            details: businessLicense
           });
-          var fileType = businessLicenseFile.type;
+          var fileType = businessLicense.fileType;
           var type = '';
           var ext = '';
           if ((fileType == 'plain') || (fileType == 'PLAIN')) {
@@ -298,7 +253,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
           var fileRequest = {
             name: fullName + ext,
             fileType: file.Type.PNGIMAGE,
-            contents: businessLicenseFile.imgdata,
+            contents: businessLicense.imgdata,
             description: fullName + ' Business License',
             encoding: file.Encoding.UTF8,
             folder: 54320,
@@ -372,9 +327,12 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
         context.response.setHeader("Access-Control-Allow-Origin", "*");
         context.response.setHeader("Content-Type", "application/json");
       }
+     
+
+
 
     } catch (error) {
-      log.error({ title: "Unable to grab customer lead script parameters: \'email\'.", details: error });
+      log.error({ title: "Unable to grab customer lead script parameters:.", details: error });
       responseObj.message = error
       context.response.write(JSON.stringify(responseObj));
       context.response.setHeader("Access-Control-Allow-Origin", "*");
