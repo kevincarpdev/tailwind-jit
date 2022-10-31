@@ -544,6 +544,7 @@
                 var reader = new FileReader();
                 reader.onload = imageIsLoaded;
                 reader.readAsDataURL(img.files[0]);
+                
             }
 
             function imageIsLoaded(e) {
@@ -569,66 +570,50 @@
 
         // prevent default form submission and listen for submit event using jQuery
         $("#dealer-form").submit(function (e) {
+            // set our initial data variable and append the businessLicense imagfe to the body of data in post request
+            var data = new FormData();
+            data.append('businessLicense', $('#businessLicense')[0].files[0]);
+
+            // prevent default form submission and listen for submit event using jQuery            
             e.preventDefault();
-
-            // Form Input Value Variables
-            var firstname = $("#first-name").val();
-            var lastname = $("#last-name").val();
-            var company = $("#company").val();
-            var title = $("#title").val();
-            var phone = $("#phone").val();
-            var email = $("#email").val();
-            var companyPhone = $("#company-phone").val();
-            var salesTaxId = $("#sales-tax-id").val();
-            var street = $("#street").val();
-            var city = $("#city").val();
-            var state = $("#state").val();
-            var zip = $("#zip").val();
-            var companyWebsite = $("#company-website").val();
-            var message = $("#message").val();
-            var businessLicense = $("#businessLicense").val();
-
-            // Submit form via GET request
+            // Submit form via AJAX POST request
             $.ajax({
-                type: "GET",
                 url: regURL,
-                data: {
-                    "firstname": firstname,
-                    "lastname": lastname,
-                    "company": company,
-                    "title": title,
-                    "phone": phone,
-                    "companyPhone": companyPhone,
-                    "email": email,
-                    "salesTaxId": salesTaxId,
-                    "street": street,
-                    "city": city,
-                    "state": state,
-                    "zip": zip,
-                    "companyWebsite": companyWebsite,
-                    "message": message,
-                    "businessLicense": businessLicense
-                },
-                success: function (response) {
-                    console.log(response);
+                type: "POST",
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    // if success, clear form and show success message
+                    $("#dealer-form")[0].reset();
+                    $("#dealer-form").hide();
+                    //$("#success-message").html(data);
+                    console.log(data);
+
                     // If response is success, show success message
-                    if (response.success === true) {
-                       alert("Thank you for your interest in becoming a dealer. A member of our staff will reach out to you shortly.");
-                       toggleModal();
+                    if (data.success === true) {
+                        alert("Thank you for your interest in becoming a dealer. A member of our staff will reach out to you shortly.");
+                        toggleModal();
+                    } else {
+                        // If response is not success, show error message
+                        alert("There was an error submitting your form. Please try again.");
                     }
-                    else if (response.message.type === "error.SuiteScriptError") {
+                    // elese if error suiteScriptError, show error message
+                    if (data.message.type === "error.SuiteScriptError") {
                         console.log("Response from suitelet not successful. error.SuiteScriptError");
-                        alert(response.message.message);
+                        alert(data.message.message);
                     }
                     // If response is not success, show error message
                     else {
-                        console.log("Response from suitelet neither errored or successful");
+                        console.log("Response from suitelet neither errored or successful", response);
                         // display an error message from response.message object
-                        alert(response.message.message);
+                        alert(data.message);
                     }
                 },
-                failure: function (response) {
-                    alert(response);
+                error: function (data) {
+                    // if error, show error message
+                    console.log("Failure.", data);
+                    alert(data.message);
                 }
             });
         });
