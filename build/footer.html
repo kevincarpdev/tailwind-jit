@@ -283,91 +283,37 @@
   </div>
 </div>
 
-<!-- jQuery and jQuery UI libraries -->
-<script src="/site/js/jquery.min.js"></script>
-<script src="/site/js/jquery-ui.min.js"></script>
+<!-- Added To Cart Success Modal -->
+<div class="modal" id="added-to-cart-success" style="display: none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Added to Cart</h2>
+      <button class="modal-close" data-modal-close="added-to-cart-success">
+        <svg class="modal-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-text">
+        <span class="modal-text-bold">Item</span> has been added to your cart.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button class="secondary-btn btn" data-modal-close="added-to-cart-success">Continue Shopping</button>
+      <a href="<NLCARTURL>" class="primary-btn btn">View Cart</a>
+    </div>
+  </div>
 
+<!-- jQuery and jQuery UI libraries -->
+<script src="/site/js/jquery-3.6.1.min.js"></script>
+<script src="/site/js/jquery-ui.min.js"></script>
+<script src="/site/js/slick.min.js"></script>
 <!-- Scripts -->
 <script>
-  const btn = document.querySelector("button.mobile-menu-button");
-  const menu = document.querySelector("#mobile-menu");
-
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
-
-  // Element Variables
-  var modalDiv = $("#modal");
-  var modalToggle = $('#modal-toggle');
-  var closeModal = $('#close-modal');
-  var shopProducts = $('#shopProducts');
-  var myAccount = $('#myAccount');
-  var categoryItem = $('#categoryItem');
-  var modalOverlay = $('#modal-overlay');
-
-  // Document Ready
-  $(document).ready(function () {
-
-    // Toggle Mobile Menu
-    $('#mobile-menu-toggle').click(function () {
-      $('#mobile-menu').toggleClass('hidden');
-    });
-
-    // Toggle Modal, Close modal
-    modalToggle.click(function () {
-      toggleModal();
-    });
-    closeModal.click(function () {
-      toggleModal();
-    });
-
-    // Shop Products Dropdown Menu Item
-    shopProducts.click(function () {
-      $('#dropdown1').toggleClass('hidden');
-    });
-    // My Account Dropdown Menu Item
-    myAccount.click(function () {
-      $('#dropdown2').toggleClass('hidden');
-    });
-
-    // Category drop-left menu item
-    categoryItem.click(function () {
-      $('#rightMenu').toggleClass('hidden');
-    });
-
-    // Close modal if click outside of modal
-    modalOverlay.click(function (e) {
-      if (e.target == this) {
-        toggleModal();
-      }
-    });
-    // If Click  Escape Key Close Modal
-    $(document).keyup(function (e) {
-      if (e.key === "Escape") {
-        toggleModal();
-      }
-    });
-    // if click any part of Modal div
-
-
-
-    modalDiv.click(function (e) {
-      if (e.target !== this) {
-        return;
-      }
-      toggleModal();
-    });
-
-    // Close dropdown menus when click outside
-    $(document).click(function (event) {
-      var clickover = $(event.target);
-      var _opened = $(".dropdown-menu").hasClass("hidden");
-      if (_opened === true && !clickover.hasClass("dropdown-toggle")) {
-        $(".dropdown-menu").addClass("hidden");
-      }
-    });
-  });
-
+    
   // Toggle Modal Function
   function toggleModal() {
     $('#modal').toggleClass('hidden');
@@ -447,6 +393,283 @@
     });
   });
 
+  $(function () {
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector("#mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+    // Element Variables
+    var modalDiv = $("#modal");
+    var modalToggle = $('#modal-toggle');
+    var closeModal = $('#close-modal');
+    var shopProducts = $('#shopProducts');
+    var myAccount = $('#myAccount');
+    var categoryItem = $('#categoryItem');
+    var modalOverlay = $('#modal-overlay');
+
+    // Toggle Mobile Menu
+    $('#mobile-menu-toggle').click(function () {
+      $('#mobile-menu').toggleClass('hidden');
+    });
+
+    // Toggle Modal, Close modal
+    modalToggle.click(function () {
+      toggleModal();
+    });
+    closeModal.click(function () {
+      toggleModal();
+    });
+
+    // Shop Products Dropdown Menu Item
+    shopProducts.click(function () {
+      $('#dropdown1').toggleClass('hidden');
+    });
+    // My Account Dropdown Menu Item
+    myAccount.click(function () {
+      $('#dropdown2').toggleClass('hidden');
+    });
+
+    // Category drop-left menu item
+    categoryItem.click(function () {
+      $('#rightMenu').toggleClass('hidden');
+    });
+
+    // Close modal if click outside of modal
+    modalOverlay.click(function (e) {
+      if (e.target == this) {
+        toggleModal();
+      }
+    });
+    // If Click  Escape Key Close Modal
+    $(document).keyup(function (e) {
+      if (e.key === "Escape") {
+        toggleModal();
+      }
+    });
+    // if click any part of Modal div
+    modalDiv.click(function (e) {
+      if (e.target !== this) {
+        return;
+      }
+      toggleModal();
+    });
+
+    // Close dropdown menus when click outside
+    $(document).click(function (event) {
+      var clickover = $(event.target);
+      var _opened = $(".dropdown-menu").hasClass("hidden");
+      if (_opened === true && !clickover.hasClass("dropdown-toggle")) {
+        $(".dropdown-menu").addClass("hidden");
+      }
+    });
+
+    $(".plusButton").click(function (e) {
+      var plus = $(this).parent().find('.input');
+      var cartItem = $(this).parent().parent().parent().find('.addtocart .cart-item-button');
+      // Get its current value
+      var currentVal = parseInt(plus.val());
+      // If is not undefined
+      if (!isNaN(currentVal)) {
+        // Increment
+        plus.val(currentVal + 1);
+        var cartItemVal = (currentVal + 1);
+        cartItem.attr('data-additems', cartItemVal);
+      } else {
+        // Otherwise put a 0 there
+        plus.val(1);
+        cartItem.attr('data-additems', 1);
+      }
+    });
+    $(".minusButton").click(function (e) {
+      // Stop acting like a button
+      var minus = $(this).parent().find('.input');
+      var cartItem = $(this).parent().parent().parent().find('.addtocart .cart-item-button');
+
+      // Get its current value
+      var currentVal = parseInt(minus.val());
+      // If is not undefined
+      if (!isNaN(currentVal) && currentVal > 1) {
+        // Increment
+        minus.val(currentVal - 1);
+        var cartItemVal = (currentVal - 1);
+        cartItem.attr('data-additems', cartItemVal);
+      } else {
+        // Otherwise put a 0 there
+        minus.val(1);
+        cartItem.attr('data-additems', 1);
+      }
+    });
+    $(".plusButtonDetail").click(function (e) {
+      var plus = $(this).parent().find('.input');
+      var cartItem = $(this).parent().parent().parent().find('.addtocart .cart-item-button');
+      // Get its current value
+      var currentVal = parseInt(plus.val());
+      // If is not undefined
+      if (!isNaN(currentVal)) {
+        // Increment
+        plus.val(currentVal + 1);
+        var cartItemVal = (currentVal + 1);
+        cartItem.attr('data-additems', cartItemVal);
+      } else {
+        // Otherwise put a 0 there
+        plus.val(1);
+        cartItem.attr('data-additems', 1);
+      }
+    });
+    $(".minusButtonDetail").click(function (e) {
+      // Stop acting like a button
+      var minus = $(this).parent().find('.input');
+      var cartItem = $(this).parent().parent().parent().find('.addtocart .cart-item-button');
+
+      // Get its current value
+      var currentVal = parseInt(minus.val());
+      // If is not undefined
+      if (!isNaN(currentVal) && currentVal > 1) {
+        // Increment
+        minus.val(currentVal - 1);
+        var cartItemVal = (currentVal - 1);
+        cartItem.attr('data-additems', cartItemVal);
+      } else {
+        // Otherwise put a 0 there
+        minus.val(1);
+        cartItem.attr('data-additems', 1);
+      }
+    });
+
+    $('#addtocart').on('click', function (event) {
+      event.preventDefault();
+      var button = $(this);
+
+      $("body").css("cursor", "progress");
+
+      //var cartTotal = cartTotalSpan.attr('data-totalitems');
+      var cartItem = $(this).parent().find(".cart-item-button");
+      //var newCartTotal = parseInt(cartTotal) + parseInt(cartItem.attr('data-additems'));
+      button.addClass('sendtocart');
+      $("body").css("cursor", "default");
+      setTimeout(function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+      }, 500);
+
+      $.ajax({
+        cache: false,
+        type: "POST",
+        url: "/app/site/backend/additemtocart.nl?c=5903639&n=1",
+        data: "&buyid=" + $(this).parent().parent().find('.input-group input[name="buyid"]').val() + "&qty=" + $(this).parent().parent().find('.input-group .input').val(),
+        dataType: "HTML",
+        // If Successfull ajax show Added To Cart Modal #added-to-cart-success and go to cart page
+        success: function (data) {
+          console.log("Product Added To Cart", data);
+          $("#added-to-cart-success").show();
+          setTimeout(function () {
+            $("#added-to-cart-success").hide();
+          }, 3000);
+
+        }
+      });
+    });
+
+    $('.related-add-to-cart').on('click', function (event) {
+      event.preventDefault();
+
+      var button = $(this);
+
+      $("body").css("cursor", "progress");
+
+
+      var AddUrl = "&buyid=" + $(this).parent().parent().find('.input-group input[name="buyid"]').val() + "&qty=" + $(this).parent().parent().find('.input-group .input').val()
+
+      if ($(window).width() < 1009) {
+        var cart = $('.cart-icon.mobile-cart');
+        var cartTotalSpan = $('.cart-icon.mobile-cart .cart-total');
+      }
+      else {
+        var cart = $('.cart-icon.desktop-cart');
+        var cartTotalSpan = $('.cart-icon.desktop-cart .cart-total');
+      }
+
+      //var cartTotal = cartTotalSpan.attr('data-totalitems');
+      var cartItem = $(this).parent().find(".cart-item-button");
+      //var newCartTotal = parseInt(cartTotal) + parseInt(cartItem.attr('data-additems'));
+
+      button.addClass('sendtocart');
+      $("body").css("cursor", "default");
+      setTimeout(function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+      }, 500);
+      $.ajax({
+        cache: false,
+        type: "POST",
+        url: "/app/site/backend/additemtocart.nl?c=5903639&n=1",
+        data: AddUrl,
+        dataType: "HTML",
+      });
+    })
+
+
+    // Remove &nbsp; from the .input-group class
+    $('.plus-minus-input').each(function () {
+      console.log("Removing &nbsp; from .input-group");
+      $(this).html($(this).html().replace(/&nbsp;/g, ''));
+    });
+
+    var $carousel = $('#slider');
+
+    $carousel
+      .slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: false,
+        adaptiveHeight: true,
+        asNavFor: '#thumbnail_slider'
+      })
+
+    $('#thumbnail_slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      asNavFor: '#slider',
+      arrows: true,
+      dots: false,
+      centerMode: false,
+      focusOnSelect: true,
+    });
+    // Set #catInfo to a variable
+    var catInfo = $('#catInfo');
+    // Get the text of the H1 element and set that to a variable
+    var catInfoHeader = catInfo.find('h1').text();
+    // Get the text of the P element and set that to a variable
+    var catInfoText = catInfo.find('p').text();
+
+    // Copy over the H1 and P element to the #subpageDetails if the #catInfo element exists
+    if (catInfo.length) {
+      $('#subpageDetails').find('h1').text(catInfoHeader);
+      $('#subpageDetails').find('p').text(catInfoText);
+    }
+    else {
+      // Hide the #subpageHero element entirely
+      $('#subpageHero').hide();
+    }
+    // If click data-modal-close, close the modal
+    $('[data-modal-close]').on('click', function (event) {
+      event.preventDefault();
+      $(this).parents('.modal').hide();
+    });
+  });
+  // On Window Load
+  $(window).on('load', function () {
+    console.log("Window Loaded");
+     // Set var to SVG string
+    var breadcrumbArrowSvg = '<svg class="breadcrumbArrow" width="101" height="7" viewBox="0 0 101 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100.387 4.01321C100.534 3.86677 100.534 3.62933 100.387 3.48288L98.0006 1.0964C97.8542 0.949951 97.6167 0.949951 97.4703 1.0964C97.3238 1.24284 97.3238 1.48028 97.4703 1.62673L99.5916 3.74805L97.4703 5.86937C97.3238 6.01581 97.3238 6.25325 97.4703 6.3997C97.6167 6.54615 97.8542 6.54615 98.0006 6.3997L100.387 4.01321ZM-4.47183e-09 4.12305L100.122 4.12305L100.122 3.37305L4.47183e-09 3.37305L-4.47183e-09 4.12305Z" fill="#030D2B"/></svg>'
+    // Find each occurrence of " > " within the #breadcrumbs div and  Replace each with the SVG above
+    $('#breadcrumbs').html(function (i, html) {
+      console.log("Replacing > with SVG");
+      return html.replace(/ > /g, breadcrumbArrowSvg);
+    });
+  });
 </script>
 
 <!-- END Footer -->

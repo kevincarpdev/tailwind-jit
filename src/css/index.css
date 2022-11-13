@@ -1,11 +1,20 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
 body, p {
   font-family: 'Barlow Condensed', sans-serif;
   @apply text-lg font-normal tracking-normal;
   font-size: 16px;
+}
+#div__body {
+  @apply mt-0;
+}
+body {
+  padding-top: 0 !important;
 }
 h1, h2, h3, h4, h5, h6 {
   @apply font-bold;
@@ -27,6 +36,9 @@ h1 {
 }
 .hero-content p {
   @apply block mt-2 text-2xl max-w-[40ch];
+}
+.hero-content .primary-btn, .hero-content .secondary-btn {
+  @apply px-12 py-3;
 }
 
 /* NAVIGATION */
@@ -81,30 +93,48 @@ h1 {
   @apply flex flex-row flex-wrap items-center hover:bg-[#1a1a72] pr-8 transition-colors duration-300 ease-in-out cursor-pointer normal-case py-2;
 }
 .right-nav-item img {
-  @apply ml-4 mr-4;
+  @apply ml-4 mr-4 max-w-[25px];
 }
 
 /* Buttons */
 .btn {
   @apply px-6 md:px-8 py-2.5 bg-transparent border-2 uppercase tracking-wide transition-colors duration-300 ease-in-out cursor-pointer;
 }
+
 .primary-btn {
-  @apply bg-[#3A3AEE] border-[#3A3AEE] text-white rounded-full hover:bg-[#001270] hover:text-[#FFF] hover:border-[#001270];
+  @apply p-4 bg-[#3D36B1] border-[#3D36B1] text-white rounded-full hover:bg-[#001270] hover:text-[#FFF] hover:border-[#001270];
 }
+
 .secondary-btn {
-  @apply bg-transparent border-[#FFF] rounded-full text-white hover:bg-[#FFF] hover:text-[#3A3AEE] tracking-wide;
+  @apply p-4 bg-transparent border-[#FFF] rounded-full text-white hover:bg-[#FFF] hover:text-[#3D36B1] tracking-wide;
 }
 form .secondary-btn {
-  @apply border-[#6E7383] text-[#6D6D6D] hover:bg-[#6D6D6D] hover:text-[#FFF] py-1;
+  @apply border-[#6E7383] text-[#6D6D6D] hover:bg-[#6D6D6D] hover:text-[#FFF];
   border-width: 1px;
 }
 form .primary-btn {
-  @apply bg-transparent border-[#030D2B] text-[#030D2B] hover:bg-[#3A3AEE] hover:text-[#FFF] py-1;
+  @apply bg-transparent border-[#030D2B] text-[#030D2B] hover:bg-[#3A3AEE] hover:text-[#FFF];
   border-width: 1px;
+}
+#dealer-form .primary-btn, #dealer-form .secondary-btn {
+  @apply py-2;
+}
+.input-group {
+  @apply flex flex-row gap-2 justify-items-center items-center place-items-center my-6;
+}
+
+.input-group #qty {
+  @apply inline text-[#6E7383] text-sm border-[#6E7383] border-2 rounded-full py-2 px-4;
+}
+.product-details form .primary-btn {
+  @apply bg-[#494977] text-white hover:bg-[#001270] hover:text-[#fff];
+}
+.product-details form .secondary-btn {
+  @apply bg-transparent border-[#6E7383] text-[#6D6D6D] hover:bg-[#6D6D6D] hover:text-[#FFF];
 }
 
 /* SiteBuilder Specific */
-#main, .cat-description {
+#main {
   @apply pt-[80px];
 }
 .img-logo {
@@ -195,7 +225,7 @@ footer.footer {
   @apply text-white;
 }
 .modal-inner {
-  @apply  mx-auto bg-white rounded-xl shadow-xl transform transition-all mt-0 sm:mt-24 mb-8 sm:align-middle sm:max-w-4xl sm:w-full relative flex flex-col items-center justify-center pt-12 px-4 pb-20 text-center;
+  @apply mx-auto bg-white rounded-xl shadow-xl transform transition-all mt-0 sm:mt-24 mb-8 sm:align-middle sm:max-w-4xl sm:w-full relative flex flex-col items-center justify-center pt-12 px-4 pb-20 text-center;
 }
 
 /* Modal Headline */
@@ -235,4 +265,185 @@ footer.footer {
 }
 .netsuiteField {
   @apply hidden;
+}
+
+/* Product Listing  PLP template */
+.cat-container {
+  @apply container;
+  background-color: #FAFAFA;
+}
+
+/* Product Detail Page PDP */
+.product {
+  @apply py-36 overflow-hidden px-4;
+}
+.product-image {
+  @apply flex flex-col items-center justify-center w-full lg:w-1/2;
+}
+.product-image img {
+  @apply w-full;  
+}
+.product-description {
+  @apply flex flex-col justify-center w-full lg:w-1/2;
+}
+.price {
+  @apply text-2xl font-bold font-sans mt-4;
+}
+.slick-prev, .slick-next {
+  @apply block rounded-full bg-transparent px-6 text-[#292E43] py-2 transition-all hover:bg-[#292E43] hover:border-[#292E43] hover:text-white focus:outline-none;
+  border: 1px solid #292E43;
+  text-indent: -999999px;
+}
+.slick-prev:before, .slick-next:before {
+  @apply text-white;
+}
+.slick-prev {
+  background: url('/img/LeftArrow.png') no-repeat center center;
+}
+.slick-next {
+  background: url('/img/RightArrow.png') no-repeat center center;
+}
+
+#subpageNav {
+  @apply bg-[#2828B2];
+}
+#subpageNav .nav-item {
+  @apply text-white;
+}
+.img-logo {
+  max-width: 140px;
+}
+.slick-track {
+  max-width: 100%;
+}
+.item-slick.slick-slide.slick-current.slick-active {
+	outline: none!important  
+}
+
+#slider {
+  margin-bottom: 15px;
+}
+
+#thumbnail_slider .item-slick {
+  max-width: 240px;
+  outline: #B2B5BE;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* #thumbnail_slider .item-slick img {
+  max-width: 100%;
+  background-size: cover;
+  background-position: center; 
+} */
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 50;
+  margin-top: -12px; 
+}
+
+.slick-prev {
+  left: 0;
+}
+
+.slick-next {
+  right: 0; 
+}
+.thumbnail-item.slick-slide {
+  height: auto !important;
+}
+/* PLP */
+
+/* Hero black 20% transparent black background, white text, background image */
+.hero {
+  @apply relative flex flex-col items-start justify-center bg-black bg-opacity-20 text-white;
+  background-image: url('https://shop.swimlinedistributorsinc.com/site/subpageBg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
+#subpageDetails {
+  @apply container px-4 lg:px-0 py-7 mx-auto lg:flex-row;
+}
+.bg-secondary {
+  @apply bg-[#2828B2];
+}
+.container {
+  @apply container mx-auto max-w-2xl lg:flex-row bg-[#FAFAFA] p-0;
+  margin-top: -40px;
+}
+.cat-description {
+  @apply text-center py-12;
+}
+.cat-description h1 {
+  @apply text-[#030D2B] text-xl font-bold mb-2;
+}
+.category-list {
+  @apply block container mx-auto px-8 lg:p-0;
+}
+.category-list tr[valign="top"][height="85"] {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-y-8 gap-x-4 h-auto;
+  max-width: 100%;
+}
+/* Product Cell */
+.product-cell {
+  @apply flex flex-col items-center justify-between bg-white rounded-lg p-4 mb-4 text-center;
+}
+.product-cell h4 {
+  @apply text-[#030D2B] text-sm font-bold leading-tight;
+}
+/* AddToCart Button with darken hover effect */
+.product-cell .addtocart {
+  @apply bg-[#2828B2] text-white font-bold py-2 px-4 rounded-full transition-all hover:bg-[#3A3AEE] focus:outline-none uppercase;
+  font-size: 1rem;
+}
+.price {
+  @apply text-[#030D2B] text-sm font-bold mb-0;
+}
+.product-cell .product-image {
+  @apply lg:w-full my-4;
+}
+
+/* Mobile Menu */
+.mobile-menu-button {
+  @apply block lg:hidden text-white text-2xl font-bold text-center py-4 px-4 hover:text-[#030D2B] focus:outline-none;
+}
+#subpageNav svg {
+  @apply text-white;
+}
+.mobile-nav-item {
+  @apply text-white hover:text-[#030D2B];
+}
+
+/* Fixes to make the subsequent td, table, and tbody all centered and the right display types  */
+.category-list > td, .category-list > table, .category-list > tbody {
+  @apply block mx-auto;
+}
+
+/* PDP */
+.productGrid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-4;
+}
+.modal-content {
+  @apply text-white
+}
+.slick-initialized .slick-slide {
+  @apply inline-block;
+}
+
+/* Specifications Table */
+#specsTable {
+  @apply grid grid-cols-1 lg:grid-cols-2;
+}
+.specRow {
+  @apply flex flex-row odd:bg-[#FAFAFA] even:bg-[#F2F2F2] py-3;
+}
+.specHeader {
+  @apply font-bold text-lg;
+}
+.specValue {
+  @apply text-lg;
 }

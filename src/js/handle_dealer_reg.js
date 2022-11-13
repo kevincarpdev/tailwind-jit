@@ -253,7 +253,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
           var fileRequest = {
             name: fullName + ext,
             fileType: file.Type.PNGIMAGE,
-            contents: businessLicense.imgdata,
+            contents: businessLicense,
             description: fullName + ' Business License',
             encoding: file.Encoding.UTF8,
             folder: 54320,

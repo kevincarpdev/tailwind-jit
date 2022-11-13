@@ -16,12 +16,17 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
     <link rel="stylesheet" href="./css/new-styles.css">
+
     <!-- preload and load jquery -->
-    <script src="./js/jquery-3.6.1.min.js"></script>
+    <!-- <script src="./js/jquery-3.6.1.min.js"></script> -->
+    
 </head>
 
 <body>
@@ -32,12 +37,12 @@
     </style>
     <!-- Navigation -->
     <div class="nav-margin">
-        <nav class="nav-wrapper">
+        <nav id="subpageNav" class="nav-wrapper">
             <div class="flex h-16 items-center justify-between w-full">
                 <div class="flex items-center w-full" style="justify-content: inherit;">
                     <div class="flex-shrink-0">
                         <a class="nav-logo" href="/">
-                            <img class="img-logo" src="http://dev.swimlineinc.com/site/logo.png" alt="Swimline Inc">
+                            <img class="img-logo" src="http://dev.swimlineinc.com/site/white_logo.png" alt="Swimline Inc">
                         </a>
                     </div>
                     <div class="hidden md:block justify-self-end">
@@ -50,51 +55,50 @@
                             <a href="/About/Terms-Conditions.html" class="nav-item">Contact Us</a>
                             <div id="shopProducts" class="nav-item dropdown-toggle">
                                 Shop Products
-                                <div 
-                                    id="dropdown1"
-                                    class="dropdown-menu hidden"
-                                    role="menu" 
-                                    aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1"
-                                >
-                                <div class="nav-item-container">
-                                    <div class="nav-dropdown-items">
-                                        <a id="categoryItem" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-0">
-                                            Categories
-                                        </a>
-
-                                        <a href="#" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-1">
-                                            Terms & Conditions
-                                        </a>
-
-                                        <a href="#" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-2">
-                                            Privacy Policy
-                                        </a>
+                                <div id="dropdown1" class="dropdown-menu hidden" role="menu" aria-orientation="vertical"
+                                    aria-labelledby="user-menu-button" tabindex="-1">
+                                    <div class="nav-item-container">
+                                        <div class="nav-dropdown-items">
+                                            <a id="categoryItem" class="dropdown-item" role="menuitem" tabindex="-1"
+                                                id="user-menu-item-0">
+                                                Categories
+                                            </a>
+    
+                                            <a href="#" class="dropdown-item" role="menuitem" tabindex="-1"
+                                                id="user-menu-item-1">
+                                                Terms & Conditions
+                                            </a>
+    
+                                            <a href="#" class="dropdown-item" role="menuitem" tabindex="-1"
+                                                id="user-menu-item-2">
+                                                Privacy Policy
+                                            </a>
+                                        </div>
+                                        <div id="rightMenu" class="right-menu">
+                                            <div class="right-nav-item">
+                                                <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
+                                                <a class="right-nav-item-text" href="#">Pumps</a>
+                                            </div>
+                                            <div class="right-nav-item">
+                                                <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
+                                                <a class="right-nav-item-text" href="#">Heaters</a>
+                                            </div>
+                                            <div class="right-nav-item">
+                                                <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
+                                                <a class="right-nav-item-text" href="#">Brands</a>
+                                            </div>
+                                            <div class="right-nav-item">
+                                                <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
+                                                <a class="right-nav-item-text" href="#">Heaters</a>
+                                            </div>
+                                            <div class="right-nav-item">
+                                                <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
+                                                <a class="right-nav-item-text" href="#">Lights</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div id="rightMenu" class="right-menu">
-                                        <div class="right-nav-item">
-                                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                                            <a class="right-nav-item-text" href="#">Pumps</a>
-                                        </div>
-                                        <div class="right-nav-item">
-                                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                                            <a class="right-nav-item-text" href="#">Heaters</a>
-                                        </div>
-                                        <div class="right-nav-item">
-                                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                                            <a class="right-nav-item-text" href="#">Brands</a>
-                                        </div>
-                                        <div class="right-nav-item">
-                                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                                            <a class="right-nav-item-text" href="#">Heaters</a>
-                                        </div>
-                                        <div class="right-nav-item">
-                                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                                            <a class="right-nav-item-text" href="#">Lights</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                    
-                                    
+    
+    
                                 </div>
                             </div>
                             <div id="myAccount" class="nav-item dropdown-toggle">
@@ -104,14 +108,19 @@
                                     <a href="#" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-0">
                                         Sign Out
                                     </a>
-                            
+    
                                     <a href="#" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-1">
                                         Account Settings
                                     </a>
                                     <a href="#" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-2">
                                         My Account
                                     </a>
-                                    
+                                    <a href="<NLCARTURL>" class="button btn-gray cart-icon mobile-cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        CART
+                                        <span class="cart-total" data-totalitems="<NLCARTITEMCOUNT>"></span>
+                                    </a>
+    
                                 </div>
                             </div>
                         </div>
@@ -119,8 +128,9 @@
                 </div>
                 <div class="-mr-2 flex lg:hidden">
                     <button class="outline-none mobile-menu-button">
-                        <svg class="w-8 h-8 text-gray-500 hover:text-[#3A3AEE]" x-show="!showMenu" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="w-8 h-8 text-gray-500 hover:text-[#3A3AEE]" x-show="!showMenu" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
@@ -137,25 +147,835 @@
                     <a href="#" class="mobile-nav-item">Faqs</a>
                     <a href="<NLCUSTOMERCENTERURL>" class="mobile-nav-item">My Account</a>
                 </div>
-                
+    
             </div>
-        </nav>
+    </div>
     </div>
 
-    <!-- Hero -->
-    <div class="hero">
-        <div class="hero-image"></div>    
-        <div class="hero-content">
-            <h1>Welcome to Swimline Distributors INC</h1>
-            <p>Swimline is one of the oldest independently owned swimming pool distributors in the country.</p>
-            <div class="button-wrapper">
-                <a class="primary-btn btn" href="/pool-equipment/">Shop Products</a>
-                <a id="modal-toggle" class="secondary-btn btn">Become A Dealer</a>
-            </div>
+    <!-- Shop Equipment Body -->
+    
+    <div id="div__body" style="margin: 0px;  margin-top: 3px;">
+        &nbsp;
+        <div class="container">
         </div>
+        <table border="0" cellspacing="0" cellpadding="0" width="100%" id="__enclosingtable" role="presentation">
+            <tbody>
+                <tr></tr>
+                <tr class="portletHandle" id="handle_itemMainPortlet">
+                    <td width="100%" height="0" align="left" valign="top">
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td width="0" height="0" align="left" valign="top" style="display:none">
+                                        <form method="post" name="form0" id="form0" action="/s.nl">
+                                            <input type="hidden" name="c" value="5903639">
+                                            <input type="hidden" name="n" value="1">
+                                            <input type="hidden" name="sc" value="26">
+                                            <input type="hidden" name="category" value="-126">
+                                            <input type="hidden" name="id" value="">
+                                            <input type="hidden" name="it" value="A">
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" width="100%">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                            <tbody>
+                                                <tr valign="top">
+                                                    <!-- START ITEMLIST LIST TEMPLATE -->
+                                    
+                                                    <td class="container">
+                                    
+                                                        <!-- start header of category : header information that displays the top header of this category -->
+                                    
+                                                        <div class="cat-description">
+                                                            <h1>Pumps</h1>
+                                                            <p>Pool pumps for inground, vinyl and fiberglass swimming pools.</p>
+                                                        </div>
+                                    
+                                                        <!-- end header of category-->
+                                    
+                                    
+                                                        <!--start process the list of items -->
+                                    
+                                                        <!-- [this is the list of the items showing the general layout of   the list : the cell template is defined in 'item-cell-template'] -->
+                                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                                            <tbody>
+                                                                <tr class="category-list">
+                                                                    <td colspan="2">
+                                                                        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+                                                                            <tbody>
+                                                                                <tr valign="top" height="85">
+                                                                                    <form method="post" name="form5358" id="form5358"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory5358();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Hayward-Super-Pump-1-HP.html">
+                                                                                            <h4>HAYWARD SUPER PUMP 1 HP P/N SP2607X10</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Hayward-Super-Pump-1-HP.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/SP2607X10-Super-Pump-Image_2.jpg"
+                                                                                                    alt="HAYWARD SUPER PUMP 1 HP  P/N SP2607X10"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        HAYWARD SUPER PUMP 1 HP
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$546.73</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="5358"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory5358() { if (document.forms['form5358'].amount) { var amt = document.forms['form5358'].amount; var max_amt = document.forms['form5358'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3412" id="form3412"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3412();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Pentair-Intelliflo-Vsf-Pump.html">
+                                                                                            <h4>Pentair Intelliflo Vsf Pump P/N 2770</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Pentair-Intelliflo-Vsf-Pump.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="https://via.placeholder.com/225/f9fafb/000000/?text=No+Image"
+                                                                                                    alt="Pentair Intelliflo Vsf Pump  P/N 2770"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Pentair Intelliflo Vsf Pump
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$1,650.93</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3412"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3412() { if (document.forms['form3412'].amount) { var amt = document.forms['form3412'].amount; var max_amt = document.forms['form3412'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3414" id="form3414"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3414();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/1-2-Hp-Whisperflo-P-N-2782.html">
+                                                                                            <h4>1/2 Hp Whisperflo P/N 2782</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/1-2-Hp-Whisperflo-P-N-2782.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5092&amp;c=5903639&amp;h=nm2zRHoqdgQ0nS0qm3F1qMss2Et0BsOYfbtWrgmd566Fj6DD"
+                                                                                                    alt="1/2 Hp Whisperflo  P/N 2782"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        1/2 Hp Whisperflo
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$805.31</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3414"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3414() { if (document.forms['form3414'].amount) { var amt = document.forms['form3414'].amount; var max_amt = document.forms['form3414'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3415" id="form3415"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3415();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/3-4-Hp-Whisperflo-P-N-2784.html">
+                                                                                            <h4>3/4 Hp Whisperflo P/N 2784</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/3-4-Hp-Whisperflo-P-N-2784.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5040&amp;c=5903639&amp;h=LUHQ3b6tpvHvoO9m7Elh0o3atKCHTwKyrIwesWH6rvIf5t27"
+                                                                                                    alt="3/4 Hp Whisperflo  P/N 2784"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        3/4 Hp Whisperflo
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$638.91</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3415"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3415() { if (document.forms['form3415'].amount) { var amt = document.forms['form3415'].amount; var max_amt = document.forms['form3415'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                </tr>
+                                                                                <tr valign="top" height="85">
+                                                                                    <form method="post" name="form3420" id="form3420"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3420();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Challenger-Pump-1-2-Hp-Full-P-N-2810.html">
+                                                                                            <h4>Challenger Pump 1/2 Hp Full P/N 2810</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Challenger-Pump-1-2-Hp-Full-P-N-2810.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=4992&amp;c=5903639&amp;h=4VK8QU9IUSwptI6UeUEP68H4xzYaPtH7IPK8gbmrdIV53EL-"
+                                                                                                    alt="Challenger Pump 1/2 Hp Full  P/N 2810"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Challenger Pump 1/2 Hp Full
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$597.98</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3420"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3420() { if (document.forms['form3420'].amount) { var amt = document.forms['form3420'].amount; var max_amt = document.forms['form3420'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3421" id="form3421"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3421();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Challenger-Pump-3-4-Hp-Full-P-N-2811.html">
+                                                                                            <h4>Challenger Pump 3/4 Hp Full P/N 2811</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Challenger-Pump-3-4-Hp-Full-P-N-2811.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5034&amp;c=5903639&amp;h=IjqONfSEbFIxRBjg3y59JubWHarbtn56ctpbH1k_1831Ujl3"
+                                                                                                    alt="Challenger Pump 3/4 Hp Full  P/N 2811"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Challenger Pump 3/4 Hp Full
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$653.36</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3421"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3421() { if (document.forms['form3421'].amount) { var amt = document.forms['form3421'].amount; var max_amt = document.forms['form3421'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3490" id="form3490"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3490();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Purex-Ch-75-Pump-7-1-2-H-P-N-2925.html">
+                                                                                            <h4>2925</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Purex-Ch-75-Pump-7-1-2-H-P-N-2925.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="https://via.placeholder.com/225/f9fafb/000000/?text=No+Image"
+                                                                                                    alt="2925"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                    
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$8,923.46</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3490"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3490() { if (document.forms['form3490'].amount) { var amt = document.forms['form3490'].amount; var max_amt = document.forms['form3490'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3450" id="form3450"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3450();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Purex-Chk-100-Pump-10-Hp-3-Ph-P-N-2930.html">
+                                                                                            <h4>Purex Chk 100 Pump 10 Hp 3 Ph P/N 2930</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Purex-Chk-100-Pump-10-Hp-3-Ph-P-N-2930.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="https://via.placeholder.com/225/f9fafb/000000/?text=No+Image"
+                                                                                                    alt="Purex Chk 100 Pump 10 Hp 3 Ph  P/N 2930"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Purex Chk 100 Pump 10 Hp 3 Ph
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$9,437.08</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3450"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3450() { if (document.forms['form3450'].amount) { var amt = document.forms['form3450'].amount; var max_amt = document.forms['form3450'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                </tr>
+                                                                                <tr valign="top" height="85">
+                                                                                    <form method="post" name="form3491" id="form3491"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3491();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Purex-Chk-150-Pump-15-Hp-3-Ph-P-N-2940.html">
+                                                                                            <h4>Purex Chk 150 Pump 15 Hp 3 Ph P/N 2940</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Purex-Chk-150-Pump-15-Hp-3-Ph-P-N-2940.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="https://via.placeholder.com/225/f9fafb/000000/?text=No+Image"
+                                                                                                    alt="Purex Chk 150 Pump 15 Hp 3 Ph  P/N 2940"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Purex Chk 150 Pump 15 Hp 3 Ph
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$7,905.00</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3491"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3491() { if (document.forms['form3491'].amount) { var amt = document.forms['form3491'].amount; var max_amt = document.forms['form3491'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3492" id="form3492"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3492();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Pentair-C-Series-20-Hp-Pump-P-N-2950.html">
+                                                                                            <h4>Pentair C Series 20 Hp Pump P/N 2950</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Pentair-C-Series-20-Hp-Pump-P-N-2950.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="https://via.placeholder.com/225/f9fafb/000000/?text=No+Image"
+                                                                                                    alt="Pentair C Series 20 Hp Pump  P/N 2950"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Pentair C Series 20 Hp Pump
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$6,606.94</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3492"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3492() { if (document.forms['form3492'].amount) { var amt = document.forms['form3492'].amount; var max_amt = document.forms['form3492'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3452" id="form3452"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3452();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-500-Pump-5Hp-3Ph-P-N-2954.html">
+                                                                                            <h4>Pentair Eq 500 Pump 5Hp 3Ph P/N 2954</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-500-Pump-5Hp-3Ph-P-N-2954.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5000&amp;c=5903639&amp;h=yrQm7FMIpg7vzCpxaQ7QKLdhxaNbSuK6ppxps-TjGh1SJLuu"
+                                                                                                    alt="Pentair Eq 500 Pump 5Hp 3Ph  P/N 2954"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Pentair Eq 500 Pump 5Hp 3Ph
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$6,106.43</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3452"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3452() { if (document.forms['form3452'].amount) { var amt = document.forms['form3452'].amount; var max_amt = document.forms['form3452'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3494" id="form3494"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3494();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-750-Pump-7.5-Hp-1Ph-P-N-2956">
+                                                                                            <h4>Pentair Eq 750 Pump 7.5 Hp 1Ph P/N 2956</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-750-Pump-7.5-Hp-1Ph-P-N-2956">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5075&amp;c=5903639&amp;h=qkpy1_M4TdsF-aKL3BUpLBRcxTeCbharg0dMQ9SGxOC7xMLB"
+                                                                                                    alt="Pentair Eq 750 Pump 7.5 Hp 1Ph  P/N 2956"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Pentair Eq 750 Pump 7.5 Hp 1Ph
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$6,567.69</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3494"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3494() { if (document.forms['form3494'].amount) { var amt = document.forms['form3494'].amount; var max_amt = document.forms['form3494'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                </tr>
+                                                                                <tr valign="top" height="85">
+                                                                                    <form method="post" name="form3495" id="form3495"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3495();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-750-Pump-7.5-Hp-3Ph-P-N-2958">
+                                                                                            <h4>Pentair Eq 750 Pump 7.5 Hp 3Ph P/N 2958</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-750-Pump-7.5-Hp-3Ph-P-N-2958">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5058&amp;c=5903639&amp;h=FcSXtOJSASd9WPyI0mWXSXoNoIA-UL-n9z2mS-Wzq2NL8kMb"
+                                                                                                    alt="Pentair Eq 750 Pump 7.5 Hp 3Ph  P/N 2958"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Pentair Eq 750 Pump 7.5 Hp 3Ph
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$6,370.13</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3495"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3495() { if (document.forms['form3495'].amount) { var amt = document.forms['form3495'].amount; var max_amt = document.forms['form3495'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3496" id="form3496"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3496();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-1000-Pump-10Hp-3Ph-P-N-2960.html">
+                                                                                            <h4>Pentair Eq 1000 Pump 10Hp 3Ph P/N 2960</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-1000-Pump-10Hp-3Ph-P-N-2960.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5025&amp;c=5903639&amp;h=fZHKJ_4ui7EP8Dqw_aQi8toj731b4qHV1fIepEvjnCf9ZgB0"
+                                                                                                    alt="Pentair Eq 1000 Pump 10Hp 3Ph  P/N 2960"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Pentair Eq 1000 Pump 10Hp 3Ph
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$7,096.90</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3496"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3496() { if (document.forms['form3496'].amount) { var amt = document.forms['form3496'].amount; var max_amt = document.forms['form3496'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form3497" id="form3497"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory3497();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-1500-Pump-15Hp-3Ph-P-N-2962.html">
+                                                                                            <h4>Pentair Eq 1500 Pump 15Hp 3Ph P/N 2962</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Pentair-Eq-1500-Pump-15Hp-3Ph-P-N-2962.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5084&amp;c=5903639&amp;h=0t-KrAETUpr5bqKycs2PaCgT2fnl5bgJSc83-ksZeuSz-w1t"
+                                                                                                    alt="Pentair Eq 1500 Pump 15Hp 3Ph  P/N 2962"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Pentair Eq 1500 Pump 15Hp 3Ph
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$7,411.79</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="3497"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory3497() { if (document.forms['form3497'].amount) { var amt = document.forms['form3497'].amount; var max_amt = document.forms['form3497'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                    <form method="post" name="form590" id="form590"
+                                                                                        action="/app/site/backend/additemtocart.nl?c=5903639&amp;n=1"
+                                                                                        onsubmit="return checkmandatory590();"></form>
+                                    
+                                    
+                                                                                    <!-- START ITEM CELL TEMPLATE -->
+                                    
+                                                                                    <td class="product-cell cell">
+                                                                                        <a class="product-title text-primary font-medium hover:text-black"
+                                                                                            href="/pool-equipment/pumps_swimming_pool/Pentair-Clean-Clear-75-P-N-8540.html">
+                                                                                            <h4>Clean and Clear® Pool Cartridge Filters - TradeGrade</h4>
+                                                                                        </a>
+                                                                                        <div class="product-image text-center">
+                                                                                            <a
+                                                                                                href="/pool-equipment/pumps_swimming_pool/Pentair-Clean-Clear-75-P-N-8540.html">
+                                                                                                <img class="hover:opacity-70"
+                                                                                                    src="/core/media/media.nl?id=5011&amp;c=5903639&amp;h=9egRjr40pWu1_eoLCzD8Yql7prdsGm-DAV0JsD6cv2wzzRyN"
+                                                                                                    alt="Clean and Clear® Pool Cartridge Filters - TradeGrade"
+                                                                                                    onerror="this.onerror=null;this.src='https://via.placeholder.com/225/f9fafb/000000/?text=No+Image';">
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        Clean and Clear® Pool Cartridge Filters - TradeGrade
+                                                                                        <div class="product-addtocart">
+                                                                                            <span class="price">$270.65</span>
+                                                                                            <div class="input-group">
+                                                                                                <input type="hidden" name="buyid" id="buyid"
+                                                                                                    value="590"><input type="hidden" name="category"
+                                                                                                    value="30513"><input type="hidden" name="itemid"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <button type="button"
+                                                                                                class="addtocart mt-4 w-full bg-secondary border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondaryHover"
+                                                                                                name="addtocart" onclick="event.preventDefault()">
+                                                                                                Add To Cart
+                                                                                                <span class="cart-item-button" data-additems="1"></span>
+                                                                                            </button>
+                                                                                            <script language="JavaScript"
+                                                                                                type="text/javascript">NS.form.setValid(true); function checkmandatory590() { if (document.forms['form590'].amount) { var amt = document.forms['form590'].amount; var max_amt = document.forms['form590'].max_amount; if (!validate_field(amt, 'poscurrency', true, false, null, null, true, null)) return false; if (max_amt.value > 0.00 && parseFloat(amt.value) > parseFloat(max_amt.value)) { alert('Invalid amount (exceeds maximum allowed)'); return false; } if (amt.value < 0.01) { alert('Invalid number (must be greater than 0).'); return false; } } return NS.form.isValid() ? true : false; }</script>
+                                                                                        </div>
+                                                                                    </td>
+                                    
+                                                                                    <!-- END ITEM CELL TEMPLATE -->
+                                    
+                                    
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                    
+                                    
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="cat-description">
+                                                            <p>We stock pool pumps using the latest technology from Pentair, Zodiac and Hayward.</p>
+                                                        </div>
+                                                        <!--end  process the list of items -->
+                                                    </td>
+                                                    <!-- END ITEM LIST LIST TEMPLATE -->
+                                    
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td align="center">
+                                                        <table align="center" cellpadding="0" cellspacing="0" border="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width="100%">
+                                                                        <table align="center" cellpadding="5" cellspacing="3" border="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td nowrap="" class="medtext">Results 1-16 of 20</td>
+                                                                                    <td><img src="/images/nav/prev_dim.gif" width="15" height="15"
+                                                                                            border="0" alt="" align="absmiddle"></td>
+                                                                                    <td align="center" valign="top" class="bglt medtextbold">1</td>
+                                                                                    <td align="center" valign="top" class="medtext"><a
+                                                                                            href="/pool-equipment/pumps_swimming_pool/?range=17%2C20%2C20">2</a>
+                                                                                    </td>
+                                                                                    <td><a href="/pool-equipment/pumps_swimming_pool/?range=17%2C20%2C20"><img
+                                                                                                src="/images/nav/next.gif?v=2022.2" width="15" height="15"
+                                                                                                border="0" alt="" align="absmiddle"></a></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
     </div>
-
-
 
     <!-- START Footer -->
     <footer class="footer">
@@ -445,17 +1265,16 @@
     </div>
 
     <!-- jQuery and jQuery UI libraries -->
-    <script src="/site/js/jquery.min.js"></script>
-    <script src="/site/js/jquery-ui.min.js"></script>
+    <script src="https://shop.swimlinedistributorsinc.com/site/js/jquery-3.6.1.min.js"></script>
+    <script src="https://shop.swimlinedistributorsinc.com/site/js/jquery-ui-min.js"></script>
+    <script src="https://shop.swimlinedistributorsinc.com/site/js/slick.min.js"></script>
     
-    <!-- Scripts -->
-    <script>
-        const btn = document.querySelector("button.mobile-menu-button");
-        const menu = document.querySelector("#mobile-menu");
+   <!-- Scripts -->
+<script>
 
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
+    
+    // Document Ready
+    $(document).ready(function () {
 
         // Element Variables
         var modalDiv = $("#modal");
@@ -466,164 +1285,310 @@
         var categoryItem = $('#categoryItem');
         var modalOverlay = $('#modal-overlay');
 
-        // Document Ready
-        $(document).ready(function() {
-
-            // Toggle Mobile Menu
-            $('#mobile-menu-toggle').click(function() {
-                $('#mobile-menu').toggleClass('hidden');
-            });
-
-            // Toggle Modal, Close modal
-            modalToggle.click(function() {
-                toggleModal();
-            });
-            closeModal.click(function() {
-                toggleModal();
-            });
-
-            // Shop Products Dropdown Menu Item
-            shopProducts.click(function() {
-                $('#dropdown1').toggleClass('hidden');
-            });
-            // My Account Dropdown Menu Item
-            myAccount.click(function() {
-                $('#dropdown2').toggleClass('hidden');
-            });
-            
-            // Category drop-left menu item
-            categoryItem.click(function() {
-                $('#rightMenu').toggleClass('hidden');
-            });
-
-            // Close modal if click outside of modal
-            modalOverlay.click(function (e) {
-                if (e.target == this) {
-                    toggleModal();
-                }
-            });
-            // If Click  Escape Key Close Modal
-            $(document).keyup(function(e) {
-                if (e.key === "Escape") {
-                    toggleModal();
-                }
-            });
-            modalDiv.click(function(e) {
-                if (e.target !== this) {
-                    return;
-                }
-                toggleModal();
-            });
-
-            // Close dropdown menus when click outside
-            $(document).click(function (event) {
-                var clickover = $(event.target);
-                var _opened = $(".dropdown-menu").hasClass("hidden");
-                if (_opened === true && !clickover.hasClass("dropdown-toggle")) {
-                    $(".dropdown-menu").addClass("hidden");
-                }
-            });
-            $("#businessLicense").change(function () {
-                var length = this.files.length;
-                if (!length) {
-                    return false;
-                }
-                useImage(this);
-            });
+        // Toggle Mobile Menu
+        $('#mobile-menu-toggle').click(function () {
+            $('#mobile-menu').toggleClass('hidden');
         });
 
+        // Toggle Modal, Close modal
+        modalToggle.click(function () {
+            toggleModal();
+        });
+        closeModal.click(function () {
+            toggleModal();
+        });
 
-        // Creating the function
-        function useImage(img) {
-            var file = img.files[0];
-            var imagefile = file.type;
-            var match = ["image/jpeg", "image/png", "image/jpg"];
-            if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
-                alert("Invalid File Extension");
+        // Shop Products Dropdown Menu Item
+        shopProducts.click(function () {
+            $('#dropdown1').toggleClass('hidden');
+        });
+        // My Account Dropdown Menu Item
+        myAccount.click(function () {
+            $('#dropdown2').toggleClass('hidden');
+        });
+
+        // Category drop-left menu item
+        categoryItem.click(function () {
+            $('#rightMenu').toggleClass('hidden');
+        });
+
+        // Close modal if click outside of modal
+        modalOverlay.click(function (e) {
+            if (e.target == this) {
+                toggleModal();
+            }
+        });
+
+        // If Click  Escape Key Close Modal
+        $(document).keyup(function (e) {
+            if (e.key === "Escape") {
+                toggleModal();
+            }
+        });
+
+        // if click any part of Modal div
+
+        modalDiv.click(function (e) {
+            if (e.target !== this) {
+                return;
+            }
+            toggleModal();
+        });
+
+        // Close dropdown menus when click outside
+        $(document).click(function (event) {
+            var clickover = $(event.target);
+            var _opened = $(".dropdown-menu").hasClass("hidden");
+            if (_opened === true && !clickover.hasClass("dropdown-toggle")) {
+                $(".dropdown-menu").addClass("hidden");
+            }
+        });
+
+        $(".plusButton").click(function (e) {
+            var plus = $(this).parent().find('.input');
+            var cartItem = $(this).parent().parent().parent().find('.addtocart .cart-item-button');
+            // Get its current value
+            var currentVal = parseInt(plus.val());
+            // If is not undefined
+            if (!isNaN(currentVal)) {
+                // Increment
+                plus.val(currentVal + 1);
+                var cartItemVal = (currentVal + 1);
+                cartItem.attr('data-additems', cartItemVal);
             } else {
-                var reader = new FileReader();
-                reader.onload = imageIsLoaded;
-                reader.readAsDataURL(img.files[0]);
-                
+                // Otherwise put a 0 there
+                plus.val(1);
+                cartItem.attr('data-additems', 1);
             }
-
-            function imageIsLoaded(e) {
-                //$('div.withBckImage').css({ 'background-image': "url(" + e.target.result + ")" });
-                console.log("Image loaded");
-            }
-        }
-
-        // Toggle Modal Function
-        function toggleModal() {
-            $('#modal').toggleClass('hidden');
-            // toggle hidden class on modalOverlay
-            modalOverlay.toggleClass('hidden');
-            // Toggle modal-open class on body
-            $('body').toggleClass('modal-open');
-            // Focus on the first required text input field that is empty
-            $('#modal').find('input[required]:visible:first').focus();
-        }
-    
-        // Form Validation and AJAX submission
-
-        var regURL = "https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088";
-
-        // prevent default form submission and listen for submit event using jQuery
-        $("#dealerForm").submit(function (e) {
-            // set our initial data variable and append the businessLicense imagfe to the body of data in post request
-            var data = new FormData();
-            data.append('businessLicense', $('#businessLicense')[0].files[0]);
-            // append the rest of the form data to the body of data in post request
-            $.each($('#dealerForm').serializeArray(), function (i, field) {
-                data.append(field.name, field.value);
-            });
-
-            // prevent default form submission and listen for submit event using jQuery            
-            e.preventDefault();
-            // Submit form via AJAX POST request
-            $.ajax({
-                url: regURL,
-                type: "POST",
-                data: data,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    //$("#success-message").html(data);
-                    console.log(data);
-
-                    // If response is success, show success message
-                    if (data.success === true) {
-                        // if success, clear form and show success message
-                        $("#dealerForm")[0].reset();
-                        alert("Thank you for your interest in becoming a dealer. A member of our staff will reach out to you shortly.");
-                        toggleModal();
-                    } else {
-                        // If response is not success, show error message
-                        alert("There was an error submitting your form. Please try again.");
-                    }
-                    // elese if error suiteScriptError, show error message
-                    if (data.message.type === "error.SuiteScriptError") {
-                        console.log("Response from suitelet not successful. error.SuiteScriptError");
-                        alert(data.message.message);
-                    }
-                    // If response is not success, show error message
-                    else {
-                        console.log("Response from suitelet neither errored or successful", response);
-                        // display an error message from response.message object
-                        alert(data.message);
-                    }
-                },
-                error: function (data) {
-                    // if error, show error message
-                    console.log("Failure.", data);
-                    alert(data.message);
-                }
-            });
         });
+        $(".minusButton").click(function (e) {
+            // Stop acting like a button
+            var minus = $(this).parent().find('.input');
+            var cartItem = $(this).parent().parent().parent().find('.addtocart .cart-item-button');
 
-    </script>
+            // Get its current value
+            var currentVal = parseInt(minus.val());
+            // If is not undefined
+            if (!isNaN(currentVal) && currentVal > 1) {
+                // Increment
+                minus.val(currentVal - 1);
+                var cartItemVal = (currentVal - 1);
+                cartItem.attr('data-additems', cartItemVal);
+            } else {
+                // Otherwise put a 0 there
+                minus.val(1);
+                cartItem.attr('data-additems', 1);
+            }
+        });
+        $(".plusButtonDetail").click(function (e) {
+            var plus = $(this).parent().find('.input');
+            var cartItem = $(this).parent().parent().parent().find('.addtocart .cart-item-button');
+            // Get its current value
+            var currentVal = parseInt(plus.val());
+            // If is not undefined
+            if (!isNaN(currentVal)) {
+                // Increment
+                plus.val(currentVal + 1);
+                var cartItemVal = (currentVal + 1);
+                cartItem.attr('data-additems', cartItemVal);
+            } else {
+                // Otherwise put a 0 there
+                plus.val(1);
+                cartItem.attr('data-additems', 1);
+            }
+        });
+        $(".minusButtonDetail").click(function (e) {
+            // Stop acting like a button
+            var minus = $(this).parent().find('.input');
+            var cartItem = $(this).parent().parent().parent().find('.addtocart .cart-item-button');
+
+            // Get its current value
+            var currentVal = parseInt(minus.val());
+            // If is not undefined
+            if (!isNaN(currentVal) && currentVal > 1) {
+                // Increment
+                minus.val(currentVal - 1);
+                var cartItemVal = (currentVal - 1);
+                cartItem.attr('data-additems', cartItemVal);
+            } else {
+                // Otherwise put a 0 there
+                minus.val(1);
+                cartItem.attr('data-additems', 1);
+            }
+        });
+        $('#addtocart').on('click', function (event) {
+            event.preventDefault();
+            var button = $(this);
+
+            $("body").css("cursor", "progress");
+
+            //var cartTotal = cartTotalSpan.attr('data-totalitems');
+            var cartItem = $(this).parent().find(".cart-item-button");
+            //var newCartTotal = parseInt(cartTotal) + parseInt(cartItem.attr('data-additems'));
+            button.addClass('sendtocart');
+            $("body").css("cursor", "default");
+            setTimeout(function () {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            }, 500);
+
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "/app/site/backend/additemtocart.nl?c=5903639&n=1",
+                data: "&buyid=" + $(this).parent().parent().find('.input-group input[name="buyid"]').val() + "&qty=" + $(this).parent().parent().find('.input-group .input').val(),
+                dataType: "HTML",
+            });
+
+        });
+        $('.related-add-to-cart').on('click', function (event) {
+            event.preventDefault();
+
+            var button = $(this);
+
+            $("body").css("cursor", "progress");
+
+
+            var AddUrl = "&buyid=" + $(this).parent().parent().find('.input-group input[name="buyid"]').val() + "&qty=" + $(this).parent().parent().find('.input-group .input').val()
+
+            if ($(window).width() < 1009) {
+                var cart = $('.cart-icon.mobile-cart');
+                var cartTotalSpan = $('.cart-icon.mobile-cart .cart-total');
+            }
+            else {
+                var cart = $('.cart-icon.desktop-cart');
+                var cartTotalSpan = $('.cart-icon.desktop-cart .cart-total');
+            }
+
+            //var cartTotal = cartTotalSpan.attr('data-totalitems');
+            var cartItem = $(this).parent().find(".cart-item-button");
+            //var newCartTotal = parseInt(cartTotal) + parseInt(cartItem.attr('data-additems'));
+
+            button.addClass('sendtocart');
+            $("body").css("cursor", "default");
+            setTimeout(function () {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            }, 500);
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "/app/site/backend/additemtocart.nl?c=5903639&n=1",
+                data: AddUrl,
+                dataType: "HTML",
+            });
+        })
+
+    }); // end docReady
+
+   // Remove &nbsp; from the .input-group class
+    $('.plus-minus-input').each(function () {
+        console.log("Removing &nbsp; from .input-group");
+        $(this).html($(this).html().replace(/&nbsp;/g, ''));
+    });
+    // Toggle Modal Function
+    function toggleModal() {
+        $('#modal').toggleClass('hidden');
+        // toggle hidden class on modalOverlay
+        modalOverlay.toggleClass('hidden');
+        // Toggle modal-open class on body
+        $('body').toggleClass('modal-open');
+        // Focus on the first required text input field that is empty
+        $('#modal').find('input[required]:visible:first').focus();
+    }
+
+    // Form Validation and AJAX submission
+
+    var regURL = "https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088";
+
+    // prevent default form submission and listen for submit event using jQuery
+    $("#dealer-form").submit(function (e) {
+        e.preventDefault();
+
+        // Form Input Value Variables
+        var firstname = $("#first-name").val();
+        var lastname = $("#last-name").val();
+        var company = $("#company").val();
+        var title = $("#title").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var companyPhone = $("#company-phone").val();
+        var salesTaxId = $("#sales-tax-id").val();
+        var streetAddress = $("#street-address").val();
+        var city = $("#city").val();
+        var state = $("#state").val();
+        var zip = $("#postal-code").val();
+        var companyWebsite = $("#company-website").val();
+        var message = $("#message").val();
+        var businessLicense = $("#businessLicense").val();
+
+        // Submit form via GET request
+        $.ajax({
+            type: "GET",
+            url: regURL,
+            data: {
+                "firstname": firstname,
+                "lastname": lastname,
+                "company": company,
+                "title": title,
+                "phone": phone,
+                "email": email,
+                "companyPhone": companyPhone,
+                "salesTaxId": salesTaxId,
+                "streetAddress": streetAddress,
+                "city": city,
+                "state": state,
+                "zip": zip,
+                "companyWebsite": companyWebsite,
+                "message": message,
+                "businessLicense": businessLicense
+            },
+            success: function (response) {
+                console.log(response);
+                // If response is success, show success message
+                if (response.success === true) {
+                    alert("Thank you for your interest in becoming a dealer. A member of our staff will reach out to you shortly.");
+                    toggleModal();
+                }
+                else if (response.message.type === "error.SuiteScriptError") {
+                    alert(response.message.message);
+                }
+                // If response is not success, show error message
+                else {
+                    // display an error message from response.message object
+                    alert(response.message);
+                }
+            },
+            failure: function (response) {
+                alert(response);
+            }
+        });
+    });
+    $(function () {
+        var $carousel = $('#slider');
+
+        $carousel
+            .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: false,
+                adaptiveHeight: false,
+                asNavFor: '#thumbnail_slider'
+            })
+
+        $('#thumbnail_slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            asNavFor: '#slider',
+            arrows: true,
+            dots: false,
+            centerMode: false,
+            focusOnSelect: true,
+        });
+    });
     
-    <!-- END Footer -->
+</script>
+
+<!-- END Footer -->
 
 
 </body>
