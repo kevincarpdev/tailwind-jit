@@ -142,13 +142,13 @@
         </button>
         <div class="grid grid-cols-6 gap-x-2 gap-y-5">
           <div class="col-span-6 sm:col-span-3">
-            <label for="first-name" class="form-label">First name</label>
-            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="form-input"
+            <label for="firstName" class="form-label">First name</label>
+            <input type="text" name="firstName" id="firstName" autocomplete="given-name" class="form-input"
               placeholder="First Name:" required>
           </div>
           <div class="col-span-6 sm:col-span-3">
-            <label for="last-name" class="form-label">Last name</label>
-            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="form-input"
+            <label for="lastName" class="form-label">Last name</label>
+            <input type="text" name="lastName" id="lastName" autocomplete="family-name" class="form-input"
               placeholder="Last Name:" required>
           </div>
           <div class="col-span-6 sm:col-span-3">
@@ -167,24 +167,24 @@
               required>
           </div>
           <div class="col-span-6 sm:col-span-3">
-            <label for="email-address" class="form-label">Your Email</label>
+            <label for="emailAddress" class="form-label">Your Email</label>
             <input type="email" name="email" id="email" autocomplete="email" class="form-input"
               placeholder="Your Email:" required>
           </div>
           <div class="col-span-6 sm:col-span-3">
-            <label for="company-phone" class="form-label">Company Phone Number</label>
-            <input type="text" name="company-phone" id="company-phone" autocomplete="tel" class="form-input"
+            <label for="companyPhone" class="form-label">Company Phone Number</label>
+            <input type="text" name="companyPhone" id="companyPhone" autocomplete="tel" class="form-input"
               placeholder="Company Phone Number:" required>
           </div>
           <div class="col-span-6 sm:col-span-3">
-            <label for="sales-tax-id" class="form-label">Sales Tax ID</label>
-            <input type="text" name="sales-tax-id" id="sales-tax-id" class="form-input" placeholder="Sales Tax ID:"
+            <label for="salesTaxId" class="form-label">Sales Tax ID</label>
+            <input type="text" name="salesTaxId" id="salesTaxId" class="form-input" placeholder="Sales Tax ID:"
               required>
           </div>
           <div class="col-span-6">
-            <label for="street-address" class="form-label">Street</label>
-            <input type="text" name="street-address" id="street-address" autocomplete="street-address"
-              class="form-input" placeholder="Street:" required>
+            <label for="streetAddress" class="form-label">Street</label>
+            <input type="text" name="streetAddress" id="streetAddress" autocomplete="streetAddress" class="form-input"
+              placeholder="Street:" required>
           </div>
           <div class="col-span-6 sm:col-span-2">
             <label for="city" class="form-label">City</label>
@@ -249,13 +249,13 @@
             </select>
           </div>
           <div class="col-span-4 sm:col-span-2">
-            <label for="postal-code" class="form-label">Zip code</label>
-            <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="form-input"
+            <label for="postalCode" class="form-label">Zip code</label>
+            <input type="text" name="postalCode" id="postalCode" autocomplete="postalCode" class="form-input"
               placeholder="Zipcode:" required>
           </div>
           <div class="col-span-6">
             <label for="Company Website" class="form-label">Company Website</label>
-            <input type="text" name="company-website" id="company-website" autocomplete="website" class="form-input"
+            <input type="text" name="companyWebsite" id="companyWebsite" autocomplete="website" class="form-input"
               placeholder="Company Website:" required>
           </div>
           <div class="col-span-6">
@@ -268,7 +268,7 @@
       <div class="flex justify-between pt-6 px-12">
         <label class="secondary-btn btn">
           <span>Attach Business License</span>
-          <input id="businessLicense" type='file' class="hidden" />
+          <input id="businessLicense" type='file' class="hidden" value="upload" required="" />
         </label>
         <button type="submit" class="inline-flex justify-center primary-btn btn btn-submit">Submit</button>
       </div>
@@ -306,16 +306,19 @@
       <a href="<NLCARTURL>" class="primary-btn btn">View Cart</a>
     </div>
   </div>
+</div>
 
 <!-- jQuery and jQuery UI libraries -->
 <script src="/site/js/jquery-3.6.1.min.js"></script>
 <script src="/site/js/jquery-ui.min.js"></script>
 <script src="/site/js/slick.min.js"></script>
+
 <!-- Scripts -->
 <script>
-    
+
   // Toggle Modal Function
   function toggleModal() {
+    var modalOverlay = $('#modal-overlay');
     $('#modal').toggleClass('hidden');
     // toggle hidden class on modalOverlay
     modalOverlay.toggleClass('hidden');
@@ -329,69 +332,62 @@
 
   var regURL = "https://5903639.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=82&deploy=1&compid=5903639&h=6a04dd4db5727d9ab088";
 
-  // prevent default form submission and listen for submit event using jQuery
+  // Submit function, getting the form data fields, the businessLicense file upload and posting to the regURL via POST ajax submission
   $("#dealer-form").submit(function (e) {
+    // prevent default form submission
     e.preventDefault();
+    var formData = new FormData();
+    var businessLicense = $('#businessLicense')[0].files[0];
+    formData.append('businessLicense', businessLicense);
+    formData.append('firstName', $('#firstName').val());
+    formData.append('lastName', $('#lastName').val());
+    formData.append('company', $('#company').val());
+    formData.append('title', $('#title').val());
+    formData.append('phone', $('#phone').val());
+    formData.append('email', $('#email').val());
+    formData.append('companyPhone', $('#companyPhone').val());
+    formData.append('salesTaxId', $('#salesTaxId').val());
+    formData.append('streetAddress', $('#streetAddress').val());
+    formData.append('city', $('#city').val());
+    formData.append('state', $('#state').val());
+    formData.append('postalCode', $('#postalCode').val());
+    formData.append('companyWebsite', $('#companyWebsite').val());
+    formData.append('message', $('#message').val());
 
-    // Form Input Value Variables
-    var firstname = $("#first-name").val();
-    var lastname = $("#last-name").val();
-    var company = $("#company").val();
-    var title = $("#title").val();
-    var phone = $("#phone").val();
-    var email = $("#email").val();
-    var companyPhone = $("#company-phone").val();
-    var salesTaxId = $("#sales-tax-id").val();
-    var streetAddress = $("#street-address").val();
-    var city = $("#city").val();
-    var state = $("#state").val();
-    var zip = $("#postal-code").val();
-    var companyWebsite = $("#company-website").val();
-    var message = $("#message").val();
-    var businessLicense = $("#businessLicense").val();
-
-    // Submit form via GET request
     $.ajax({
-      type: "GET",
       url: regURL,
-      data: {
-        "firstname": firstname,
-        "lastname": lastname,
-        "company": company,
-        "title": title,
-        "phone": phone,
-        "email": email,
-        "companyPhone": companyPhone,
-        "salesTaxId": salesTaxId,
-        "streetAddress": streetAddress,
-        "city": city,
-        "state": state,
-        "zip": zip,
-        "companyWebsite": companyWebsite,
-        "message": message,
-        "businessLicense": businessLicense
-      },
-      success: function (response) {
-        console.log(response);
-        // If response is success, show success message
-        if (response.success === true) {
+      type: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function (data) {
+        console.log(data);
+        if (data.success == true) {
           alert("Thank you for your interest in becoming a dealer. A member of our staff will reach out to you shortly.");
           toggleModal();
         }
-        else if (response.message.type === "error.SuiteScriptError") {
-          alert(response.message.message);
-        }
-        // If response is not success, show error message
-        else {
-          // display an error message from response.message object
-          alert(response.message);
+        else if (data.success == false) {
+          if (data.message) {
+            alert(data.message);
+          }
+          else {
+            alert("There was an error submitting your form. Please try again.");
+          }
         }
       },
-      failure: function (response) {
-        alert(response);
+      error: function (data) {
+        console.log(data);
+        if (data.message) {
+          alert(data.message);
+        }
+        else {
+          alert("There was an error submitting your form.");
+        }
       }
     });
+
   });
+  // Doc ready function
 
   $(function () {
     const btn = document.querySelector("button.mobile-menu-button");
@@ -662,7 +658,7 @@
   // On Window Load
   $(window).on('load', function () {
     console.log("Window Loaded");
-     // Set var to SVG string
+    // Set var to SVG string
     var breadcrumbArrowSvg = '<svg class="breadcrumbArrow" width="101" height="7" viewBox="0 0 101 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100.387 4.01321C100.534 3.86677 100.534 3.62933 100.387 3.48288L98.0006 1.0964C97.8542 0.949951 97.6167 0.949951 97.4703 1.0964C97.3238 1.24284 97.3238 1.48028 97.4703 1.62673L99.5916 3.74805L97.4703 5.86937C97.3238 6.01581 97.3238 6.25325 97.4703 6.3997C97.6167 6.54615 97.8542 6.54615 98.0006 6.3997L100.387 4.01321ZM-4.47183e-09 4.12305L100.122 4.12305L100.122 3.37305L4.47183e-09 3.37305L-4.47183e-09 4.12305Z" fill="#030D2B"/></svg>'
     // Find each occurrence of " > " within the #breadcrumbs div and  Replace each with the SVG above
     $('#breadcrumbs').html(function (i, html) {

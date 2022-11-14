@@ -58,7 +58,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
       log.debug("Suitelet is posting.");
       handlePostRequest(context);
     }
-   
+
   }
   function handlePostRequest(context) {
     log.debug("In POST function...");
@@ -227,38 +227,93 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
             details: businessLicense
           });
           var fileType = businessLicense.fileType;
+          // get contents of the file
+          var fileContents = businessLicense.getContents();
+
+          log.debug({
+            title: 'File Type',
+            details: fileType
+          });
           var type = '';
           var ext = '';
+
           if ((fileType == 'plain') || (fileType == 'PLAIN')) {
             type = 'PLAINTEXT';
             ext = 'txt';
+            var fileRequest = {
+              name: fullName + '.' + ext,
+              fileType: file.Type.PLAINTEXT,
+              contents: fileContents,
+              description: fullName + ' Business License',
+              encoding: file.Encoding.UTF8,
+              folder: 54320,
+              isOnline: true
+            };
           }
-          if ((fileType == 'pdf') || (fileType == 'PDF')) {
+          else if ((fileType == 'pdf') || (fileType == 'PDF')) {
             type = 'PDF';
             ext = 'pdf';
+            var fileRequest = {
+              name: fullName + '.' + ext,
+              fileType: file.Type.PDF,
+              contents: fileContents,
+              description: fullName + ' Business License',
+              encoding: file.Encoding.UTF8,
+              folder: 54320,
+              isOnline: true
+            };
           }
-          if ((fileType == 'png') || (fileType == 'PNG')) {
+          else if ((fileType == 'png') || (fileType == 'PNG')) {
             type = 'PNGIMAGE';
             ext = 'png';
+            var fileRequest = {
+              name: fullName + '.' + ext,
+              fileType: file.Type.PNGIMAGE,
+              contents: fileContents,
+              description: fullName + ' Business License',
+              encoding: file.Encoding.UTF8,
+              folder: 54320,
+              isOnline: true
+            };
           }
-          if ((fileType == 'jpeg') || (fileType == 'JPEG')) {
+          else if ((fileType == 'jpeg') || (fileType == 'JPEG')) {
             type = 'JPGIMAGE';
             ext = 'jpeg';
+            var fileRequest = {
+              name: fullName + '.' + ext,
+              fileType: file.Type.JPGIMAGE,
+              contents: fileContents,
+              description: fullName + ' Business License',
+              encoding: file.Encoding.UTF8,
+              folder: 54320,
+              isOnline: true
+            };
           }
-          if ((fileType == 'jpg') || (fileType == 'JPG')) {
+          else if ((fileType == 'jpg') || (fileType == 'JPG')) {
             type = 'JPGIMAGE';
             ext = 'jpg';
+            var fileRequest = {
+              name: fullName + '.' + ext,
+              fileType: file.Type.JPGIMAGE,
+              contents: fileContents,
+              description: fullName + ' Business License',
+              encoding: file.Encoding.UTF8,
+              folder: 54320,
+              isOnline: true
+            };
           }
-
-          var fileRequest = {
-            name: fullName + ext,
-            fileType: file.Type.PNGIMAGE,
-            contents: businessLicense,
-            description: fullName + ' Business License',
-            encoding: file.Encoding.UTF8,
-            folder: 54320,
-            isOnline: true
-          };
+          else {
+            var ext = 'png';
+            var fileRequest = {
+              name: fullName + '.' + ext,
+              fileType: file.Type.PNGIMAGE,
+              contents: fileContents,
+              description: fullName + ' Business License',
+              encoding: file.Encoding.UTF8,
+              folder: 54320,
+              isOnline: true
+            };
+          }
 
           try {
             var resultingFile = file.create(fileRequest);
@@ -327,7 +382,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
         context.response.setHeader("Access-Control-Allow-Origin", "*");
         context.response.setHeader("Content-Type", "application/json");
       }
-     
+
 
 
 
@@ -344,7 +399,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
   function handleGetRequest(context) {
     log.debug("In GET function...");
     // Wrap our parameter in a try/catch block to catch any errors or blank parameter
-    
+
     try {
       var params = context.request.parameters;
 
@@ -387,7 +442,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
       log.debug({
         title: "Email",
         details: email
-      }) 
+      })
       var salestaxid = params["salesTaxId"];
       log.debug({
         title: "Sales Tax ID",
@@ -424,7 +479,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
         details: message
       })
       var businessLicense = params["businessLicense"];
-      
+
       log.debug({
         title: "Business License",
         details: businessLicense
@@ -448,7 +503,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
           context.response.write(JSON.stringify(responseObj));
           context.response.setHeader("Access-Control-Allow-Origin", "*");
           context.response.setHeader("Content-Type", "application/json");
-          
+
         }
         else {
           // Existing customer not found, proceeding with creating a new lead
@@ -468,7 +523,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
             fieldId: 'lastname',
             value: lastname
           });
-          
+
           lead.setValue({
             fieldId: 'companyname',
             value: companyname
@@ -540,7 +595,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
           // Commit the line
           lead.commitLine({ sublistId: 'addressbook' });
 
-          
+
           // Use suitescript 2 to upload the business license file
           // https://stackoverflow.com/questions/46954507/in-netsuite-with-suitescript-2-0-unable-to-send-a-file-with-http-post-request-wi
           // Business Licenses folder id 54320
@@ -575,7 +630,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
             type = 'JPGIMAGE';
             ext = 'jpg';
           }
-          
+
           var fileRequest = {
             name: fullName + ext,
             fileType: file.Type.PNGIMAGE,
@@ -631,7 +686,7 @@ define(['N/https', 'N/search', 'N/record', 'N/file'], function (https, search, r
             fieldId: 'custentity_business_license',
             value: fileId
           });
-          
+
           // Save the lead record
           var leadId = lead.save();
 
