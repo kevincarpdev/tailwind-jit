@@ -449,6 +449,7 @@ footer.footer {
   @apply tracking-wide;
 }
 
+
 /* Specifications Table */
 #specsTable {
   @apply grid grid-cols-1 lg:grid-cols-2;
