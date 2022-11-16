@@ -284,7 +284,7 @@ footer.footer {
   @apply w-full;  
 }
 .product-description {
-  @apply flex flex-col justify-center w-full lg:w-1/2;
+  @apply flex flex-col justify-center w-full;
 }
 .price {
   @apply text-2xl font-bold font-sans mt-4;
@@ -366,8 +366,13 @@ footer.footer {
   min-height: 500px;
 }
 #subpageDetails {
-  @apply container px-4 lg:px-0 py-7 mx-auto lg:flex-row;
+  @apply container px-4 py-7 mx-auto xl:flex-row;
 }
+#subpageDetails h1 {
+  @apply font-bold text-6xl mb-3;
+  font-family: 'DM Sans', sans-serif;
+}
+
 .bg-secondary {
   @apply bg-[#2828B2];
 }
@@ -433,6 +438,16 @@ footer.footer {
 .slick-initialized .slick-slide {
   @apply inline-block;
 }
+.productInfo {
+  @apply grid grid-cols-1 lg:grid-cols-2 lg:gap-x-4 text-[#030D2B] font-normal border-b-2 border-[#C9C9C9] py-12;
+}
+
+.productInfo h3{
+  @apply text-lg mb-3;
+}
+.productInfo p {
+  @apply tracking-wide;
+}
 
 /* Specifications Table */
 #specsTable {
@@ -445,5 +460,12 @@ footer.footer {
   @apply font-bold text-lg;
 }
 .specValue {
+  @apply text-lg;
+}
+#breadcrumbs {
+  @apply mt-8 text-lg;
+  font-family: 'DM Sans', sans-serif;
+}
+#breadcrumbs a, #breadcrumbs a.crumb  {
   @apply text-lg;
 }
