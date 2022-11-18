@@ -17,7 +17,7 @@ body {
   padding-top: 0 !important;
 }
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold;
+  @apply font-bold tracking-wide;
   font-family: 'DM Sans', sans-serif;
 }
 h1 {
@@ -102,18 +102,15 @@ h1 {
 }
 
 .primary-btn {
-  @apply p-4 bg-[#3D36B1] border-[#3D36B1] text-white rounded-full hover:bg-[#001270] hover:text-[#FFF] hover:border-[#001270];
+  @apply py-2 px-8 bg-[#3A3AEE] border-[#3A3AEE] text-white rounded-full hover:bg-[#001270] hover:text-[#FFF] hover:border-[#001270] mr-2;
 }
 
 .secondary-btn {
-  @apply p-4 bg-transparent border-[#FFF] rounded-full text-white hover:bg-[#FFF] hover:text-[#3D36B1] tracking-wide;
-}
-form .secondary-btn {
-  @apply border-[#6E7383] text-[#6D6D6D] hover:bg-[#6D6D6D] hover:text-[#FFF];
+  @apply py-3 px-8 bg-transparent border-[#6D6D6D] rounded-full text-[#6D6D6D] tracking-wide hover:bg-[#6D6D6D] hover:text-[#FFF];
   border-width: 1px;
 }
 form .primary-btn {
-  @apply bg-transparent border-[#030D2B] text-[#030D2B] hover:bg-[#3A3AEE] hover:text-[#FFF];
+  @apply bg-transparent border-[#3A3AEE] text-[#030D2B] hover:bg-[#030D2B] hover:text-[#FFF];
   border-width: 1px;
 }
 #dealer-form .primary-btn, #dealer-form .secondary-btn {
@@ -122,17 +119,41 @@ form .primary-btn {
 .input-group {
   @apply flex flex-row gap-2 justify-items-center items-center place-items-center my-6;
 }
-
 .input-group #qty {
-  @apply inline text-[#6E7383] text-sm border-[#6E7383] border-2 rounded-full py-2 px-4;
+  @apply inline text-[#6E7383] text-sm border-[#6E7383] border-2 rounded-full py-2 px-4 text-center;
 }
 .product-details form .primary-btn {
-  @apply bg-[#494977] text-white hover:bg-[#001270] hover:text-[#fff];
+  @apply bg-[#3A3AEE] text-white hover:bg-[#001270] hover:text-[#fff] py-3;
 }
 .product-details form .secondary-btn {
   @apply bg-transparent border-[#6E7383] text-[#6D6D6D] hover:bg-[#6D6D6D] hover:text-[#FFF];
 }
+.productDocuments ul li {
+  @apply flex flex-row gap-2 items-center list-none;
+}
+a.download-link {
+  @apply inline-flex items-center gap-4 mb-4 text-[#3A3AEE] hover:text-[#001270] transition-all duration-300 ease-in-out cursor-pointer;
+}
 
+/* downarrow svg with round circle fill on hover */
+.downArrow {
+  @apply inline-block border-[#3A3AEE] text-[#3A3AEE] hover:text-[#FFF] hover:border-[#3A3AEE] hover:bg-[#3A3AEE] rounded-full transition-all duration-300 ease-in-out cursor-pointer;
+  width: 24px;
+  height: 24px;
+  border: 1px solid;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='6' height='7' viewBox='0 0 6 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.73483 6.27784C2.88128 6.42428 3.11872 6.42428 3.26516 6.27784L5.65165 3.89135C5.7981 3.74491 5.7981 3.50747 5.65165 3.36102C5.5052 3.21458 5.26777 3.21458 5.12132 3.36102L3 5.48234L0.87868 3.36102C0.732233 3.21457 0.494796 3.21457 0.34835 3.36102C0.201903 3.50747 0.201903 3.7449 0.34835 3.89135L2.73483 6.27784ZM2.625 0.0585937L2.625 6.01267L3.375 6.01267L3.375 0.0585938L2.625 0.0585937Z' fill='%233A3AEE'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 7px 8px;
+  
+}
+.downArrow:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='6' height='7' viewBox='0 0 6 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.73483 6.27784C2.88128 6.42428 3.11872 6.42428 3.26516 6.27784L5.65165 3.89135C5.7981 3.74491 5.7981 3.50747 5.65165 3.36102C5.5052 3.21458 5.26777 3.21458 5.12132 3.36102L3 5.48234L0.87868 3.36102C0.732233 3.21457 0.494796 3.21457 0.34835 3.36102C0.201903 3.50747 0.201903 3.7449 0.34835 3.89135L2.73483 6.27784ZM2.625 0.0585937L2.625 6.01267L3.375 6.01267L3.375 0.0585938L2.625 0.0585937Z' fill='white'/%3E%3C/svg%3E");
+}
+.download-link:hover > .downArrow {
+  @apply text-[#FFF] border-[#3A3AEE] bg-[#3A3AEE];
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='6' height='7' viewBox='0 0 6 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.73483 6.27784C2.88128 6.42428 3.11872 6.42428 3.26516 6.27784L5.65165 3.89135C5.7981 3.74491 5.7981 3.50747 5.65165 3.36102C5.5052 3.21458 5.26777 3.21458 5.12132 3.36102L3 5.48234L0.87868 3.36102C0.732233 3.21457 0.494796 3.21457 0.34835 3.36102C0.201903 3.50747 0.201903 3.7449 0.34835 3.89135L2.73483 6.27784ZM2.625 0.0585937L2.625 6.01267L3.375 6.01267L3.375 0.0585938L2.625 0.0585937Z' fill='white'/%3E%3C/svg%3E");
+}
 /* SiteBuilder Specific */
 #main {
   @apply pt-[80px];
@@ -147,6 +168,9 @@ footer.footer {
 }
 .footer-container {
   @apply container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0;
+}
+.footer .secondary-btn {
+  @apply border-[#fff] text-[#fff] hover:bg-[#fff] hover:text-[#2828B2];
 }
 .footer-header {
   @apply tracking-wide uppercase;
@@ -275,7 +299,7 @@ footer.footer {
 
 /* Product Detail Page PDP */
 .product {
-  @apply py-36 overflow-hidden px-4;
+  @apply py-36 px-0 overflow-hidden;
 }
 .product-image {
   @apply flex flex-col items-center justify-center w-full lg:w-1/2;
@@ -430,7 +454,7 @@ footer.footer {
 
 /* PDP */
 .productGrid {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-4;
+  @apply grid grid-cols-1 gap-4 px-12 max-w-screen-2xl mx-auto lg:px-0 lg:grid-cols-2;
 }
 .modal-content {
   @apply text-white
@@ -439,16 +463,18 @@ footer.footer {
   @apply inline-block;
 }
 .productInfo {
-  @apply grid grid-cols-1 lg:grid-cols-2 lg:gap-x-4 text-[#030D2B] font-normal border-b-2 border-[#C9C9C9] py-12;
+  @apply max-w-screen-2xl mx-auto grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-0 text-[#030D2B] font-light  p-12 pt-0;
 }
-
-.productInfo h3{
-  @apply text-lg mb-3;
+.product-description {
+  @apply border-[#C9C9C9];
+  border-bottom: 1px solid;
+}
+.productInfo h3, #relatedProducts {
+  @apply text-xl mb-6;
 }
 .productInfo p {
   @apply tracking-wide;
 }
-
 
 /* Specifications Table */
 #specsTable {
@@ -469,4 +495,23 @@ footer.footer {
 }
 #breadcrumbs a, #breadcrumbs a.crumb  {
   @apply text-lg;
+}
+
+/* Tabs */
+
+.tab-list {
+  @apply bg-[#F9F9F9] flex flex-col md:flex-row items-center justify-center gap-x-12 gap-y-8 md:gap-y-0 py-4 text-center mt-24;
+  border-top: 1px solid #C9C9C9;
+  border-bottom: 1px solid #C9C9C9;
+}
+.tab-list-link {
+  @apply inline-flex text-[#030D2B] uppercase tracking-wide hover:text-[#3A3AEE] transition-all;
+}
+.tab-pane {
+  @apply pt-24;
+}
+
+/* Related Products */
+#relatedProducts {
+  @apply container mx-auto max-w-screen-2xl lg:flex-row px-12;
 }
