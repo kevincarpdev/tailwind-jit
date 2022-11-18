@@ -278,7 +278,9 @@ footer.footer {
 .modal-headline img {
   @apply w-auto mx-auto;
 }
-
+.modal-footer .secondary-btn {
+  @apply bg-[#6D6D6D] text-[#fff];
+}
 /* Form Labels & Inputs */
 .form-label {
   @apply text-sm font-medium text-[#292E43] hidden;
@@ -321,7 +323,8 @@ td.block {
   @apply flex flex-col items-center justify-center w-full lg:w-1/2;
 }
 .product-image img {
-  @apply w-full;  
+  @apply w-full;
+  max-width: 175px;
 }
 .product-description {
   @apply flex flex-col justify-center w-full;
@@ -362,7 +365,7 @@ td.block {
 }
 
 #thumbnail_slider .item-slick {
-  max-width: 240px;
+  max-width: 120px;
   outline: #B2B5BE;
   cursor: pointer;
   border-radius: 6px;
@@ -393,10 +396,10 @@ td.block {
   @apply mt-4;
 }
 .product-hero .crumb {
-  @apply text-[#030D2B] text-md hover:underline;
+  @apply text-[#030D2B] text-base hover:underline;
 }
 .crumbover {
-  @apply text-[#030D2B] text-md underline;
+  @apply text-[#030D2B] text-base underline;
 }
 .product-description p {
   font-family: 'Barlow Condensed', sans-serif;
