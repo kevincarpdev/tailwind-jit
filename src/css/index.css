@@ -120,6 +120,9 @@ form .primary-btn {
 .input-group {
   @apply border-[#030d2b80] border rounded-full px-4;
 }
+.product-cell .input-group {
+  @apply border-0;
+}
 .input-group #qty {
   @apply inline text-[#030d2b80] py-2 px-1 text-center border-0;
   font-family: 'Barlow Condensed', sans-serif;
@@ -317,7 +320,7 @@ td.block {
   @apply px-0;
 }
 .product {
-  @apply py-36 px-0 overflow-hidden;
+  @apply pt-32 pb-36 px-0 overflow-hidden;
 }
 .product-image {
   @apply flex flex-col items-center justify-center w-full lg:w-1/2;
@@ -392,14 +395,17 @@ td.block {
   @apply bg-[#FAFAFA] border-[#D3D3D3] border-t-0 border-l-0 border-r-0 py-12 pt-44;
   border-width: 1px;
 }
+.product-hero .container {
+  @apply container mx-auto max-w-screen-2xl lg:flex-row px-12;
+}
 .product-hero .breadcrumbs {
   @apply mt-4;
 }
 .product-hero .crumb {
-  @apply text-[#030D2B] text-base hover:underline;
+  @apply text-[#030D2B] text-xs md:text-base hover:underline;
 }
 .crumbover {
-  @apply text-[#030D2B] text-base underline;
+  @apply text-[#030D2B] text-xs md:text-base underline;
 }
 .product-description p {
   font-family: 'Barlow Condensed', sans-serif;
@@ -434,7 +440,12 @@ span.product-spec {
   @apply font-bold text-6xl mb-3;
   font-family: 'DM Sans', sans-serif;
 }
-
+#subpageDetails .breadcrumbArrow {
+  @apply last:hidden;
+}
+#subpageDetails .breadcrumbArrow path {
+  fill: #fff;
+}
 .bg-secondary {
   @apply bg-[#2828B2];
 }
@@ -460,7 +471,8 @@ span.product-spec {
   @apply flex flex-col items-center justify-between bg-white rounded-lg p-4 mb-4 text-center;
 }
 .product-cell h4 {
-  @apply text-[#030D2B] text-sm font-bold leading-tight;
+  @apply text-[#030D2B] text-xl font-bold leading-tight mb-3;
+  font-family: 'DM Sans', sans-serif;
 }
 /* AddToCart Button with darken hover effect */
 .product-cell .addtocart {
@@ -532,13 +544,7 @@ span.product-spec {
 .specValue {
   @apply text-lg;
 }
-#breadcrumbs {
-  @apply mt-8 text-lg;
-  font-family: 'DM Sans', sans-serif;
-}
-.breadcrumbs a, .breadcrumbs a.crumb  {
-  @apply text-lg;
-}
+
 
 /* Tabs */
 
@@ -557,4 +563,26 @@ span.product-spec {
 /* Related Products */
 #relatedProducts {
   @apply container mx-auto max-w-screen-2xl lg:flex-row px-12 lg:px-0;
+}
+.breadcrumbs, #breadcrumbs {
+  @apply flex flex-row flex-wrap justify-items-start place-items-center gap-x-4;
+}
+.breadcrumbArrow {
+  @apply inline-flex;
+  max-width: 50px;
+}
+#breadcrumbs, .breadcrumbs {
+  @apply mt-8 text-sm md:text-base;
+  font-family: 'DM Sans', sans-serif;
+}
+.breadcrumbs a, .breadcrumbs a.crumb, #breadcrumbs a, #breadcrumbs a.crumb {
+  @apply text-sm md:text-base;
+}
+#subpageDetails #breadcrumbs .crumb, #subpageDetails #breadcrumbs .crumbover {
+  @apply hover:text-[#FFF] hover:underline;
+}
+
+/* Cart */
+.cart-detailed, .login-register{
+  @apply mt-12;
 }

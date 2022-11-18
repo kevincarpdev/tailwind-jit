@@ -1359,6 +1359,9 @@ form .primary-btn {
 	padding-left: 1rem;
 	padding-right: 1rem;
 }
+.product-cell .input-group {
+	border-width: 0px;
+}
 .input-group #qty {
 	display: inline;
 	border-width: 0px;
@@ -2059,10 +2062,10 @@ td.block {
 }
 .product {
 	overflow: hidden;
-	padding-top: 9rem;
-	padding-bottom: 9rem;
 	padding-left: 0px;
 	padding-right: 0px;
+	padding-top: 8rem;
+	padding-bottom: 9rem;
 }
 .product-image {
 	display: flex;
@@ -2187,24 +2190,84 @@ td.block {
 	padding-top: 11rem;
   border-width: 1px;
 }
+.product-hero .container {
+	width: 100%;
+}
+@media (min-width: 640px) {
+
+	.product-hero .container {
+		max-width: 640px;
+	}
+}
+@media (min-width: 768px) {
+
+	.product-hero .container {
+		max-width: 768px;
+	}
+}
+@media (min-width: 1024px) {
+
+	.product-hero .container {
+		max-width: 1024px;
+	}
+}
+@media (min-width: 1280px) {
+
+	.product-hero .container {
+		max-width: 1280px;
+	}
+}
+@media (min-width: 1536px) {
+
+	.product-hero .container {
+		max-width: 1536px;
+	}
+}
+.product-hero .container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1536px;
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+@media (min-width: 1024px) {
+
+	.product-hero .container {
+		flex-direction: row;
+	}
+}
 .product-hero .breadcrumbs {
 	margin-top: 1rem;
 }
 .product-hero .crumb {
-	font-size: 1rem;
-	line-height: 1.5rem;
+	font-size: 0.75rem;
+	line-height: 1rem;
 	--tw-text-opacity: 1;
 	color: rgba(3, 13, 43, var(--tw-text-opacity));
 }
 .product-hero .crumb:hover {
 	text-decoration: underline;
 }
+@media (min-width: 768px) {
+
+	.product-hero .crumb {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+}
 .crumbover {
-	font-size: 1rem;
-	line-height: 1.5rem;
+	font-size: 0.75rem;
+	line-height: 1rem;
 	--tw-text-opacity: 1;
 	color: rgba(3, 13, 43, var(--tw-text-opacity));
 	text-decoration: underline;
+}
+@media (min-width: 768px) {
+
+	.crumbover {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
 }
 .product-description p {
   font-family: 'Barlow Condensed', sans-serif;
@@ -2315,7 +2378,12 @@ span.product-spec {
 	font-weight: 700;
   font-family: 'DM Sans', sans-serif;
 }
-
+#subpageDetails .breadcrumbArrow:last-child {
+	display: none;
+}
+#subpageDetails .breadcrumbArrow path {
+  fill: #fff;
+}
 .bg-secondary {
 	--tw-bg-opacity: 1;
 	background-color: rgba(40, 40, 178, var(--tw-bg-opacity));
@@ -2460,12 +2528,14 @@ span.product-spec {
 	text-align: center;
 }
 .product-cell h4 {
-	font-size: 0.875rem;
-	line-height: 1.25rem;
+	margin-bottom: 0.75rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
 	font-weight: 700;
 	line-height: 1.25;
 	--tw-text-opacity: 1;
 	color: rgba(3, 13, 43, var(--tw-text-opacity));
+  font-family: 'DM Sans', sans-serif;
 }
 /* AddToCart Button with darken hover effect */
 .product-cell .addtocart {
@@ -2686,16 +2756,7 @@ span.product-spec {
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 }
-#breadcrumbs {
-	margin-top: 2rem;
-	font-size: 1.125rem;
-	line-height: 1.75rem;
-  font-family: 'DM Sans', sans-serif;
-}
-.breadcrumbs a, .breadcrumbs a.crumb {
-	font-size: 1.125rem;
-	line-height: 1.75rem;
-}
+
 
 /* Tabs */
 
@@ -2802,6 +2863,55 @@ span.product-spec {
 		padding-left: 0px;
 		padding-right: 0px;
 	}
+}
+.breadcrumbs, #breadcrumbs {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	place-items: center;
+	justify-items: start;
+	-moz-column-gap: 1rem;
+	     column-gap: 1rem;
+}
+.breadcrumbArrow {
+	display: inline-flex;
+  max-width: 50px;
+}
+#breadcrumbs, .breadcrumbs {
+	margin-top: 2rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+@media (min-width: 768px) {
+
+	#breadcrumbs, .breadcrumbs {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+}
+#breadcrumbs, .breadcrumbs {
+  font-family: 'DM Sans', sans-serif;
+}
+.breadcrumbs a, .breadcrumbs a.crumb, #breadcrumbs a, #breadcrumbs a.crumb {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+@media (min-width: 768px) {
+
+	.breadcrumbs a, .breadcrumbs a.crumb, #breadcrumbs a, #breadcrumbs a.crumb {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+}
+#subpageDetails #breadcrumbs .crumb:hover, #subpageDetails #breadcrumbs .crumbover:hover {
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+	text-decoration: underline;
+}
+
+/* Cart */
+.cart-detailed, .login-register {
+	margin-top: 3rem;
 }
 .hover\:bg-gray-700:hover {
 	--tw-bg-opacity: 1;
