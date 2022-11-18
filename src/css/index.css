@@ -17,7 +17,7 @@ body {
   padding-top: 0 !important;
 }
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold tracking-wide;
+  @apply font-normal tracking-wide;
   font-family: 'DM Sans', sans-serif;
 }
 h1 {
@@ -100,11 +100,9 @@ h1 {
 .btn {
   @apply px-6 md:px-8 py-2.5 bg-transparent border-2 uppercase tracking-wide transition-colors duration-300 ease-in-out cursor-pointer;
 }
-
 .primary-btn {
   @apply py-2 px-8 bg-[#3A3AEE] border-[#3A3AEE] text-white rounded-full hover:bg-[#001270] hover:text-[#FFF] hover:border-[#001270] mr-2;
 }
-
 .secondary-btn {
   @apply py-3 px-8 bg-transparent border-[#6D6D6D] rounded-full text-[#6D6D6D] tracking-wide hover:bg-[#6D6D6D] hover:text-[#FFF];
   border-width: 1px;
@@ -116,11 +114,25 @@ form .primary-btn {
 #dealer-form .primary-btn, #dealer-form .secondary-btn {
   @apply py-2;
 }
+.quantity-box {
+  @apply flex flex-row gap-2 justify-items-center items-center place-items-center my-8;
+}
 .input-group {
-  @apply flex flex-row gap-2 justify-items-center items-center place-items-center my-6;
+  @apply border-[#030d2b80] border rounded-full px-4;
 }
 .input-group #qty {
-  @apply inline text-[#6E7383] text-sm border-[#6E7383] border-2 rounded-full py-2 px-4 text-center;
+  @apply inline text-[#030d2b80] py-2 px-1 text-center border-0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+}
+.input-group .input-group-button {
+  @apply inline text-[#030d2b80] hover:text-[#000] transition-all focus:outline-none active:outline-none;
+}
+button {
+  @apply focus:outline-none active:outline-none;
+}
+.input-group .input-group-button .fa {
+  @apply text-sm;
 }
 .product-details form .primary-btn {
   @apply bg-[#3A3AEE] text-white hover:bg-[#001270] hover:text-[#fff] py-3;
@@ -137,7 +149,8 @@ a.download-link {
 
 /* downarrow svg with round circle fill on hover */
 .downArrow {
-  @apply inline-block border-[#3A3AEE] text-[#3A3AEE] hover:text-[#FFF] hover:border-[#3A3AEE] hover:bg-[#3A3AEE] rounded-full transition-all duration-300 ease-in-out cursor-pointer;
+  @apply relative inline-block border-[#3A3AEE] text-[#3A3AEE] hover:text-[#FFF] hover:border-[#3A3AEE] hover:bg-[#3A3AEE] rounded-full transition-all duration-300 ease-in-out cursor-pointer;
+  top: -1px;
   width: 24px;
   height: 24px;
   border: 1px solid;
@@ -298,6 +311,9 @@ footer.footer {
 }
 
 /* Product Detail Page PDP */
+td.block {
+  @apply px-0;
+}
 .product {
   @apply py-36 px-0 overflow-hidden;
 }
@@ -309,9 +325,6 @@ footer.footer {
 }
 .product-description {
   @apply flex flex-col justify-center w-full;
-}
-.price {
-  @apply text-2xl font-bold font-sans mt-4;
 }
 .slick-prev, .slick-next {
   @apply block rounded-full bg-transparent px-6 text-[#292E43] py-2 transition-all hover:bg-[#292E43] hover:border-[#292E43] hover:text-white focus:outline-none;
@@ -355,12 +368,6 @@ footer.footer {
   border-radius: 6px;
 }
 
-/* #thumbnail_slider .item-slick img {
-  max-width: 100%;
-  background-size: cover;
-  background-position: center; 
-} */
-
 .slick-arrow {
   position: absolute;
   top: 50%;
@@ -377,6 +384,34 @@ footer.footer {
 }
 .thumbnail-item.slick-slide {
   height: auto !important;
+}
+.product-hero {
+  @apply bg-[#FAFAFA] border-[#D3D3D3] border-t-0 border-l-0 border-r-0 py-12 pt-44;
+  border-width: 1px;
+}
+.product-hero .breadcrumbs {
+  @apply mt-4;
+}
+.product-hero .crumb {
+  @apply text-[#030D2B] text-md hover:underline;
+}
+.crumbover {
+  @apply text-[#030D2B] text-md underline;
+}
+.product-description p {
+  font-family: 'Barlow Condensed', sans-serif;
+  @apply text-[#030D2B] text-xl;
+}
+.product-salesdescription {
+  @apply text-2xl mt-4 mb-5 tracking-wide;
+}
+h3.subheader {
+  @apply text-[#030D2B] text-xl tracking-wide;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+span.product-spec {
+  @apply pr-3 mr-3 last:border-none text-lg tracking-wide;
+  border-right : 0.5px solid rgba(3, 13, 43, 0.5);
 }
 /* PLP */
 
@@ -430,7 +465,9 @@ footer.footer {
   font-size: 1rem;
 }
 .price {
-  @apply text-[#030D2B] text-sm font-bold mb-0;
+  @apply text-[#030D2B] text-3xl mb-0 mt-6 tracking-wide;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
 }
 .product-cell .product-image {
   @apply lg:w-full my-4;
@@ -456,6 +493,11 @@ footer.footer {
 .productGrid {
   @apply grid grid-cols-1 gap-4 px-12 max-w-screen-2xl mx-auto lg:px-0 lg:grid-cols-2;
 }
+.productGrid h1 {
+  @apply text-3xl leading-10 mb-0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
 .modal-content {
   @apply text-white
 }
@@ -463,14 +505,12 @@ footer.footer {
   @apply inline-block;
 }
 .productInfo {
-  @apply max-w-screen-2xl mx-auto grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-0 text-[#030D2B] font-light  p-12 pt-0;
-}
-.product-description {
-  @apply border-[#C9C9C9];
-  border-bottom: 1px solid;
+  @apply max-w-screen-2xl mx-auto grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-0 text-[#030D2B] font-light p-12 pt-0 lg:p-0 lg:pb-12;
+  border-bottom: 1px solid #D3D3D3;
 }
 .productInfo h3, #relatedProducts {
-  @apply text-xl mb-6;
+  @apply text-xl mb-6 pt-12;
+  color: #030D2B;
 }
 .productInfo p {
   @apply tracking-wide;
@@ -493,19 +533,19 @@ footer.footer {
   @apply mt-8 text-lg;
   font-family: 'DM Sans', sans-serif;
 }
-#breadcrumbs a, #breadcrumbs a.crumb  {
+.breadcrumbs a, .breadcrumbs a.crumb  {
   @apply text-lg;
 }
 
 /* Tabs */
 
 .tab-list {
-  @apply bg-[#F9F9F9] flex flex-col md:flex-row items-center justify-center gap-x-12 gap-y-8 md:gap-y-0 py-4 text-center mt-24;
+  @apply bg-[#F9F9F9] flex flex-col md:flex-row items-center justify-center gap-x-12 gap-y-8 md:gap-y-0 py-5 text-center mt-24;
   border-top: 1px solid #C9C9C9;
   border-bottom: 1px solid #C9C9C9;
 }
 .tab-list-link {
-  @apply inline-flex text-[#030D2B] uppercase tracking-wide hover:text-[#3A3AEE] transition-all;
+  @apply inline-flex text-[#030D2B] text-sm uppercase tracking-wider font-medium transition-all opacity-70 hover:opacity-100;
 }
 .tab-pane {
   @apply pt-24;
@@ -513,5 +553,5 @@ footer.footer {
 
 /* Related Products */
 #relatedProducts {
-  @apply container mx-auto max-w-screen-2xl lg:flex-row px-12;
+  @apply container mx-auto max-w-screen-2xl lg:flex-row px-12 lg:px-0;
 }
