@@ -327,7 +327,7 @@ td.block {
   @apply px-0;
 }
 .product {
-  @apply pt-32 px-0 overflow-hidden;
+  @apply pt-24 px-0 overflow-hidden;
 }
 .productPicCell {
   @apply pb-6;
@@ -346,18 +346,17 @@ td.block {
   @apply h-auto;
 }
 .slick-prev, .slick-next {
-  @apply block rounded-full bg-transparent px-6 text-[#292E43] py-2 transition-all hover:bg-[#292E43] hover:border-[#292E43] hover:text-white focus:outline-none;
+  @apply block rounded-full bg-transparent text-[#030D2B] transition-all hover:bg-[#030D2B] hover:border-[#030D2B] hover:text-white focus:outline-none;
   border: 1px solid #292E43;
-  text-indent: -999999px;
+  padding: 6px 12px;
+  font-size: 22px;
 }
 .slick-prev:before, .slick-next:before {
   @apply text-white;
 }
-.slick-prev {
-  background: url('/img/LeftArrow.png') no-repeat center center;
-}
-.slick-next {
-  background: url('/img/RightArrow.png') no-repeat center center;
+/* round buttons */
+button.slick-prev[type="button"], button.slick-next[type="button"] {
+  @apply rounded-full border-[#030D2B] transition-all ease-in-out duration-300;
 }
 .slick-slide img {
   @apply mx-auto;
@@ -371,7 +370,6 @@ td.block {
 .img-logo {
   max-width: 140px;
 }
-
 .item-slick.slick-slide.slick-current.slick-active {
 	outline: none!important  
 }
@@ -382,16 +380,22 @@ td.block {
 #thumbnail_slider {
   @apply mt-12;
 }
+#thumbnail_slider .slick-track, #thumbnail_slider.slick-initialized.slick-slider {
+  @apply flex flex-row items-center;
+}
+
 #thumbnail_slider .item-slick {
   /* max-width: 120px; */
   outline: #B2B5BE;
   cursor: pointer;
   border-radius: 6px;
 }
-
+.thumbnail-item {
+  @apply p-4 mx-4;
+  border: 0.5px solid rgba(3, 13, 43, 0.25);
+  border-radius: 6px;
+}
 .slick-arrow {
-  position: absolute;
-  top: 50%;
   z-index: 50;
   margin-top: -12px; 
 }
@@ -478,6 +482,9 @@ span.product-spec {
   @apply grid grid-cols-1 lg:grid-cols-4 gap-y-8 gap-x-4 h-auto;
   max-width: 100%;
 }
+.category-list.responsive-carousel {
+  @apply px-0;
+}
 /* Product Cell */
 .product-cell {
   @apply flex flex-col items-center justify-between bg-white rounded-lg p-8 mb-4 text-center;
@@ -531,7 +538,7 @@ span.product-spec {
 
 /* PDP */
 .productGrid {
-  @apply grid grid-cols-1 gap-4 px-12 max-w-screen-2xl mx-auto lg:grid-cols-2;
+  @apply grid grid-cols-1 gap-x-12 px-12 max-w-screen-2xl mx-auto lg:grid-cols-2;
 }
 .productGrid h1 {
   @apply text-3xl leading-10 mb-0;
@@ -546,7 +553,6 @@ span.product-spec {
 }
 .productInfo {
   @apply max-w-screen-2xl mx-auto grid grid-cols-1 gap-y-12 lg:grid-cols-2 md:gap-x-12 lg:gap-y-0 text-[#030D2B] font-light pt-0 lg:pb-12 px-12;
-  border-bottom: 1px solid #D3D3D3;
 }
 .productInfo.full {
   @apply lg:grid-cols-1;
@@ -576,7 +582,6 @@ span.product-spec {
   @apply text-lg;
 }
 
-
 /* Tabs */
 
 .tab-list {
@@ -593,7 +598,8 @@ span.product-spec {
 
 /* Related Products */
 #relatedProducts {
-  @apply container mx-auto max-w-screen-2xl lg:flex-row px-12 pt-12;
+  @apply container mx-auto max-w-screen-2xl px-12 pt-12 pb-12 lg:flex-row lg:px-0;
+  border-top: 1px solid #D3D3D3;
 }
 #relatedProducts h3 {
  @apply text-xl mb-12;
