@@ -1012,7 +1012,7 @@ h1 {
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
 /* HERO */
@@ -2080,7 +2080,9 @@ td.block {
 	padding-left: 0px;
 	padding-right: 0px;
 	padding-top: 8rem;
-	padding-bottom: 9rem;
+}
+.productPicCell {
+	padding-bottom: 1.5rem;
 }
 .product-image {
 	display: flex;
@@ -2104,6 +2106,9 @@ td.block {
 	width: 100%;
 	flex-direction: column;
 	justify-content: center;
+}
+.slick-initialized .slick-slide {
+	height: auto;
 }
 .slick-prev, .slick-next {
 	display: block;
@@ -2145,7 +2150,10 @@ td.block {
 .slick-next {
   background: url('/img/RightArrow.png') no-repeat center center;
 }
-
+.slick-slide img {
+	margin-left: auto;
+	margin-right: auto;
+}
 #subpageNav {
 	--tw-bg-opacity: 1;
 	background-color: rgba(40, 40, 178, var(--tw-bg-opacity));
@@ -2157,9 +2165,7 @@ td.block {
 .img-logo {
   max-width: 140px;
 }
-.slick-track {
-  max-width: 100%;
-}
+
 .item-slick.slick-slide.slick-current.slick-active {
 	outline: none!important  
 }
@@ -2167,9 +2173,11 @@ td.block {
 #slider {
   margin-bottom: 15px;
 }
-
+#thumbnail_slider {
+	margin-top: 3rem;
+}
 #thumbnail_slider .item-slick {
-  max-width: 120px;
+  /* max-width: 120px; */
   outline: #B2B5BE;
   cursor: pointer;
   border-radius: 6px;
@@ -2188,9 +2196,6 @@ td.block {
 
 .slick-next {
   right: 0; 
-}
-.thumbnail-item.slick-slide {
-  height: auto !important;
 }
 .product-hero {
 	border-top-width: 0px;
@@ -2503,14 +2508,8 @@ span.product-spec {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
-	padding-left: 2rem;
-	padding-right: 2rem;
-}
-@media (min-width: 1024px) {
-
-	.category-list {
-		padding: 0px;
-	}
+	padding-left: 3rem;
+	padding-right: 3rem;
 }
 .category-list tr[valign="top"][height="85"] {
 	display: grid;
@@ -2539,8 +2538,10 @@ span.product-spec {
 	border-radius: 0.5rem;
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding: 1rem;
+	padding: 2rem;
 	text-align: center;
+  border: 0.5px solid #D3D3D3;
+  border-radius: 16px;
 }
 .product-cell h4 {
 	margin-bottom: 0.75rem;
@@ -2745,6 +2746,7 @@ span.product-spec {
 .productInfo.full .productDescription {
 	margin-left: auto;
 	margin-right: auto;
+	width: 100%;
 	max-width: 36rem;
 	padding-bottom: 6rem;
 }
