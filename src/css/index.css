@@ -24,6 +24,10 @@ h1 {
   @apply text-6xl;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* HERO */
 .hero {
   @apply relative flex flex-col;
@@ -122,6 +126,9 @@ form .primary-btn {
 }
 .product-cell .input-group {
   @apply border-0;
+}
+.product-cell h4 {
+  @apply hover:text-[#3A3AEE] transition-all ease-in-out duration-300;
 }
 .input-group #qty {
   @apply inline text-[#030d2b80] py-2 px-1 text-center border-0;
@@ -474,6 +481,17 @@ span.product-spec {
   @apply text-[#030D2B] text-xl font-bold leading-tight mb-3;
   font-family: 'DM Sans', sans-serif;
 }
+.related-cell .price {
+  @apply mt-auto;
+}
+.product-cell.related-cell {
+  @apply mb-0 bg-white justify-center p-8;
+  border: 0.5px solid #D3D3D3;
+  border-radius: 16px;
+}
+.product-cell.related-cell .addtocart {
+  @apply mt-4 mr-0;
+}
 /* AddToCart Button with darken hover effect */
 .product-cell .addtocart {
   @apply bg-[#2828B2] text-white font-bold py-2 px-4 rounded-full transition-all hover:bg-[#3A3AEE] focus:outline-none uppercase;
@@ -506,7 +524,7 @@ span.product-spec {
 
 /* PDP */
 .productGrid {
-  @apply grid grid-cols-1 gap-4 px-12 max-w-screen-2xl mx-auto lg:px-0 lg:grid-cols-2;
+  @apply grid grid-cols-1 gap-4 px-12 max-w-screen-2xl mx-auto lg:grid-cols-2;
 }
 .productGrid h1 {
   @apply text-3xl leading-10 mb-0;
@@ -520,11 +538,17 @@ span.product-spec {
   @apply inline-block;
 }
 .productInfo {
-  @apply max-w-screen-2xl mx-auto grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-0 text-[#030D2B] font-light p-12 pt-0 lg:p-0 lg:pb-12;
+  @apply max-w-screen-2xl mx-auto grid grid-cols-1 gap-y-12 lg:grid-cols-2 md:gap-x-12 lg:gap-y-0 text-[#030D2B] font-light pt-0 lg:pb-12 px-12;
   border-bottom: 1px solid #D3D3D3;
 }
-.productInfo h3, #relatedProducts {
-  @apply text-xl mb-6 pt-12;
+.productInfo.full {
+  @apply lg:grid-cols-1;
+}
+.productInfo.full .productDescription {
+  @apply pb-24 md:pb-0 max-w-xl mx-auto;
+}
+.productInfo h3 {
+  @apply text-xl mb-6;
   color: #030D2B;
 }
 .productInfo p {
@@ -557,12 +581,16 @@ span.product-spec {
   @apply inline-flex text-[#030D2B] text-sm uppercase tracking-wider font-medium transition-all opacity-70 hover:opacity-100;
 }
 .tab-pane {
-  @apply pt-24;
+  @apply pt-12;
 }
 
 /* Related Products */
 #relatedProducts {
-  @apply container mx-auto max-w-screen-2xl lg:flex-row px-12 lg:px-0;
+  @apply container mx-auto max-w-screen-2xl lg:flex-row px-12 pt-12;
+}
+#relatedProducts h3 {
+ @apply text-xl mb-12;
+  color: #030D2B;
 }
 .breadcrumbs, #breadcrumbs {
   @apply flex flex-row flex-wrap justify-items-start place-items-center gap-x-4;
