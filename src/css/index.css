@@ -244,7 +244,7 @@ footer.footer {
   border-top: 1px solid #3D36B1;
 }
 .footer-cta-container {
-  @apply flex flex-row  gap-x-6 items-center;
+  @apply flex flex-col sm:flex-row  gap-6 items-center text-center sm:text-left;
 }
 .footer-cta-container h4 {
   @apply text-lg font-thin;
@@ -551,12 +551,6 @@ span.product-spec {
 .slick-initialized .slick-slide {
   @apply inline-block;
 }
-.productInfo {
-  @apply max-w-screen-2xl mx-auto grid grid-cols-1 gap-y-12 lg:grid-cols-2 md:gap-x-12 lg:gap-y-0 text-[#030D2B] font-light pt-0 lg:pb-12 px-12;
-}
-.productInfo.full {
-  @apply lg:grid-cols-1;
-}
 .productInfo.full .productDescription {
   @apply pb-24 md:pb-0 w-full max-w-xl mx-auto;
 }
@@ -590,20 +584,27 @@ span.product-spec {
   border-bottom: 1px solid #C9C9C9;
 }
 .tab-list-link {
-  @apply inline-flex text-[#030D2B] text-sm uppercase tracking-wider font-medium transition-all opacity-70 hover:opacity-100;
+  @apply inline-flex text-[#030D2B] text-sm uppercase tracking-wider font-medium transition-all ease-in-out duration-300 opacity-70 hover:opacity-100;
+}
+.tab-list-link.active {
+  @apply text-[#3A3AEE];
 }
 .tab-pane {
   @apply pt-12;
+}
+.tab-content-inner {
+  @apply max-w-screen-2xl mx-auto grid grid-cols-1 gap-y-12 md:gap-x-12 lg:gap-y-0 text-[#030D2B] font-light pt-0 lg:pb-12 px-12;
+  min-height: 180px;
+}
+.tab-content-inner h3 {
+  @apply text-xl mb-12;
+  color: #030D2B;
 }
 
 /* Related Products */
 #relatedProducts {
   @apply container mx-auto max-w-screen-2xl px-12 pt-12 pb-12 lg:flex-row lg:px-0;
   border-top: 1px solid #D3D3D3;
-}
-#relatedProducts h3 {
- @apply text-xl mb-12;
-  color: #030D2B;
 }
 .breadcrumbs, #breadcrumbs {
   @apply flex flex-row flex-wrap justify-items-start place-items-center gap-x-4;
@@ -626,4 +627,8 @@ span.product-spec {
 /* Cart */
 .cart-detailed, .login-register{
   @apply mt-12;
+}
+
+.cart-buttons {
+  @apply flex flex-col md:flex-row items-start gap-y-4 md:gap-y-0;
 }
