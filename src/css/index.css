@@ -61,7 +61,7 @@ h1 {
   @apply relative;
 }
 .nav-item {
-  @apply relative hidden lg:inline-flex justify-center place-items-center text-white hover:opacity-80 active:opacity-80 transition-opacity duration-300 ease-in-out cursor-pointer;
+  @apply relative hidden lg:inline-flex justify-center place-items-center text-white transition-opacity duration-300 ease-in-out cursor-pointer;
 }
 .nav-button {
   @apply inline-flex px-4 lg:hidden hover:cursor-pointer;
@@ -461,6 +461,7 @@ span.product-spec {
 #subpageDetails h1 {
   @apply font-bold text-6xl mb-3;
   font-family: 'DM Sans', sans-serif;
+  word-break: break-all;
 }
 #subpageDetails .breadcrumbArrow {
   @apply last:hidden;
@@ -485,9 +486,10 @@ span.product-spec {
   @apply block container mx-auto px-12;
 }
 .category-list tr[valign="top"][height="85"] {
-  @apply grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-8 h-auto;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-8 h-auto;
   max-width: 100%;
 }
+
 .category-list.responsive-carousel {
   @apply px-0;
 }
@@ -633,7 +635,7 @@ span.product-spec {
   max-width: 50px;
 }
 #breadcrumbs, .breadcrumbs {
-  @apply mt-8 text-sm md:text-base;
+  @apply mt-12 text-sm md:text-base;
   font-family: 'DM Sans', sans-serif;
 }
 .breadcrumbs a, .breadcrumbs a.crumb, #breadcrumbs a, #breadcrumbs a.crumb {
@@ -650,4 +652,34 @@ span.product-spec {
 
 .cart-buttons {
   @apply flex flex-col md:flex-row items-start gap-y-4 md:gap-y-0;
+}
+
+#searchSection {
+  @apply bg-white py-12 text-[#030D2B] text-center text-lg;
+  border: 0.5px solid #D3D3D3;
+  font-family: 'DM Sans', sans-serif;
+}
+.search-text, .search-container {
+  @apply mx-auto max-w-2xl px-12;
+}
+.search-text h3{
+  @apply text-xl font-semibold mb-2;
+}
+.search-container {
+  @apply flex flex-col sm:flex-row items-center justify-center gap-x-4 mt-6;
+}
+.search-container input, .search-container button {
+  @apply text-sm;
+  border-bottom: 0.5px solid #030d2b80;
+  border-radius: 100px;
+}
+.search-container input[type="search"] {
+  @apply w-full sm:w-9/12 py-1 px-2.5 shadow-none;
+}
+/* remove button appearance */
+.search-container button[type="submit"] {
+  @apply appearance-none shadow-none inline-flex flex-row gap-x-3 justify-center items-center w-full sm:w-3/12 py-1 px-2.5 hover:bg-[#030d2b80] hover:text-white transition-all ease-in-out duration-300 mt-2 sm:mt-0;
+}
+.horizontal-nav > :not([hidden]) ~ :not([hidden]) {
+  @apply ml-0 mr-0 sm:ml-2 sm:mr-2;
 }
