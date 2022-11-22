@@ -61,7 +61,7 @@ h1 {
   @apply relative;
 }
 .nav-item {
-  @apply relative hidden lg:inline-flex hover:text-[#3A3AEE] transition-colors duration-300 ease-in-out cursor-pointer;
+  @apply relative hidden lg:inline-flex justify-center place-items-center text-white hover:opacity-80 active:opacity-80 transition-opacity duration-300 ease-in-out cursor-pointer;
 }
 .nav-button {
   @apply inline-flex px-4 lg:hidden hover:cursor-pointer;
@@ -77,7 +77,7 @@ h1 {
 }
 
 .dropdown-item {
-  @apply block p-4 text-lg text-white hover:text-[#000] tracking-wide;
+  @apply block p-4 text-lg text-white hover:opacity-80 tracking-wide transition-opacity duration-300 ease-in-out cursor-pointer;
 }
 .button-wrapper {
   @apply flex flex-row gap-4 py-8;
@@ -213,6 +213,9 @@ footer.footer {
 .footer-cta {
   @apply flex flex-row items-center gap-x-6 border-none;
 }
+.footer-cta a {
+  @apply hover:opacity-80 transition-all duration-300 ease-in-out;
+}
 .lower-footer {
   @apply bg-[#0A1030] text-white text-center py-4;
 }
@@ -333,10 +336,13 @@ td.block {
   @apply pb-6;
 }
 .product-image {
-  @apply flex flex-col items-center justify-center w-full lg:w-1/2;
+  @apply flex flex-col items-center justify-center w-full lg:w-1/2
+}
+.product-image:hover img {
+  @apply opacity-70;
 }
 .product-image img {
-  @apply w-full;
+  @apply w-full transition-opacity ease-linear duration-300;
   max-width: 175px;
 }
 .product-description {
@@ -363,9 +369,6 @@ button.slick-prev[type="button"], button.slick-next[type="button"] {
 }
 #subpageNav {
   @apply bg-[#2828B2];
-}
-#subpageNav .nav-item {
-  @apply text-white;
 }
 .img-logo {
   max-width: 140px;
@@ -394,6 +397,9 @@ button.slick-prev[type="button"], button.slick-next[type="button"] {
   @apply p-4 mx-4;
   border: 0.5px solid rgba(3, 13, 43, 0.25);
   border-radius: 6px;
+}
+.thumbnail-item.slick-current {
+  @apply border-[#3A3AEE];
 }
 .slick-arrow {
   z-index: 50;
@@ -479,7 +485,7 @@ span.product-spec {
   @apply block container mx-auto px-12;
 }
 .category-list tr[valign="top"][height="85"] {
-  @apply grid grid-cols-1 lg:grid-cols-4 gap-y-8 gap-x-4 h-auto;
+  @apply grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-8 h-auto;
   max-width: 100%;
 }
 .category-list.responsive-carousel {
@@ -487,7 +493,7 @@ span.product-spec {
 }
 /* Product Cell */
 .product-cell {
-  @apply flex flex-col items-center justify-between bg-white rounded-lg p-8 mb-4 text-center;
+  @apply flex flex-col items-center justify-between bg-white rounded-lg p-8 mb-8 text-center;
   border: 0.5px solid #D3D3D3;
   border-radius: 16px;
 }
@@ -504,11 +510,11 @@ span.product-spec {
   border-radius: 16px;
 }
 .product-cell.related-cell .addtocart {
-  @apply mt-4 mr-0;
+  @apply block mt-4 mr-0;
 }
 /* AddToCart Button with darken hover effect */
 .product-cell .addtocart {
-  @apply bg-[#2828B2] text-white font-bold py-2 px-4 rounded-full transition-all hover:bg-[#3A3AEE] focus:outline-none uppercase;
+  @apply block mt-2 bg-[#2828B2] border-[#2828B2] text-white font-bold py-2 px-4 rounded-full transition-all hover:bg-[#3A3AEE] hover:border-[#3A3AEE] focus:outline-none uppercase;
   font-size: 1rem;
 }
 .price {
@@ -551,8 +557,14 @@ span.product-spec {
 .slick-initialized .slick-slide {
   @apply inline-block;
 }
+.productInfo {
+  @apply grid grid-cols-1 gap-x-12 px-12 lg:grid-cols-2;
+}
+.productInfo.full {
+  @apply grid grid-cols-1 gap-x-12 px-12 max-w-screen-2xl mx-auto w-full;
+}
 .productInfo.full .productDescription {
-  @apply pb-24 md:pb-0 w-full max-w-xl mx-auto;
+  @apply pb-24 w-full max-w-xl mx-auto;
 }
 .productInfo h3 {
   @apply text-xl mb-6;
@@ -564,16 +576,24 @@ span.product-spec {
 
 /* Specifications Table */
 #specsTable {
-  @apply grid grid-cols-1 lg:grid-cols-2;
+ column-count: 2;
 }
-.specRow {
-  @apply flex flex-row odd:bg-[#FAFAFA] even:bg-[#F2F2F2] py-3;
+.specRow, .tableRow {
+  @apply flex flex-row gap-x-12 odd:bg-[#FAFAFA] even:bg-[#F2F2F2] py-4 px-12;
+  font-family: 'Barlow Condensed', sans-serif;
 }
+/* hide each .tableRow if the data-value attribute is empty */
+.tableRow[data-value=""] {
+  @apply hidden;
+}
+
 .specHeader {
-  @apply font-bold text-lg;
+  @apply text-lg tracking-wide w-2/12;
+  font-weight: 500;
 }
 .specValue {
   @apply text-lg;
+  font-weight: 300;
 }
 
 /* Tabs */
@@ -604,7 +624,6 @@ span.product-spec {
 /* Related Products */
 #relatedProducts {
   @apply container mx-auto max-w-screen-2xl px-12 pt-12 pb-12 lg:flex-row lg:px-0;
-  border-top: 1px solid #D3D3D3;
 }
 .breadcrumbs, #breadcrumbs {
   @apply flex flex-row flex-wrap justify-items-start place-items-center gap-x-4;
