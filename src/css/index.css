@@ -73,7 +73,13 @@ h1 {
   @apply relative block px-3 py-2 text-[#292E43] hover:text-[#3A3AEE] text-xl uppercase tracking-wide;
 }
 .dropdown-menu {
-  @apply absolute right-0 top-full z-10 origin-top-right rounded-md bg-[#3A3AEE] py-0 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+  @apply block absolute right-0 top-full z-10 origin-top-right rounded-md bg-[#3A3AEE] py-0 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+}
+.dropdown-menu.hidden {
+  @apply hidden;
+}
+.desktopNav {
+  @apply hidden md:block justify-self-end;
 }
 
 .dropdown-item {
@@ -191,6 +197,9 @@ footer.footer {
 }
 .footer-container {
   @apply container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0;
+}
+.footer p, .footer h4, .footer a, .footer h3 {
+  @apply text-white;
 }
 .footer .secondary-btn {
   @apply border-[#fff] text-[#fff] hover:bg-[#fff] hover:text-[#2828B2];
@@ -477,7 +486,7 @@ span.product-spec {
   margin-top: -40px;
 }
 .cat-description {
-  @apply text-center py-12;
+  @apply text-center pt-4 pb-12;
 }
 .cat-description h1 {
   @apply text-[#030D2B] text-xl font-bold mb-2;
@@ -488,6 +497,9 @@ span.product-spec {
 .category-list tr[valign="top"][height="85"] {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-8 h-auto;
   max-width: 100%;
+}
+.category-list.searchPage {
+  @apply py-8;
 }
 
 .category-list.responsive-carousel {
@@ -516,8 +528,7 @@ span.product-spec {
 }
 /* AddToCart Button with darken hover effect */
 .product-cell .addtocart {
-  @apply block mt-2 bg-[#2828B2] border-[#2828B2] text-white font-bold py-2 px-4 rounded-full transition-all hover:bg-[#3A3AEE] hover:border-[#3A3AEE] focus:outline-none uppercase;
-  font-size: 1rem;
+  @apply block mt-2 text-sm lg:text-base bg-[#2828B2] border-[#2828B2] text-white font-bold py-2 px-4 rounded-full transition-all hover:bg-[#3A3AEE] hover:border-[#3A3AEE] focus:outline-none uppercase;
 }
 .price {
   @apply text-[#030D2B] text-3xl mb-0 mt-6 tracking-wide;
@@ -656,7 +667,7 @@ span.product-spec {
 
 #searchSection {
   @apply bg-white py-12 text-[#030D2B] text-center text-lg;
-  border: 0.5px solid #D3D3D3;
+  border-bottom: 0.5px solid #D3D3D3;
   font-family: 'DM Sans', sans-serif;
 }
 .search-text, .search-container {
@@ -670,7 +681,7 @@ span.product-spec {
 }
 .search-container input, .search-container button {
   @apply text-sm;
-  border-bottom: 0.5px solid #030d2b80;
+  border: 0.5px solid #030d2b80;
   border-radius: 100px;
 }
 .search-container input[type="search"] {
@@ -682,4 +693,66 @@ span.product-spec {
 }
 .horizontal-nav > :not([hidden]) ~ :not([hidden]) {
   @apply ml-0 mr-0 sm:ml-2 sm:mr-2;
+}
+.pagination {
+  @apply flex py-8 gap-x-12;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.pagination td.medtext[nowrap] {
+  @apply hidden;
+}
+.pagination td.medtextbold, .pagination td.medtext {
+  @apply inline-flex items-center justify-center bg-transparent text-lg border-2 rounded-full border-transparent;
+}
+/* .medtext that does not have the bglt class and is next to an a tag */
+.pagination td.medtext + a {
+  @apply text-[#030D2B] border-[#030D2B] hover:bg-[#030D2B] hover:text-white transition-all ease-in-out duration-300;
+}
+.pagination .arrow {
+  @apply text-lg border-[#030D2B] border-2 rounded-full w-8 h-8 flex items-center justify-center;
+  background-position: center;
+}
+.pagination .arrow:hover {
+  @apply bg-[#030D2B] text-white;
+}
+.pagination .arrow.left {
+  background-image: url('/site/img/LeftArrow.png');
+  background-repeat: no-repeat;
+  background-size: 11px 6px;
+}
+.pagination .arrow.right {
+  background-image: url('/site/img/RightArrow.png');
+  background-repeat: no-repeat;
+  background-size: 11px 6px;
+}
+.pagination .arrow.left:hover {
+  background-image: url('/site/img/LeftArrowHover.png');
+}
+.pagination .arrow.right:hover {
+  background-image: url('/site/img/RightArrowHover.png');
+  background-size: auto;
+}
+.shop-by-brand {
+  @apply bg-white py-12;
+}
+.shop-by-brand .text {
+  @apply max-w-2xl mx-auto text-[#030D2B] text-center text-lg;
+}
+.shop-by-brand .text h3 {
+  @apply text-xl font-semibold my-2;
+}
+.shop-by-brand .images {
+  @apply flex flex-wrap flex-row justify-center gap-x-6 gap-y-6 items-center mt-6;
+}
+.shop-by-brand img {
+  max-width: 125px;
+}
+.category-list.searchPage .resultsHeader {
+  @apply text-xl font-semibold mb-6;
+}
+.category-list.category-page .resultsHeader {
+  @apply text-xl font-semibold my-6;
+}
+.category-list.category-page  > td {
+  @apply w-full;
 }
