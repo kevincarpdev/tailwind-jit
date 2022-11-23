@@ -5,25 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Swimline</title>
-  <link rel="manifest" href="./site.webmanifest">
-  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/ico">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
     rel="stylesheet">
-  <link rel="shortcut icon" href="favicon.ico" type="image/ico">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/site/css/slick.css" rel="stylesheet">
   <link href="/site/css/new-styles.css" rel="stylesheet">
   <link href="/site/js/jquery.min.js" rel="preload" as="script">
   <link href="/site/js/jquery-ui.min.js" rel="preload" as="script">
-  
+  <GOOGLYTICS>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -33,112 +31,126 @@
         }
       </style>
       <!-- Navigation -->
-      <div class="nav-margin">
-        <nav id="subpageNav" class="nav-wrapper">
-          <div class="flex h-16 items-center justify-between w-full">
-            <div class="flex items-center w-full" style="justify-content: inherit;">
-              <div class="flex-shrink-0">
-                <a class="nav-logo" href="/">
-                  <img class="img-logo" src="http://dev.swimlineinc.com/site/white_logo.png" alt="Swimline Inc">
-                </a>
-              </div>
-              <div class="desktopNav">
-                <div class="ml-auto flex items-baseline space-x-4">
-                  <a href="/About" class="nav-item">About Us</a>
-                  <a href="/pool-equipment/" class="nav-item">Equipment</a>
-                  <a href="/contact.html" class="nav-item">Dealers</a>
-                  <a href="/About/Privacy.html" class="nav-item">Faqs</a>
-                  <a href="/About/Terms-Conditions.html" class="nav-item">Blogs</a>
-                  <a href="/About/Terms-Conditions.html" class="nav-item">Contact Us</a>
-                  <div id="shopProducts" class="nav-item dropdown-toggle">
-                    Shop Products
-                    <div id="dropdown1" class="dropdown-menu hidden" role="menu" aria-orientation="vertical"
-                      aria-labelledby="user-menu-button" tabindex="-1">
-                      <div class="nav-item-container">
-                        <div class="nav-dropdown-items">
-                          <a id="categoryItem" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-0">
-                            Categories
-                          </a>
-      
-                          <a href="#" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-1">
-                            Terms & Conditions
-                          </a>
-      
-                          <a href="#" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-2">
-                            Privacy Policy
-                          </a>
-                        </div>
-                        <div id="rightMenu" class="right-menu">
-                          <a href="https://shop.swimlinedistributorsinc.com/pool-equipment/pumps_swimming_pool/"
-                            class="right-nav-item">
-                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                            <span class="right-nav-item-text">Pumps</span>
-                          </a>
-                          <a href="https://shop.swimlinedistributorsinc.com/pool-equipment/Heaters/" class="right-nav-item">
-                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                            <span class="right-nav-item-text">Heaters</span>
-                          </a>
-                          <a href="https://shop.swimlinedistributorsinc.com/Brands/" class="right-nav-item">
-                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                            <span class="right-nav-item-text">Brands</span>
-                          </a>
-                          <a href="https://shop.swimlinedistributorsinc.com/pool-equipment/swimming_pool_filters/"
-                            class="right-nav-item">
-                            <img src="https://shop.swimlinedistributorsinc.com/2340-TritonII-banner-1280x1280.jpg"
-                              alt="nav-img">
-                            <span class="right-nav-item-text">Filters</span>
-                          </a>
-                          <a href="https://shop.swimlinedistributorsinc.com/pool-equipment/Lights/" class="right-nav-item">
-                            <img src="http://dev.swimlineinc.com/site/nav-img.jpeg" alt="nav-img">
-                            <span class="right-nav-item-text">Lights</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+<div class="nav-margin">
+  <nav id="subpageNav" class="nav-wrapper">
+    <div class="flex h-16 items-center justify-between w-full">
+      <div class="flex items-center w-full" style="justify-content: inherit;">
+        <div class="flex-shrink-0">
+          <a class="nav-logo" href="/">
+            <img class="img-logo" src="http://dev.swimlineinc.com/site/white_logo.png" alt="Swimline Inc">
+          </a>
+        </div>
+        <div class="desktopNav">
+          <div class="ml-auto flex items-baseline space-x-4">
+            <a href="/About" class="nav-item">About Us</a>
+            <a href="/pool-equipment/" class="nav-item">Equipment</a>
+            <a href="/contact.html" class="nav-item">Dealers</a>
+            <a href="/About/Privacy.html" class="nav-item">Faqs</a>
+            <a href="/About/Terms-Conditions.html" class="nav-item">Blogs</a>
+            <a href="/About/Terms-Conditions.html" class="nav-item">Contact Us</a>
+            <div id="shopProducts" class="nav-item dropdown-toggle">
+              Shop Products
+              <div id="dropdown1" class="dropdown-menu hidden" role="menu" aria-orientation="vertical"
+                aria-labelledby="user-menu-button" tabindex="-1">
+                <div class="nav-item-container">
+                  <div class="nav-dropdown-items">
+                    <a id="categoryItem" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                      Categories
+                    </a>
+
+                    <a href="/About/Terms-Conditions.html" class="dropdown-item" role="menuitem" tabindex="-1"
+                      id="user-menu-item-1">
+                      Terms & Conditions
+                    </a>
+
+                    <a href="/About/Privacy.html" class="dropdown-item" role="menuitem" tabindex="-1"
+                      id="user-menu-item-2">
+                      Privacy Policy
+                    </a>
                   </div>
-      
-                  <div id="myAccount" class="nav-item dropdown-toggle">
-                    My Account
-                    <div id="dropdown2" class="dropdown-menu hidden" role="menu" aria-orientation="vertical"
-                      aria-labelledby="user-menu-button" tabindex="-1">
-                      <a href="<NLCUSTOMERCENTERURL>" class="dropdown-item" role="menuitem" tabindex="-1"
-                        id="user-menu-item-2">
-                        My Account
-                      </a>
-                      <a href="<NLLOGOUTURL>" class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-0">
-                        Sign Out
-                      </a>
-                    </div>
+                  <div id="rightMenu" class="right-menu">
+                    <a href="https://shop.swimlinedistributorsinc.com/pool-equipment/pumps_swimming_pool/"
+                      class="right-nav-item">
+                      <img src="https://shop.swimlinedistributorsinc.com/2434-FNSPlus-banner-1280x1280.jpg"
+                        alt="nav-img">
+                      <span class="right-nav-item-text">Pumps</span>
+                    </a>
+                    <a href="https://shop.swimlinedistributorsinc.com/pool-equipment/Heaters/" class="right-nav-item">
+                      <img src="https://shop.swimlinedistributorsinc.com/460736-MasterTemp-400-side-1280x1280.jpg"
+                        alt="nav-img">
+                      <span class="right-nav-item-text">Heaters</span>
+                    </a>
+                    <a href="https://shop.swimlinedistributorsinc.com/Brands/" class="right-nav-item">
+                      <img src="https://shop.swimlinedistributorsinc.com/site/img/raypak.png" alt="nav-img">
+                      <span class="right-nav-item-text">Brands</span>
+                    </a>
+                    <a href="https://shop.swimlinedistributorsinc.com/pool-equipment/swimming_pool_filters/"
+                      class="right-nav-item">
+                      <img src="https://shop.swimlinedistributorsinc.com/2340-TritonII-banner-1280x1280.jpg"
+                        alt="nav-img">
+                      <span class="right-nav-item-text">Filters</span>
+                    </a>
+                    <a href="https://shop.swimlinedistributorsinc.com/pool-equipment/Lights/" class="right-nav-item">
+                      <img src="https://shop.swimlinedistributorsinc.com/3445-1-Watercolors-Light-Image.jpg"
+                        alt="nav-img">
+                      <span class="right-nav-item-text">Lights</span>
+                    </a>
                   </div>
-                  <a id="cartLink" href="<NLCARTURL>" class="nav-item">
-                    <i class="fa fa-shopping-cart mr-1 "></i>CART<span class="cart-total"
-                      data-totalitems="<NLCARTITEMCOUNT>"></span>
-                  </a>
                 </div>
               </div>
             </div>
-            <div class="-mr-2 flex lg:hidden">
-              <button class="outline-none mobile-menu-button">
-                <svg class="w-8 h-8 text-gray-500 hover:text-[#3A3AEE]" x-show="!showMenu" fill="none" stroke-linecap="round"
-                  stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-              </button>
+
+            <div id="myAccount" class="nav-item dropdown-toggle">
+              My Account
+              <div id="dropdown2" class="dropdown-menu hidden" role="menu" aria-orientation="vertical"
+                aria-labelledby="user-menu-button" tabindex="-1">
+                <a href="<NLCUSTOMERCENTERURL>" class="dropdown-item myaccount-link hidden" role="menuitem"
+                  tabindex="-1" id="user-menu-item-0">
+                  My Account
+                </a>
+                <a href="<NLLOGINURL>" class="dropdown-item sign-in" role="menuitem" tabindex="-1"
+                  id="user-menu-item-1">
+                  Sign In
+                </a>
+                <a href="<NLLOGOUTURL>" class="dropdown-item sign-out hidden" role="menuitem" tabindex="-1"
+                  id="user-menu-item-2">
+                  Sign Out
+                </a>
+              </div>
             </div>
+            <a id="cartLink" href="<NLCARTURL>" class="nav-item">
+              <i class="fa fa-shopping-cart mr-1 "></i>CART<span class="cart-total"
+                data-totalitems="<NLCARTITEMCOUNT>"></span>
+            </a>
           </div>
-          <!-- Mobile menu, show/hide based on menu state. -->
-          <div class="hidden" id="mobile-menu">
-            <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/About" class="mobile-nav-item">About Us</a>
-              <a href="/pool-equipment/" class="mobile-nav-item">Equipment</a>
-              <a href="/contact.html" class="mobile-nav-item">Dealers</a>
-              <a href="/About/Privacy.html" class="mobile-nav-item">Faqs</a>
-              <a href="<NLCUSTOMERCENTERURL>" class="mobile-nav-item">My Account</a>
-            </div>
-          </div>
-        </nav>
+        </div>
       </div>
+      <div class="-mr-2 flex lg:hidden">
+        <button class="outline-none mobile-menu-button">
+          <svg class="w-8 h-8 text-gray-500 hover:text-[#3A3AEE]" x-show="!showMenu" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="/About" class="mobile-nav-item">About Us</a>
+        <a href="/pool-equipment/" class="mobile-nav-item">Equipment</a>
+        <a href="/contact.html" class="mobile-nav-item">Dealers</a>
+        <a href="/About/Privacy.html" class="mobile-nav-item">Faqs</a>
+        <a href="<NLCUSTOMERCENTERURL>" class="mobile-nav-item">My Account</a>
+        <a class="mobile-nav-item" href="<NLCARTURL>">
+          <i class="fa fa-shopping-cart mr-1 "></i>CART<span class="cart-total"
+            data-totalitems="<NLCARTITEMCOUNT>"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
       
       <!-- Hero -->
       <div class="hero">
@@ -250,22 +262,25 @@
       <a href="#">Blogs</a>
     </li>
     <li>
-      <a href="#">Contact Us</a>
+      <a href="/contact.html">Contact Us</a>
     </li>
     <li>
-      <a href="#">Careers</a>
+      <a href="/About/Privacy.html">Careers</a>
     </li>
     <li>
       <a href="<NLCUSTOMERCENTERURL>">My Account</a>
     </li>
     <li>
-      <a href="#">Privacy Policy</a>
+      <a href="<NLCARTURL>">View Cart</a>
     </li>
     <li>
-      <a href="#">Return Policy</a>
+      <a href="/About/Privacy.html">Privacy Policy</a>
     </li>
     <li>
-      <a href="#">Terms & Conditions</a>
+      <a href="/About/Terms-Conditions.html">Return Policy</a>
+    </li>
+    <li>
+      <a href="/About/Terms-Conditions.html">Terms & Conditions</a>
     </li>
   </ul>
   <p>© 2022 Swimline Distributors Inc. All rights reserved.</p>

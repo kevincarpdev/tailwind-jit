@@ -44,7 +44,9 @@ h1 {
 .hero-content .primary-btn, .hero-content .secondary-btn {
   @apply px-12 py-3;
 }
-
+.button-wrapper .secondary-btn {
+  @apply text-white;
+}
 /* NAVIGATION */
 .nav-margin {
   @apply fixed z-50 p-4 w-full;

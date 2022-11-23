@@ -1056,7 +1056,10 @@ h1 {
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
 }
-
+.button-wrapper .secondary-btn {
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
 /* NAVIGATION */
 .nav-margin {
 	position: fixed;
