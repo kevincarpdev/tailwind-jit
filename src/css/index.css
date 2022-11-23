@@ -55,7 +55,7 @@ h1 {
   border-radius: 6px;
 }
 .nav-item, .nav-item-dropdown {
-  @apply relative uppercase py-4 px-4 tracking-wide text-lg;
+  @apply relative uppercase py-4 px-4 tracking-wide text-lg hover:text-[#ddd];
 }
 .nav-logo {
   @apply relative;
@@ -83,7 +83,7 @@ h1 {
 }
 
 .dropdown-item {
-  @apply block p-4 text-lg text-white hover:opacity-80 tracking-wide transition-opacity duration-300 ease-in-out cursor-pointer;
+  @apply block p-4 text-lg text-white hover:text-[#ddd] tracking-wide transition-opacity duration-300 ease-in-out cursor-pointer;
 }
 .button-wrapper {
   @apply flex flex-row gap-4 py-8;
@@ -98,12 +98,14 @@ h1 {
   @apply flex flex-col bg-[#2828B2] text-white py-0 px-0 gap-y-0 rounded-md;
   min-height: 500px;
   min-width: 200px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .right-nav-item {
-  @apply flex flex-row flex-wrap items-center hover:bg-[#1a1a72] pr-8 transition-colors duration-300 ease-in-out cursor-pointer normal-case py-2;
+  @apply flex flex-row flex-wrap items-center hover:bg-[#1a1a72] hover:text-white pr-8 transition-colors duration-300 ease-in-out cursor-pointer normal-case py-2;
 }
 .right-nav-item img {
-  @apply ml-4 mr-4 max-w-[25px];
+  @apply ml-4 mr-4 max-w-[40px];
 }
 
 /* Buttons */
@@ -494,7 +496,7 @@ span.product-spec {
   @apply bg-[#2828B2];
 }
 .container {
-  @apply container mx-auto max-w-2xl lg:flex-row bg-[#FAFAFA] p-0;
+  @apply container mx-auto max-w-2xl lg:flex-row p-0;
   margin-top: -40px;
 }
 .cat-description {
@@ -823,6 +825,9 @@ table#__enclosingtable {
 #main-container .menu-tree-node-item-anchor {
   @apply flex flex-row justify-between place-items-center items-center;
 }
-#content .cart-summary-zip-code {
+#main-container #content input.cart-summary-zip-code {
   @apply w-full;
+}
+#handle_itemMainPortlet .container:first-of-type{
+  @apply my-12;
 }
