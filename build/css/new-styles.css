@@ -1860,18 +1860,30 @@ footer.footer {
 }
 
 /* Modal */
-.modal {
-	position: fixed;
-	top: 6rem;
-	left: 0px;
-	display: flex;
-	height: 100%;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
+/* .modal {
+  @apply fixed top-24 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50;
+} */
+.modal.in .modal-dialog {
 	--tw-bg-opacity: 1;
-	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-	--tw-bg-opacity: 0.5;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
+.global-views-modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+	gap: 1rem;
+	padding: 2rem;
+}
+.global-views-confirmation-footer {
+	display: flex;
+	flex-direction: row;
+	place-items: center;
+	align-items: center;
+	justify-items: center;
+	gap: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 }
 .modal-open {
 	overflow: hidden;
@@ -1957,6 +1969,13 @@ footer.footer {
 	.modal-inner {
 		vertical-align: middle;
 	}
+}
+.global-views-modal-content-header-close {
+	position: absolute;
+	top: 0px;
+	right: 0.25rem;
+	font-size: 1.125rem;
+	line-height: 1.75rem;
 }
 
 /* Modal Headline */
@@ -3347,6 +3366,222 @@ span.product-spec {
 	font-weight: 600;
 }
 .category-list.category-page  > td {
+	width: 100%;
+}
+table#__enclosingtable {
+	margin-top: 8rem;
+}
+/* My Account */
+.myaccount-layout-container {
+	padding-top: 3rem;
+}
+#main-container .menu-tree-node-item-anchor, .myaccount-layout h5, .myaccount-layout h4, .myaccount-layout h3 {
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.myaccount-layout-container p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0em;
+  font-size: 16px;
+}
+#main-container .button-medium, #main-container .list-header-button, #main-container .case-list-action-button, #main-container .case-list-header-button-new, #main-container .address-details-select-address, #main-container .address-edit-form-button-submit, #main-container .creditcard-edit-form-button-submit, #main-container .address-edit-form-button-cancel, #main-container .creditcard-edit-form-button-cancel, #main-container .address-edit-form-button-reset, #main-container .creditcard-edit-form-button-reset, #main-container .case-detail-reply-button, #main-container .case-new-button-submit, #main-container .cart-promocode-form-summary-button-apply-promocode, #main-container .cart-quickaddtocart-button, #main-container .cart-summary-button-estimate, #main-container .creditcard-use-this-card-button, #main-container .error-management-generic-logout-close-button, #main-container .error-management-logged-out-close-button, #main-container .global-views-confirmation-confirm-button, #main-container .global-views-confirmation-cancel-button, #main-container .order-history-cancel-modal-cancel-button, #main-container .order-history-cancel-modal-close-button, #main-container .order-history-details-button-reorder, #main-container .order-history-details-button-download-pdf, #main-container .order-history-details-button-request-return, #main-container .order-history-details-button-view-invoice, #main-container .order-history-list-header-button-active, #main-container .order-history-list-header-button-open-active, #main-container .order-history-list-header-button-all-active, #main-container .order-history-list-header-button, #main-container .order-history-list-header-button-open, #main-container .order-history-list-header-button-all, #main-container .order-history-summary-button-reorder, #main-container .order-history-summary-button-download-pdf, #main-container .order-history-summary-button-request-return, #main-container .order-history-summary-button-view-invoice, #main-container .order-history-summary-button-cancel-order, #main-container .profile-change-email-form-actions-change, #main-container .profile-emailpreferences-submit, #main-container .profile-emailpreferences-reset, #main-container .profile-information-button-update, #main-container .profile-information-button-cancel, #main-container .profile-update-password-form-actions-update, #main-container .profile-update-password-form-actions-reset, #main-container .quote-details-button-review-and-order, #main-container .quote-details-button-download-pdf, #main-container .receipt-details-button-reorder, #main-container .receipt-details-button-download-pdf, #main-container .reorder-items-actions-add-to-cart, #main-container .return-authorization-cancel-modal-cancel-button, #main-container .return-authorization-cancel-modal-close-button, #main-container .return-authorization-detail-summary-pdf-download-button, #main-container .return-authorization-detail-summary-cancel-request-button, #main-container .return-authorization-form-submit-button {
+	margin-top: 0.5rem;
+	display: block;
+	border-radius: 9999px;
+	--tw-border-opacity: 1;
+	border-color: rgba(40, 40, 178, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(40, 40, 178, var(--tw-bg-opacity));
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+#main-container .button-medium:hover, #main-container .list-header-button:hover, #main-container .case-list-action-button:hover, #main-container .case-list-header-button-new:hover, #main-container .address-details-select-address:hover, #main-container .address-edit-form-button-submit:hover, #main-container .creditcard-edit-form-button-submit:hover, #main-container .address-edit-form-button-cancel:hover, #main-container .creditcard-edit-form-button-cancel:hover, #main-container .address-edit-form-button-reset:hover, #main-container .creditcard-edit-form-button-reset:hover, #main-container .case-detail-reply-button:hover, #main-container .case-new-button-submit:hover, #main-container .cart-promocode-form-summary-button-apply-promocode:hover, #main-container .cart-quickaddtocart-button:hover, #main-container .cart-summary-button-estimate:hover, #main-container .creditcard-use-this-card-button:hover, #main-container .error-management-generic-logout-close-button:hover, #main-container .error-management-logged-out-close-button:hover, #main-container .global-views-confirmation-confirm-button:hover, #main-container .global-views-confirmation-cancel-button:hover, #main-container .order-history-cancel-modal-cancel-button:hover, #main-container .order-history-cancel-modal-close-button:hover, #main-container .order-history-details-button-reorder:hover, #main-container .order-history-details-button-download-pdf:hover, #main-container .order-history-details-button-request-return:hover, #main-container .order-history-details-button-view-invoice:hover, #main-container .order-history-list-header-button-active:hover, #main-container .order-history-list-header-button-open-active:hover, #main-container .order-history-list-header-button-all-active:hover, #main-container .order-history-list-header-button:hover, #main-container .order-history-list-header-button-open:hover, #main-container .order-history-list-header-button-all:hover, #main-container .order-history-summary-button-reorder:hover, #main-container .order-history-summary-button-download-pdf:hover, #main-container .order-history-summary-button-request-return:hover, #main-container .order-history-summary-button-view-invoice:hover, #main-container .order-history-summary-button-cancel-order:hover, #main-container .profile-change-email-form-actions-change:hover, #main-container .profile-emailpreferences-submit:hover, #main-container .profile-emailpreferences-reset:hover, #main-container .profile-information-button-update:hover, #main-container .profile-information-button-cancel:hover, #main-container .profile-update-password-form-actions-update:hover, #main-container .profile-update-password-form-actions-reset:hover, #main-container .quote-details-button-review-and-order:hover, #main-container .quote-details-button-download-pdf:hover, #main-container .receipt-details-button-reorder:hover, #main-container .receipt-details-button-download-pdf:hover, #main-container .reorder-items-actions-add-to-cart:hover, #main-container .return-authorization-cancel-modal-cancel-button:hover, #main-container .return-authorization-cancel-modal-close-button:hover, #main-container .return-authorization-detail-summary-pdf-download-button:hover, #main-container .return-authorization-detail-summary-cancel-request-button:hover, #main-container .return-authorization-form-submit-button:hover {
+	--tw-border-opacity: 1;
+	border-color: rgba(58, 58, 238, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(58, 58, 238, var(--tw-bg-opacity));
+}
+#main-container .button-medium:focus, #main-container .list-header-button:focus, #main-container .case-list-action-button:focus, #main-container .case-list-header-button-new:focus, #main-container .address-details-select-address:focus, #main-container .address-edit-form-button-submit:focus, #main-container .creditcard-edit-form-button-submit:focus, #main-container .address-edit-form-button-cancel:focus, #main-container .creditcard-edit-form-button-cancel:focus, #main-container .address-edit-form-button-reset:focus, #main-container .creditcard-edit-form-button-reset:focus, #main-container .case-detail-reply-button:focus, #main-container .case-new-button-submit:focus, #main-container .cart-promocode-form-summary-button-apply-promocode:focus, #main-container .cart-quickaddtocart-button:focus, #main-container .cart-summary-button-estimate:focus, #main-container .creditcard-use-this-card-button:focus, #main-container .error-management-generic-logout-close-button:focus, #main-container .error-management-logged-out-close-button:focus, #main-container .global-views-confirmation-confirm-button:focus, #main-container .global-views-confirmation-cancel-button:focus, #main-container .order-history-cancel-modal-cancel-button:focus, #main-container .order-history-cancel-modal-close-button:focus, #main-container .order-history-details-button-reorder:focus, #main-container .order-history-details-button-download-pdf:focus, #main-container .order-history-details-button-request-return:focus, #main-container .order-history-details-button-view-invoice:focus, #main-container .order-history-list-header-button-active:focus, #main-container .order-history-list-header-button-open-active:focus, #main-container .order-history-list-header-button-all-active:focus, #main-container .order-history-list-header-button:focus, #main-container .order-history-list-header-button-open:focus, #main-container .order-history-list-header-button-all:focus, #main-container .order-history-summary-button-reorder:focus, #main-container .order-history-summary-button-download-pdf:focus, #main-container .order-history-summary-button-request-return:focus, #main-container .order-history-summary-button-view-invoice:focus, #main-container .order-history-summary-button-cancel-order:focus, #main-container .profile-change-email-form-actions-change:focus, #main-container .profile-emailpreferences-submit:focus, #main-container .profile-emailpreferences-reset:focus, #main-container .profile-information-button-update:focus, #main-container .profile-information-button-cancel:focus, #main-container .profile-update-password-form-actions-update:focus, #main-container .profile-update-password-form-actions-reset:focus, #main-container .quote-details-button-review-and-order:focus, #main-container .quote-details-button-download-pdf:focus, #main-container .receipt-details-button-reorder:focus, #main-container .receipt-details-button-download-pdf:focus, #main-container .reorder-items-actions-add-to-cart:focus, #main-container .return-authorization-cancel-modal-cancel-button:focus, #main-container .return-authorization-cancel-modal-close-button:focus, #main-container .return-authorization-detail-summary-pdf-download-button:focus, #main-container .return-authorization-detail-summary-cancel-request-button:focus, #main-container .return-authorization-form-submit-button:focus {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+@media (min-width: 1024px) {
+
+	#main-container .button-medium, #main-container .list-header-button, #main-container .case-list-action-button, #main-container .case-list-header-button-new, #main-container .address-details-select-address, #main-container .address-edit-form-button-submit, #main-container .creditcard-edit-form-button-submit, #main-container .address-edit-form-button-cancel, #main-container .creditcard-edit-form-button-cancel, #main-container .address-edit-form-button-reset, #main-container .creditcard-edit-form-button-reset, #main-container .case-detail-reply-button, #main-container .case-new-button-submit, #main-container .cart-promocode-form-summary-button-apply-promocode, #main-container .cart-quickaddtocart-button, #main-container .cart-summary-button-estimate, #main-container .creditcard-use-this-card-button, #main-container .error-management-generic-logout-close-button, #main-container .error-management-logged-out-close-button, #main-container .global-views-confirmation-confirm-button, #main-container .global-views-confirmation-cancel-button, #main-container .order-history-cancel-modal-cancel-button, #main-container .order-history-cancel-modal-close-button, #main-container .order-history-details-button-reorder, #main-container .order-history-details-button-download-pdf, #main-container .order-history-details-button-request-return, #main-container .order-history-details-button-view-invoice, #main-container .order-history-list-header-button-active, #main-container .order-history-list-header-button-open-active, #main-container .order-history-list-header-button-all-active, #main-container .order-history-list-header-button, #main-container .order-history-list-header-button-open, #main-container .order-history-list-header-button-all, #main-container .order-history-summary-button-reorder, #main-container .order-history-summary-button-download-pdf, #main-container .order-history-summary-button-request-return, #main-container .order-history-summary-button-view-invoice, #main-container .order-history-summary-button-cancel-order, #main-container .profile-change-email-form-actions-change, #main-container .profile-emailpreferences-submit, #main-container .profile-emailpreferences-reset, #main-container .profile-information-button-update, #main-container .profile-information-button-cancel, #main-container .profile-update-password-form-actions-update, #main-container .profile-update-password-form-actions-reset, #main-container .quote-details-button-review-and-order, #main-container .quote-details-button-download-pdf, #main-container .receipt-details-button-reorder, #main-container .receipt-details-button-download-pdf, #main-container .reorder-items-actions-add-to-cart, #main-container .return-authorization-cancel-modal-cancel-button, #main-container .return-authorization-cancel-modal-close-button, #main-container .return-authorization-detail-summary-pdf-download-button, #main-container .return-authorization-detail-summary-cancel-request-button, #main-container .return-authorization-form-submit-button {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+}
+#content #btn-proceed-checkout {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	display: block;
+	border-radius: 9999px;
+	--tw-border-opacity: 1;
+	border-color: rgba(40, 40, 178, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(40, 40, 178, var(--tw-bg-opacity));
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+#content #btn-proceed-checkout:hover {
+	--tw-border-opacity: 1;
+	border-color: rgba(58, 58, 238, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(58, 58, 238, var(--tw-bg-opacity));
+}
+#content #btn-proceed-checkout:focus {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+@media (min-width: 1024px) {
+
+	#content #btn-proceed-checkout {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+}
+.button-primary, .item-cell-quick-view-link, .button-proceed-to-checkout, #main-container .address-details-select-address, #main-container .address-edit-form-button-submit, #main-container .creditcard-edit-form-button-submit, #main-container .reorder-items-actions-add-to-cart, #main-container .cart-add-to-cart-button-button, #main-container .cart-confirmation-modal-view-cart-button, #main-container .cart-quickaddtocart-button, #main-container .button-proceed-checkout, #main-container .cart-summary-button-proceed-checkout, #main-container .cart-proceed-to-checkout, #main-container .cart-detailed-proceed-to-checkout, #main-container .button-saveforlater-addtocart, #main-container .creditcard-use-this-card-button, #main-container .error-management-expired-link-login-button, #main-container .error-management-expired-link-register-button, #main-container .error-management-generic-logout-close-button, #main-container .error-management-logged-out-close-button, #main-container .global-views-confirmation-confirm-button, #main-container .login-register-forgot-password-submit, #main-container .login-register-login-submit, #main-container .login-register-register-form-submit, #main-container .login-register-reset-password-submit, #main-container .order-wizard-address-module-save-button, #main-container .order-wizard-msr-addresses-module-save-button, #main-container .order-wizard-register-guest-module-create-account-button, #main-container .order-wizard-cart-summary-button-place-order, #main-container .order-wizard-msr-package-creation-button-create, #main-container .order-wizard-submitbutton-module-button, #main-container .wizard-step-button-continue, #main-container .order-wizard-step-button-continue {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	display: block;
+	border-radius: 9999px;
+	--tw-border-opacity: 1;
+	border-color: rgba(40, 40, 178, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(40, 40, 178, var(--tw-bg-opacity));
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+.button-primary:hover, .item-cell-quick-view-link:hover, .button-proceed-to-checkout:hover, #main-container .address-details-select-address:hover, #main-container .address-edit-form-button-submit:hover, #main-container .creditcard-edit-form-button-submit:hover, #main-container .reorder-items-actions-add-to-cart:hover, #main-container .cart-add-to-cart-button-button:hover, #main-container .cart-confirmation-modal-view-cart-button:hover, #main-container .cart-quickaddtocart-button:hover, #main-container .button-proceed-checkout:hover, #main-container .cart-summary-button-proceed-checkout:hover, #main-container .cart-proceed-to-checkout:hover, #main-container .cart-detailed-proceed-to-checkout:hover, #main-container .button-saveforlater-addtocart:hover, #main-container .creditcard-use-this-card-button:hover, #main-container .error-management-expired-link-login-button:hover, #main-container .error-management-expired-link-register-button:hover, #main-container .error-management-generic-logout-close-button:hover, #main-container .error-management-logged-out-close-button:hover, #main-container .global-views-confirmation-confirm-button:hover, #main-container .login-register-forgot-password-submit:hover, #main-container .login-register-login-submit:hover, #main-container .login-register-register-form-submit:hover, #main-container .login-register-reset-password-submit:hover, #main-container .order-wizard-address-module-save-button:hover, #main-container .order-wizard-msr-addresses-module-save-button:hover, #main-container .order-wizard-register-guest-module-create-account-button:hover, #main-container .order-wizard-cart-summary-button-place-order:hover, #main-container .order-wizard-msr-package-creation-button-create:hover, #main-container .order-wizard-submitbutton-module-button:hover, #main-container .wizard-step-button-continue:hover, #main-container .order-wizard-step-button-continue:hover {
+	--tw-border-opacity: 1;
+	border-color: rgba(58, 58, 238, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(58, 58, 238, var(--tw-bg-opacity));
+}
+.button-primary:focus, .item-cell-quick-view-link:focus, .button-proceed-to-checkout:focus, #main-container .address-details-select-address:focus, #main-container .address-edit-form-button-submit:focus, #main-container .creditcard-edit-form-button-submit:focus, #main-container .reorder-items-actions-add-to-cart:focus, #main-container .cart-add-to-cart-button-button:focus, #main-container .cart-confirmation-modal-view-cart-button:focus, #main-container .cart-quickaddtocart-button:focus, #main-container .button-proceed-checkout:focus, #main-container .cart-summary-button-proceed-checkout:focus, #main-container .cart-proceed-to-checkout:focus, #main-container .cart-detailed-proceed-to-checkout:focus, #main-container .button-saveforlater-addtocart:focus, #main-container .creditcard-use-this-card-button:focus, #main-container .error-management-expired-link-login-button:focus, #main-container .error-management-expired-link-register-button:focus, #main-container .error-management-generic-logout-close-button:focus, #main-container .error-management-logged-out-close-button:focus, #main-container .global-views-confirmation-confirm-button:focus, #main-container .login-register-forgot-password-submit:focus, #main-container .login-register-login-submit:focus, #main-container .login-register-register-form-submit:focus, #main-container .login-register-reset-password-submit:focus, #main-container .order-wizard-address-module-save-button:focus, #main-container .order-wizard-msr-addresses-module-save-button:focus, #main-container .order-wizard-register-guest-module-create-account-button:focus, #main-container .order-wizard-cart-summary-button-place-order:focus, #main-container .order-wizard-msr-package-creation-button-create:focus, #main-container .order-wizard-submitbutton-module-button:focus, #main-container .wizard-step-button-continue:focus, #main-container .order-wizard-step-button-continue:focus {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+@media (min-width: 1024px) {
+
+	.button-primary, .item-cell-quick-view-link, .button-proceed-to-checkout, #main-container .address-details-select-address, #main-container .address-edit-form-button-submit, #main-container .creditcard-edit-form-button-submit, #main-container .reorder-items-actions-add-to-cart, #main-container .cart-add-to-cart-button-button, #main-container .cart-confirmation-modal-view-cart-button, #main-container .cart-quickaddtocart-button, #main-container .button-proceed-checkout, #main-container .cart-summary-button-proceed-checkout, #main-container .cart-proceed-to-checkout, #main-container .cart-detailed-proceed-to-checkout, #main-container .button-saveforlater-addtocart, #main-container .creditcard-use-this-card-button, #main-container .error-management-expired-link-login-button, #main-container .error-management-expired-link-register-button, #main-container .error-management-generic-logout-close-button, #main-container .error-management-logged-out-close-button, #main-container .global-views-confirmation-confirm-button, #main-container .login-register-forgot-password-submit, #main-container .login-register-login-submit, #main-container .login-register-register-form-submit, #main-container .login-register-reset-password-submit, #main-container .order-wizard-address-module-save-button, #main-container .order-wizard-msr-addresses-module-save-button, #main-container .order-wizard-register-guest-module-create-account-button, #main-container .order-wizard-cart-summary-button-place-order, #main-container .order-wizard-msr-package-creation-button-create, #main-container .order-wizard-submitbutton-module-button, #main-container .wizard-step-button-continue, #main-container .order-wizard-step-button-continue {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+}
+#content.checkout-layout-content {
+	padding-top: 3rem;
+}
+#wizard-content .order-wizard-step-button-back, #content .profile-emailpreferences-reset {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	display: block;
+	border-radius: 9999px;
+	--tw-border-opacity: 1;
+	border-color: rgba(109, 109, 109, var(--tw-border-opacity));
+	background-color: transparent;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	letter-spacing: 0.025em;
+	--tw-text-opacity: 1;
+	color: rgba(109, 109, 109, var(--tw-text-opacity));
+}
+#wizard-content .order-wizard-step-button-back:hover, #content .profile-emailpreferences-reset:hover {
+	--tw-border-opacity: 1;
+	border-color: rgba(109, 109, 109, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(109, 109, 109, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#wizard-content .order-wizard-step-button-back, #content .profile-emailpreferences-reset {
+  border-width: 1px;
+}
+#content .profile-emailpreferences-reset {
+	margin-top: 0.75rem;
+	padding-top: 0.375rem;
+	padding-bottom: 0.375rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+.message-info, .stock-info-description, #main-container .product-line-stock-description-msg-description, #main-container .product-line-stock-msg-description, #main-container .address-details-invalid-remove-msg, #main-container .cart-summary-msg-description {
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+#wizard-content .cart-promocode-form-summary-button-apply-promocode, #content .cart-promocode-form-summary-button-apply-promocode {
+	margin-top: 0px;
+}
+.medium-title-navigable, #main-container .cart-confirmation-modal-item-name, #main-container .cart-lines-name-link, #main-container .transaction-line-views-cell-actionable-expanded-name-link, #main-container .transaction-line-views-cell-actionable-name-link, #main-container .transaction-line-views-cell-navigable-actionable-product-title-anchor, #main-container .transaction-line-views-cell-navigable-product-title-anchor, #main-container .transaction-line-views-cell-selectable-actionable-name-link {
+	margin-bottom: 0px;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	line-height: 1.25rem;
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+.medium-title-navigable:hover, #main-container .cart-confirmation-modal-item-name:hover, #main-container .cart-lines-name-link:hover, #main-container .transaction-line-views-cell-actionable-expanded-name-link:hover, #main-container .transaction-line-views-cell-actionable-name-link:hover, #main-container .transaction-line-views-cell-navigable-actionable-product-title-anchor:hover, #main-container .transaction-line-views-cell-navigable-product-title-anchor:hover, #main-container .transaction-line-views-cell-selectable-actionable-name-link:hover {
+	--tw-text-opacity: 1;
+	color: rgba(40, 40, 178, var(--tw-text-opacity));
+}
+.medium-title-navigable, #main-container .cart-confirmation-modal-item-name, #main-container .cart-lines-name-link, #main-container .transaction-line-views-cell-actionable-expanded-name-link, #main-container .transaction-line-views-cell-actionable-name-link, #main-container .transaction-line-views-cell-navigable-actionable-product-title-anchor, #main-container .transaction-line-views-cell-navigable-product-title-anchor, #main-container .transaction-line-views-cell-selectable-actionable-name-link {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+.middle-price, #main-container .recordviews-currency, #main-container .cart-confirmation-modal-price, #main-container .cart-detailed-title-details-count, #main-container .cart-lines-price .transaction-line-views-price-lead, #main-container .transaction-line-views-cell-actionable-expanded-price .transaction-line-views-price-lead, #main-container .transaction-line-views-cell-actionable-price .transaction-line-views-price-lead, #main-container .transaction-line-views-cell-navigable-actionable-item-amount-value, #main-container .transaction-line-views-cell-navigable-item-amount-value, #main-container .transaction-line-views-cell-selectable-actionable-price .item-view-lead-price, #main-container .transaction-line-views-price-lead, #main-container .product-views-price-lead {
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+#main-container .cart-title-details-count, #main-container .cart-detailed-title-details-count {
+  color: #3DA5CC;
+}
+#main-container .menu-tree-node-item-anchor {
+	display: flex;
+	flex-direction: row;
+	place-items: center;
+	align-items: center;
+	justify-content: space-between;
+}
+#content .cart-summary-zip-code {
 	width: 100%;
 }
 .hover\:bg-gray-700:hover {
