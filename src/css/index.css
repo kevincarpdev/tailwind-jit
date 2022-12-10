@@ -16,11 +16,11 @@ body, p {
 body {
   padding-top: 0 !important;
 }
-h1, h2, h3, h4, h5, h6 {
+body h1, body h2, body h3, body h4, body h5, body h6 {
   @apply font-normal tracking-wide;
   font-family: 'DM Sans', sans-serif;
 }
-h1 {
+body h1 {
   @apply text-6xl;
 }
 
@@ -109,7 +109,6 @@ h1 {
 .right-nav-item img {
   @apply ml-4 mr-4 max-w-[40px];
 }
-
 /* Buttons */
 .btn {
   @apply px-6 md:px-8 py-2.5 bg-transparent border-2 uppercase tracking-wide transition-colors duration-300 ease-in-out cursor-pointer;
@@ -211,6 +210,19 @@ footer.footer {
 .footer-header {
   @apply tracking-wide uppercase;
 }
+.lower-footer-container, .copyright-container {
+  @apply container flex flex-col justify-between mx-auto space-y-8 lg:flex-row lg:space-y-0;
+}
+.lower-footer-container {
+  @apply mb-4 py-8;
+  border-bottom: 1px solid #2D3047;
+}
+.right-nav ul {
+  @apply flex flex-col sm:flex-row gap-x-12;
+}
+.right-nav ul > li > a {
+  @apply uppercase text-lg tracking-wider transition-opacity ease-linear hover:opacity-80;
+}
 .address-container {
   @apply grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-3;
 }
@@ -236,8 +248,7 @@ footer.footer {
   @apply text-sm opacity-80;
 }
 .horizontal-nav {
-  @apply flex flex-col lg:flex-row justify-center space-x-8 mb-4 py-8;
-  border-bottom: 1px solid #2D3047;
+  @apply flex flex-col lg:flex-row justify-start gap-x-12;
 }
 .horizontal-nav > li > a {
   @apply uppercase text-lg tracking-wider transition-opacity ease-linear hover:opacity-80;
@@ -260,7 +271,7 @@ footer.footer {
   border-top: 1px solid #3D36B1;
 }
 .footer-cta-container {
-  @apply flex flex-col sm:flex-row  gap-6 items-center text-center sm:text-left;
+  @apply flex flex-col sm:flex-row gap-6 items-center text-center sm:text-left;
 }
 .footer-cta-container h4 {
   @apply text-lg font-thin;
@@ -269,7 +280,12 @@ footer.footer {
   @apply py-1;
   border-width: 1px;
 }
-
+.pages-container {
+  @apply flex flex-col lg:flex-row gap-x-8;
+}
+.pages-container > li > a {
+  @apply opacity-80 hover:opacity-60 transition-opacity ease-linear;
+}
 /* Modal */
 /* .modal {
   @apply fixed top-24 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50;
