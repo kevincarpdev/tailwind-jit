@@ -218,7 +218,7 @@ footer.footer {
   border-bottom: 1px solid #2D3047;
 }
 .right-nav ul {
-  @apply flex flex-col sm:flex-row gap-x-12;
+  @apply flex flex-col lg:flex-row gap-x-12;
 }
 .right-nav ul > li > a {
   @apply uppercase text-lg tracking-wider transition-opacity ease-linear hover:opacity-80;
